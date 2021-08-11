@@ -1,6 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Header from "./Components/Header";
+import Buttons from "./Components/Button";
 import Routes from "./Routes";
 
 import GlobalStyle from "./Styles/global";
@@ -20,6 +21,10 @@ const App = () => {
         draggable
         pauseOnHover
       />
+      <Header>
+        <Buttons>Login</Buttons>
+        <Buttons>Cadastro</Buttons>
+      </Header>
       <Routes />
     </>
   );
