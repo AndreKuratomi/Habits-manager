@@ -1,9 +1,9 @@
-import { Button } from "./styles";
+import { Button1 } from "./styles";
 
 const Buttons = () => {
   return (
     <>
-      <Button></Button>
+      <Button1></Button1>
     </>
   );
 };
