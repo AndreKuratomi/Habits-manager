@@ -1,11 +1,7 @@
 import { Button1 } from "./styles";
 
-const Buttons = () => {
-  return (
-    <>
-      <Button1></Button1>
-    </>
-  );
+const Button = ({ children, ...rest }) => {
+  return <Button1 {...rest}>{children}</Button1>;
 };
 
-export default Buttons;
+export default Button;
