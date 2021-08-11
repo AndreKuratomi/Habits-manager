@@ -5,5 +5,6 @@ export const Button1 = styled.button`
   border: 2px solid var(--light-green);
   border-radius: 1rem;
   color: var(--white);
-  padding: 0.5rem 2rem;
+  height: 30px;
+  width: 100px;
 `;
