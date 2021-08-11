@@ -8,6 +8,7 @@ import GlobalStyle from "./Styles/global";
 const App = () => {
   return (
     <>
+      <GlobalStyle />
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -19,7 +20,6 @@ const App = () => {
         draggable
         pauseOnHover
       />
-      <GlobalStyle />
       <Routes />
     </>
   );
