@@ -16,7 +16,6 @@ export const HeaderContainer = styled.header`
     justify-content: space-evenly;
     button {
       width: 70px;
-      height: 40px;
     }
   }
 `;
