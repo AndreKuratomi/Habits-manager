@@ -1,4 +1,5 @@
-import { Container, CardGroupSub } from "./styles";
+import { Container } from "./styles";
+import CardGroupSub from "../CardGroupSub";
 
 const groups = [
   {
@@ -237,13 +238,7 @@ const GroupsSubs = () => {
   return (
     <Container>
       {
-        groups.map(
-          group =>
-            <CardGroupSub>
-              <h3>{group.name}</h3>
-              <p>{group.description}</p>
-            </CardGroupSub>
-        )
+        groups.map(group => <CardGroupSub group={group} />)
       }
     </Container>
   );
