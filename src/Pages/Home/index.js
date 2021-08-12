@@ -1,4 +1,5 @@
 import Card from "../../Components/Card";
+import GroupsSubs from "../../Components/GroupsSubs";
 
 const Home = () => {
     return (
@@ -29,6 +30,7 @@ const Home = () => {
                 title="Activity"
                 time="13:00"
             />
+            <GroupsSubs />
         </>
     )
 }
