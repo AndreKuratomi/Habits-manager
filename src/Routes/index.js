@@ -5,6 +5,7 @@ import SignUp from "../Pages/SignUp";
 import Dashboard from "../Pages/Dashboard";
 import Profile from "../Pages/Profile";
 import Groups from "../Pages/Groups";
+import NotFound from "../Components/404";
 
 const Routes = () => {
   return (
@@ -26,6 +27,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/groups">
         <Groups/>
+      </Route>
+      <Route>
+        <NotFound/>
       </Route>
     </Switch>
   );
