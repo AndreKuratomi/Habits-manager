@@ -1,7 +1,10 @@
 import { List } from "./styles";
-
+import CardHabits from "../CardHabits";
 const ListHabits = () => {
-  return <List>ComponenteCard</List>;
+  return <List>
+    <CardHabits achieved={true}/>
+    <CardHabits achieved={false}/>
+  </List>;
 };
 
 export default ListHabits;
