@@ -14,6 +14,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body {
+    background: var(--light-green);
+  }
+
   button{
     cursor: pointer;
   }
