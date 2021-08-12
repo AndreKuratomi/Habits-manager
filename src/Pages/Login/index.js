@@ -1,7 +1,14 @@
+import FormLogin from "../../Components/FormLogin";
+import { PageLoginContainer } from "./styles";
+import LoginImg from "../../Assets/loginImg.svg";
+
 const Login = () => {
-    return (
-        <h1>Login</h1>
-    )
-}
+  return (
+    <PageLoginContainer>
+      <FormLogin />
+      <img src={LoginImg} alt="LoginImage" />
+    </PageLoginContainer>
+  );
+};
 
 export default Login;
