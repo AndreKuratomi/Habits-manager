@@ -38,15 +38,3 @@ const Card = ( { dark, title, category, achieved, difficulty, frequency, howMuch
 }
 
 export default Card;
-
-/*
-
-    title ///
-    difficult //
-    how much achivied //
-    category /
-    frequency /
-    achieved /
-    realization time /
-
-*/
