@@ -1,3 +1,4 @@
+import ListHabits from "../../Components/ListHabits";
 import UserCard from "../../Components/UserCard";
 
 const Dashboard = () => {
@@ -5,6 +6,7 @@ const Dashboard = () => {
     <>
       <h1>Dashboard</h1>
       <UserCard />
+      <ListHabits/>
     </>
   );
 };
