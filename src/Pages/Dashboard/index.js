@@ -1,5 +1,6 @@
 // import DashboardMenu from "../../Components/DashboardMenu";
-// import Card from "../../Components/Card";
+import Header from "../../Components/Header";
+import UserCard from "../../Components/UserCard";
 import ListHabits from "../../Components/ListHabits";
 // import ListGoals from "../../Components/ListGoals";
 // import ListActivities from "../../Components/ListActivities";
@@ -11,13 +12,13 @@ import {
   DashboardMenu,
   ListsContainer,
   AsideContainer,
-  UserDiv,
   GroupsDiv,
 } from "./styles";
 
 const Dashboard = () => {
   return (
     <>
+      <Header />
       <MainContainer>
         <DashboardMenu>DashboardMenu{/* <DashboardMenu /> */}</DashboardMenu>
         <ListsContainer>
@@ -26,7 +27,9 @@ const Dashboard = () => {
             <ListGoals /> */}
         </ListsContainer>
         <AsideContainer>
-          <UserDiv>User{/* <Card /> */}</UserDiv>
+          <div>
+            <UserCard />
+          </div>
           <GroupsDiv>Groups{/* <ListGroups /> */}</GroupsDiv>
         </AsideContainer>
       </MainContainer>

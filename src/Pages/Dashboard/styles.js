@@ -17,7 +17,7 @@ export const ListsContainer = styled.section`
   display: flex;
   justify-content: space-around;
   padding: 1rem;
-  width: 70vw;
+  width: 60vw;
 `;
 
 export const AsideContainer = styled.aside`
@@ -29,20 +29,10 @@ export const AsideContainer = styled.aside`
   width: 20vw;
 `;
 
-export const UserDiv = styled.div`
-  background-color: var(--green);
-  border-radius: 1rem;
-  margin: 0 1rem;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  height: 20vh;
-  width: 90%;
-`;
-
 export const GroupsDiv = styled.div`
   background-color: var(--green);
   border-radius: 1rem;
-  margin: 0 1rem;
+  margin-top: 1rem;
   height: 50vh;
   width: 90%;
 `;
