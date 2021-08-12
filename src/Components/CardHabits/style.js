@@ -51,7 +51,7 @@ export const Container = styled.div`
             width: 46px;
             height: 40px;
             border-radius: 50%;
-            background: ${props => props.achieved ? "rgba(0,255,0,0.1);" : "rgba(255,0,0,0.1);"} ;
+            background: ${props => props.achieved ? "rgba(0,255,0,0.1);" : "rgb(224, 145, 104, 0.3);"} ;
         }
     }
 `;

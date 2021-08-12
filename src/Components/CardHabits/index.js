@@ -1,7 +1,8 @@
 import { Container } from "./style";
 import { CgCheck } from "react-icons/cg";
-import { IoIosClose } from "react-icons/io"
-const Card = ( { achieved } ) => {
+import { IoIosClose } from "react-icons/io";
+
+const CardHabits = ( { achieved } ) => {
 
 
     return (
@@ -13,7 +14,7 @@ const Card = ( { achieved } ) => {
                             achieved ?
                             <CgCheck color="var(--green)" />
                             :
-                            <IoIosClose color="red" />
+                            <IoIosClose color="var(--orange)" />
                     }   
                 </div>
                 <p>Dificuldade: Facil</p>
@@ -22,4 +23,4 @@ const Card = ( { achieved } ) => {
     )
 }
 
-export default Card;
+export default CardHabits;
