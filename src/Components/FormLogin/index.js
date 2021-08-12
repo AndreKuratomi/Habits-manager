@@ -9,6 +9,7 @@ import { useState } from "react";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import Button from "../Button";
 import { Link } from "react-router-dom";
+import { useLogin } from "../../Providers/Login";
 
 const FormLogin = () => {
   const [show, setShow] = useState(false);
@@ -29,11 +30,10 @@ const FormLogin = () => {
     resolver: yupResolver(schema),
   });
 
-  const submit = (data) => {
-    console.log(data);
-  };
+  const { submitLogin } = useLogin();
+
   return (
-    <FormLoginContainer onSubmit={handleSubmit(submit)}>
+    <FormLoginContainer onSubmit={handleSubmit(submitLogin)}>
       <h2>Login</h2>
       <Input
         register={register}
