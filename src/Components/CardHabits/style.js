@@ -1,25 +1,24 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    margin: 20px;
 
-    width: 300px;
-    /* height: 30vh; */
-    border-radius: 10px;
+    width: 250px;
     display: flex;
     flex-flow: column;
     align-items: center;
-    border: 2px solid var(--black);
+    border: 1px solid var(--black);
     background: var(--white);
+    box-shadow: 8px 8px 0 -1px var(--black);
 
     header {
-        width: 90%;
+        width: 100%;
         height: 60px;
         text-align: center;
         font-size: 1.7rem;
         padding-top: 15px;
-        border-radius: 10px 10px 0 0;
-        border-bottom: var(--orange) 2px solid;
-        margin-bottom: ${props => props.category ? 0 : "30px"};
+        color: var(--black);
+        border-bottom: 1px solid var(--black);
     }
 
     h1 {
@@ -32,7 +31,7 @@ export const Container = styled.div`
         text-align: left;
         margin: 10px;
         padding: 0 5px;
-        border-left: 3px solid var(--green);
+        border-left: 3px solid var(--orange);
         font-size: 1.2rem;
 
         &:last-child {
@@ -52,7 +51,7 @@ export const Container = styled.div`
             width: 46px;
             height: 40px;
             border-radius: 50%;
-            background: ${props => props.achieved ? "rgba(0,255,0,0.1);" : "rgba(255,0,0,0.1);"} ;
+            background: ${props => props.achieved ? "rgba(0,255,0,0.1);" : "rgb(224, 145, 104, 0.3);"} ;
         }
     }
 `;
