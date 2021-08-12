@@ -24,11 +24,26 @@ export const InputContainer = styled.div`
     align-items: center;
     transition: .4s;
 
-    ${(props) => props.isErrored && css`
-        border: 2px solid red;
-        margin-bottom: 0;
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
 
         svg {
+            color: var(--black);
+        }
+    }
+
+    svg {
+        color: green;
+    }
+    
+    ${(props) => props.isErrored && css`
+    border: 1px solid red;
+
+    svg {
             color: red;
         }
     `}
