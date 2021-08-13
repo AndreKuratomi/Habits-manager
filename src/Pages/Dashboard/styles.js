@@ -15,9 +15,20 @@ export const MenuDashboard = styled.aside`
 export const ListsContainer = styled.section`
   background-color: var(--green);
   display: flex;
-  justify-content: space-around;
-  padding: 1rem;
+  flex-direction: column;
+  /* padding: 1rem; */
   width: 60vw;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 1px var(--green);
+`;
+
+export const ContainerHeader = styled.header`
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: var(--dark-green);
+    color: var(--white);
+    border-radius: 10px 10px 0 0;
 `;
 
 export const AsideContainer = styled.aside`
