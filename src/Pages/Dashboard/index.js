@@ -1,4 +1,4 @@
-// import DashboardMenu from "../../Components/DashboardMenu";
+import DashboardMenu from "../../Components/DashboardMenu";
 import Header from "../../Components/Header";
 import UserCard from "../../Components/UserCard";
 import ListHabits from "../../Components/ListHabits";
@@ -9,7 +9,7 @@ import ListHabits from "../../Components/ListHabits";
 
 import {
   MainContainer,
-  DashboardMenu,
+  MenuDashboard,
   ListsContainer,
   AsideContainer,
   GroupsDiv,
@@ -20,7 +20,9 @@ const Dashboard = () => {
     <>
       <Header />
       <MainContainer>
-        <DashboardMenu>DashboardMenu{/* <DashboardMenu /> */}</DashboardMenu>
+        <MenuDashboard>
+          <DashboardMenu />
+        </MenuDashboard>
         <ListsContainer>
           <ListHabits />
           {/* <ListActivities />
