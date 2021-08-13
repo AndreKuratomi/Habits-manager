@@ -1,12 +1,10 @@
-import DeveloperCard from "../../Components/DeveloperCard";
-import GroupsSubs from "../../Components/GroupsSubs";
+import Footer from "../../Components/Footer";
 
 const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <DeveloperCard />
-      <GroupsSubs />
+      <Footer />
     </>
   );
 };
