@@ -11,7 +11,7 @@ export const DeveloperCardContainer = styled.div`
 
   img {
     border-radius: 50%;
-    border: 4px double var(--green);
+    border: 4px double var(--light-green);
   }
   p {
     margin: 0.5rem 0;
@@ -24,7 +24,7 @@ export const DeveloperCardContainer = styled.div`
       a {
         color: var(--black);
         &:hover {
-          color: var(--green);
+          color: var(--light-green);
         }
         svg {
           font-size: 1.5rem;
