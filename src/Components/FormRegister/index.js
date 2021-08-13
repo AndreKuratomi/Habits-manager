@@ -1,6 +1,8 @@
 import Input from "../Input";
 import Button from "../Button";
 
+import { Container } from "./styles";
+
 import { FaCheck } from "react-icons/fa";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { VscError } from "react-icons/vsc";
@@ -38,40 +40,43 @@ const FormRegister = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <Container>
+      <h2>Cadastro</h2>
+      <form onSubmit={handleSubmit(submit)}>
 
-      <Input
-        register={register}
-        name="name"
-        error={errors.name?.message}
-        icon={errors.name ? VscError : FaCheck}
-        type="text"
-        placeholder="Name"
-      />
-      <Input
-        register={register}
-        name="email"
-        error={errors.email?.message}
-        icon={errors.email ? VscError : FaCheck}
-        type="text"
-        placeholder="E-mail"
-      />
-      <Input
-        register={register}
-        name="password"
-        error={errors.password?.message}
-        icon={show ? BsFillEyeFill : BsFillEyeSlashFill}
-        setShow={setShow}
-        show={show}
-        pass={true}
-        type={show ? "text" : "password"}
-        placeholder="Senha"
-      />
+        <Input
+          register={register}
+          name="name"
+          error={errors.name?.message}
+          icon={errors.name ? VscError : FaCheck}
+          type="text"
+          placeholder="Nome"
+        />
+        <Input
+          register={register}
+          name="email"
+          error={errors.email?.message}
+          icon={errors.email ? VscError : FaCheck}
+          type="text"
+          placeholder="E-mail"
+        />
+        <Input
+          register={register}
+          name="password"
+          error={errors.password?.message}
+          icon={show ? BsFillEyeFill : BsFillEyeSlashFill}
+          setShow={setShow}
+          show={show}
+          pass={true}
+          type={show ? "text" : "password"}
+          placeholder="Senha"
+        />
 
-      <Button type="submit">Enviar</Button>
+        <Button type="submit">Enviar</Button>
 
-      <p>Já possui uma conta? Acesse </p>
-    </form>
+        <p>Já possui uma conta? Faça <span>Login</span> </p>
+      </form>
+    </Container>
   );
 }
 
