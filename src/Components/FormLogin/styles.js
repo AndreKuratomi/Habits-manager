@@ -9,6 +9,7 @@ export const FormLoginContainer = styled.form`
   flex-direction: column;
   align-items: center;
   box-shadow: 3px 1px 11px 8px rgba(128, 201, 172, 0.64);
+  border-radius: 10px;
 
   h2 {
     color: var(--orange);
