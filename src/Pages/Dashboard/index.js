@@ -17,6 +17,7 @@ import {
   GroupsDiv,
   ContainerHeader,
 } from "./styles";
+import { useUser } from "../../Providers/User";
 
 import ModalHabits from "../../Components/ModalHabits";
 import { useState } from "react";
@@ -31,6 +32,9 @@ const Dashboard = () => {
   const closeModal = () => {
     setmodalHabitsDisplay(false);
   }
+
+  const { user } = useUser();
+  console.log(user.id, user.username, user.email);
 
   return (
     <>
