@@ -11,12 +11,16 @@ import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from "react";
+import { useRegister } from "../../Providers/Register";
+import { useHistory, Link } from "react-router-dom";
 
 const FormRegister = () => {
   const [show, setShow] = useState(false);
+  const { submitRegister } = useRegister();
+  const history = useHistory();
 
   const formSchema = yup.object().shape({
-    name: yup.string().required("Nome obrigatório"),
+    username: yup.string().required("Nome obrigatório"),
     email: yup
       .string()
       .required("Email obrigatório").email("Digite um email valido"),
@@ -36,7 +40,8 @@ const FormRegister = () => {
   });
 
   const submit = (data) => {
-    console.log(data);
+    submitRegister(data);
+    return history.push("/login");
   }
 
   return (
@@ -46,9 +51,9 @@ const FormRegister = () => {
 
         <Input
           register={register}
-          name="name"
-          error={errors.name?.message}
-          icon={errors.name ? VscError : FaCheck}
+          name="username"
+          error={errors.username?.message}
+          icon={errors.username ? VscError : FaCheck}
           type="text"
           placeholder="Nome"
         />
@@ -73,8 +78,7 @@ const FormRegister = () => {
         />
 
         <Button type="submit">Enviar</Button>
-
-        <p>Já possui uma conta? Faça <span>Login</span> </p>
+        <p>Já possui uma conta? Faça <Link to="/login">Login</Link> </p>
       </form>
     </Container>
   );
