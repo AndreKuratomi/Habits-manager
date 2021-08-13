@@ -36,7 +36,7 @@ const FormLogin = () => {
   const submit = (data) => {
     submitLogin(data);
     return history.push("/dashboard");
-  }
+  };
 
   return (
     <FormLoginContainer onSubmit={handleSubmit(submit)}>

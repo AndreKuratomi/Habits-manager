@@ -1,22 +1,22 @@
 import styled from "styled-components";
 import registerImage from "../../Assets/register.svg";
 
-export const Container = styled.div`
-  min-height: 100vh;
+export const Container = styled.main`
+  min-height: calc(100vh - 70px);
   display: flex;
 `;
 
-export const Backgorund = styled.div`
-    @media screen and (min-width: 800px) {
-        flex: 1;
-        background: url(${registerImage}) no-repeat right;
-        background-size: contain;
-    }
+export const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 `;
 
-export const Content = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+export const Backgorund = styled.figure`
+  @media screen and (min-width: 768px) {
     flex: 1;
+    background: url(${registerImage}) no-repeat right;
+    background-size: contain;
+  }
 `;

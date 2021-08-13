@@ -7,9 +7,9 @@ import { FaCheck } from "react-icons/fa";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { VscError } from "react-icons/vsc";
 
-import * as yup from 'yup';
+import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useRegister } from "../../Providers/Register";
 import { useHistory, Link } from "react-router-dom";
@@ -23,7 +23,8 @@ const FormRegister = () => {
     username: yup.string().required("Nome obrigatório"),
     email: yup
       .string()
-      .required("Email obrigatório").email("Digite um email valido"),
+      .required("Email obrigatório")
+      .email("Digite um email valido"),
     password: yup
       .string()
       .min(6, "No minimo 6 digitos")
@@ -33,22 +34,20 @@ const FormRegister = () => {
   const {
     register,
     handleSubmit,
-    formState:
-    { errors }
+    formState: { errors },
   } = useForm({
-    resolver: yupResolver(formSchema)
+    resolver: yupResolver(formSchema),
   });
 
   const submit = (data) => {
     submitRegister(data);
     return history.push("/login");
-  }
+  };
 
   return (
     <Container>
       <h2>Cadastro</h2>
       <form onSubmit={handleSubmit(submit)}>
-
         <Input
           register={register}
           name="username"
@@ -69,7 +68,7 @@ const FormRegister = () => {
           register={register}
           name="password"
           error={errors.password?.message}
-          icon={show ? BsFillEyeFill : BsFillEyeSlashFill}
+          icon={show ? BsFillEyeSlashFill : BsFillEyeFill}
           setShow={setShow}
           show={show}
           pass={true}
@@ -78,10 +77,12 @@ const FormRegister = () => {
         />
 
         <Button type="submit">Enviar</Button>
-        <p>Já possui uma conta? Faça <Link to="/login">Login</Link> </p>
+        <p>
+          Já possui uma conta? Faça <Link to="/login">Login</Link>{" "}
+        </p>
       </form>
     </Container>
   );
-}
+};
 
 export default FormRegister;
