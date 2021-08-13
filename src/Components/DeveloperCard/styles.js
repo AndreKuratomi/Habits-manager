@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DeveloperCardContainer = styled.div`
-  width: 150px;
+  width: 160px;
   height: 205px;
   max-height: 205px;
   padding: 1rem;
