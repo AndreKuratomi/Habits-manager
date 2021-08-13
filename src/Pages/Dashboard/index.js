@@ -6,6 +6,7 @@ import ListHabits from "../../Components/ListHabits";
 // import ListActivities from "../../Components/ListActivities";
 // import ListGroups from "../../Components/ListGroups";
 // import ListActivities from "../../Components/ListActivities";
+import GroupsSubs from "../../Components/GroupsSubs";
 
 import {
   MainContainer,
@@ -32,7 +33,9 @@ const Dashboard = () => {
           <div>
             <UserCard />
           </div>
-          <GroupsDiv>Groups{/* <ListGroups /> */}</GroupsDiv>
+          <GroupsDiv>
+            <GroupsSubs />
+          </GroupsDiv>
         </AsideContainer>
       </MainContainer>
     </>
