@@ -1,12 +1,12 @@
-import GroupsSubs from "../../Components/GroupsSubs";
+import Footer from "../../Components/Footer";
 
 const Home = () => {
-    return (
-        <>
-            <h1>Home</h1>
-            <GroupsSubs />
-        </>
-    )
-}
+  return (
+    <>
+      <h1>Home</h1>
+      <Footer />
+    </>
+  );
+};
 
 export default Home;

@@ -1,4 +1,4 @@
-// import DashboardMenu from "../../Components/DashboardMenu";
+import DashboardMenu from "../../Components/DashboardMenu";
 import Header from "../../Components/Header";
 import UserCard from "../../Components/UserCard";
 import ListHabits from "../../Components/ListHabits";
@@ -6,10 +6,11 @@ import ListHabits from "../../Components/ListHabits";
 // import ListActivities from "../../Components/ListActivities";
 // import ListGroups from "../../Components/ListGroups";
 // import ListActivities from "../../Components/ListActivities";
+import GroupsSubs from "../../Components/GroupsSubs";
 
 import {
   MainContainer,
-  DashboardMenu,
+  MenuDashboard,
   ListsContainer,
   AsideContainer,
   GroupsDiv,
@@ -20,7 +21,9 @@ const Dashboard = () => {
     <>
       <Header />
       <MainContainer>
-        <DashboardMenu>DashboardMenu{/* <DashboardMenu /> */}</DashboardMenu>
+        <MenuDashboard>
+          <DashboardMenu />
+        </MenuDashboard>
         <ListsContainer>
           <ListHabits />
           {/* <ListActivities />
@@ -30,7 +33,9 @@ const Dashboard = () => {
           <div>
             <UserCard />
           </div>
-          <GroupsDiv>Groups{/* <ListGroups /> */}</GroupsDiv>
+          <GroupsDiv>
+            <GroupsSubs />
+          </GroupsDiv>
         </AsideContainer>
       </MainContainer>
     </>

@@ -4,8 +4,8 @@ export const Container = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 270px;
-  height: 70px;
+  width: 90%;
+  min-height: 100px;
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
