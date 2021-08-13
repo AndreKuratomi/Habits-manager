@@ -35,4 +35,5 @@ export const GroupsDiv = styled.div`
   margin-top: 1rem;
   height: 50vh;
   width: 90%;
+  min-width: 250px;
 `;
