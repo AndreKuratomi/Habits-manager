@@ -6,7 +6,7 @@ export const MainContainer = styled.main`
   padding: 3rem 1.5rem;
 `;
 
-export const DashboardMenu = styled.aside`
+export const MenuDashboard = styled.aside`
   background-color: none;
   padding: 1rem;
   width: 10vw;
@@ -35,4 +35,5 @@ export const GroupsDiv = styled.div`
   margin-top: 1rem;
   height: 50vh;
   width: 90%;
+  min-width: 250px;
 `;
