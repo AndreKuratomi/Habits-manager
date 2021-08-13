@@ -14,11 +14,12 @@ export const Container = styled.div`
     header {
         width: 100%;
         height: 60px;
-        text-align: center;
         font-size: 1.7rem;
-        padding-top: 15px;
+        padding: 0 15px;
         color: var(--black);
         border-bottom: 1px solid var(--black);
+        display: flex;
+        align-items: center;
     }
 
     h1 {
