@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-    width: 300px;
+    width: 280px;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -15,11 +15,12 @@ export const Container = styled.div`
 `;
 
 export const InputContainer = styled.div`
-    border: 2px solid var(--black);
+    border: 1px solid var(--black);
     color: var(--black);
     padding: 0 10px;
     height: 30px;
     width: 100%;
+    height: 50px;
     display: flex;
     align-items: center;
     transition: .4s;

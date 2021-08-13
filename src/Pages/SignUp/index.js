@@ -1,6 +1,14 @@
+import FormRegister from "../../Components/FormRegister";
+import { Container, Backgorund, Content } from "./styles";
+
 const SignUp = () => {
     return (
-        <h1>SignUp</h1>
+        <Container>
+            <Content>
+                <FormRegister />
+            </Content>
+            <Backgorund />
+        </Container>
     )
 }
 
