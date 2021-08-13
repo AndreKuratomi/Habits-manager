@@ -15,8 +15,11 @@ import {
   AsideContainer,
   GroupsDiv,
 } from "./styles";
+import { useUser } from "../../Providers/User";
 
 const Dashboard = () => {
+  const { user } = useUser();
+  console.log(user.id, user.username, user.email);
   return (
     <>
       <Header />
