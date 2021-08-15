@@ -4,10 +4,11 @@ import { IoIosClose } from "react-icons/io";
 
 const CardHabits = ( { achieved } ) => {
 
-
     return (
         <Container achieved={achieved}> 
-            <header>Habito</header>
+            <header>
+			    <h1>Habito</h1>
+			</header>
                 <div>
                     <h1>Saude</h1>
                     {

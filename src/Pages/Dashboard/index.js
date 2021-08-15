@@ -7,6 +7,7 @@ import ListHabits from "../../Components/ListHabits";
 // import ListGroups from "../../Components/ListGroups";
 // import ListActivities from "../../Components/ListActivities";
 import GroupsSubs from "../../Components/GroupsSubs";
+import Button from "../../Components/Button";
 
 import {
   MainContainer,
@@ -14,20 +15,43 @@ import {
   ListsContainer,
   AsideContainer,
   GroupsDiv,
+  ContainerHeader,
 } from "./styles";
 import { useUser } from "../../Providers/User";
 
+import ModalHabits from "../../Components/ModalHabits";
+import { useState } from "react";
+
 const Dashboard = () => {
+
+  const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
+
+  const openModal = () => {
+    setmodalHabitsDisplay(true);
+  }
+  const closeModal = () => {
+    setmodalHabitsDisplay(false);
+  }
+
   const { user } = useUser();
   console.log(user.id, user.username, user.email);
+
   return (
     <>
+      <ModalHabits
+        display={modalHabitsDisplay}
+        close={closeModal}  
+      />
       <Header />
       <MainContainer>
         <MenuDashboard>
           <DashboardMenu />
         </MenuDashboard>
         <ListsContainer>
+          <ContainerHeader>
+            <h1>Hábitos</h1>
+            <Button onClick={() => openModal()}>Novo</Button>
+          </ContainerHeader>
           <ListHabits />
           {/* <ListActivities />
             <ListGoals /> */}
