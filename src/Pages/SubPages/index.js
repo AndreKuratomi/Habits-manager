@@ -2,6 +2,11 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers";
 
+import api from "../../Services";
+
+import { toast } from "react-toastify";
+import jwtDecode from "jwt-decode";
+
 const SubPages = () => {
   const formSchema = yup.object.shape({
     title: yup.string().required("Preenchimento obrigatório!"),
@@ -17,7 +22,18 @@ const SubPages = () => {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
+    api
+      .post("/habits/", data)
+      .then((response) => {
+        const { token } = response.data;
+        const decoded = jwtDecode(token);
+
+        // localStorage.setItem("@Habits:token", JSON.stringify(token));
+        localStorage.setItem("@Habits:token", decoded.id);
+
+        toast.success("Hábito cadastrado com sucesso!");
+      })
+      .catch((_) => toast.error("Falha ao cadastrar!"));
   };
 
   return (
