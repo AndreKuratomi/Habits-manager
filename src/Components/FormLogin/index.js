@@ -1,15 +1,20 @@
-import { FormLoginContainer } from "./styles";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Input from "../Input";
+
 import { VscError } from "react-icons/vsc";
 import { FaCheck } from "react-icons/fa";
-import { useState } from "react";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+
+import Input from "../Input";
 import Button from "../Button";
-import { Link } from "react-router-dom";
+
 import { useLogin } from "../../Providers/Login";
+import { useAuth } from "../../Providers/Auth";
+import { FormLoginContainer } from "./styles";
 
 const FormLogin = () => {
   const [show, setShow] = useState(false);
@@ -28,8 +33,10 @@ const FormLogin = () => {
   });
 
   const { submitLogin } = useLogin();
+  const { setAuth } = useAuth();
+
   const submit = (data) => {
-    console.log(submitLogin(data));
+    setAuth(true);
     submitLogin(data);
   };
 

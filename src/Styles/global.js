@@ -30,4 +30,8 @@ export default createGlobalStyle`
   li{
     list-style: none;
   }
+
+  figcaption{
+    display: none;
+  }
 `;
