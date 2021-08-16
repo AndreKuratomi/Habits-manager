@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import registerImage from "../../Assets/register.svg";
 
-export const Container = styled.main`
+export const RegisterContainer = styled.main`
   min-height: calc(100vh - 70px);
   display: flex;
 `;
@@ -13,10 +12,13 @@ export const Content = styled.div`
   flex: 1;
 `;
 
-export const Backgorund = styled.figure`
+export const Image = styled.figure`
   @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
     flex: 1;
-    background: url(${registerImage}) no-repeat right;
-    background-size: contain;
+    img {
+      width: 43vw;
+    }
   }
 `;

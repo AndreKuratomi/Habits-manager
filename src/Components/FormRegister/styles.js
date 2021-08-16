@@ -15,7 +15,7 @@ export const Container = styled.div`
     color: var(--orange);
     margin-bottom: 20px;
   }
-  
+
   form {
     text-align: center;
 
@@ -28,6 +28,9 @@ export const Container = styled.div`
 
       a {
         color: var(--orange);
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
