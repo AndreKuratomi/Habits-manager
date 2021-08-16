@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
 import { HeaderContainer } from "./styles";
 
 const Header = ({ children }) => {
   return (
     <HeaderContainer>
-      <img src="https://picsum.photos/id/1/40/40" alt="Logo" />
+      <Link to="/">
+        <span>Habits</span>
+      </Link>
+
       <div>{children}</div>
     </HeaderContainer>
   );
