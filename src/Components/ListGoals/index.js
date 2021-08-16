@@ -1,7 +1,7 @@
 import CardGoals from "../CardGoals";
 import { Lists } from "./styles";
 
-const LisTGoals = ({ goals }) => {
+const ListGoals = ({ goals }) => {
   return (
     <Lists>
       <h3>Metas</h3>
@@ -14,4 +14,4 @@ const LisTGoals = ({ goals }) => {
   );
 };
 
-export default LisTGoals;
+export default ListGoals;
