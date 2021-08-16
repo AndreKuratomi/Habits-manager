@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import Header from "../../Components/Header";
 
 const Login = () => {
-  const token = JSON.parse(localStorage.getItem("@Habits:userID")) || "";
+  const token = JSON.parse(localStorage.getItem("@Habits:access")) || "";
 
   if (token !== "") {
     return <Redirect to="/dashboard" />;
