@@ -1,9 +1,13 @@
+import { useHistory } from "react-router-dom";
+
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import Button from "../../Components/Button";
-import { useHistory } from "react-router-dom";
+
 import ImgHome1 from "../../Assets/HomeImg1.svg";
+
 import { HomeContainer } from "./styles";
+
 const Home = () => {
   const history = useHistory();
 
@@ -12,7 +16,7 @@ const Home = () => {
       <Header>
         <Button onClick={() => history.push("/login")}>Login</Button>
         <Button onClick={() => history.push("/signup")}>Cadastro</Button>
-      </Header>{" "}
+      </Header>
       <main>
         <section>
           <article>
