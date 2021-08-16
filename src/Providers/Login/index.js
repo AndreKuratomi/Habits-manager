@@ -13,9 +13,9 @@ export const LoginProvider = ({ children }) => {
         const { access } = resp.data;
         const decoded = jwtDecode(access);
 
-        localStorage.setItem("@Habits:access", access);
+        localStorage.setItem("@Habits:access", JSON.stringify(access));
 
-        localStorage.setItem("@Habits:userID", decoded.user_id);
+        localStorage.setItem("@Habits:userID", JSON.stringify(decoded.user_id));
 
         window.location.reload();
       })

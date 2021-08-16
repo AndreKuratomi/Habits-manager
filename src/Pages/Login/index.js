@@ -7,7 +7,7 @@ import LoginImg from "../../Assets/loginImg.svg";
 import { Content, Image, LoginContainer } from "./styles";
 
 const Login = () => {
-  const token = JSON.parse(localStorage.getItem("@Habits:userID")) || "";
+  const token = JSON.parse(localStorage.getItem("@Habits:access")) || "";
 
   if (token !== "") {
     return <Redirect to="/dashboard" />;
