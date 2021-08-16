@@ -1,21 +1,34 @@
 import { Container, InputContainer } from "./styles";
 
-const Input = ({ icon: Icon, register, name, error, pass, setShow, show, ...rest }) => {
+const Input = ({
+  icon: Icon,
+  register,
+  name,
+  error,
+  pass,
+  setShow,
+  show,
+  ...rest
+}) => {
   return (
     <Container isErrored={!!error}>
       <InputContainer isErrored={!!error}>
         <input {...register(name)} {...rest} />
-        {
-          Icon &&
-            pass ? <button type="button" onClick={() => { setShow(!show) }}><Icon /></button>
-            : <Icon />
-        }
+        {Icon && pass ? (
+          <button
+            type="button"
+            onClick={() => {
+              setShow(!show);
+            }}
+          >
+            <Icon />
+          </button>
+        ) : (
+          <Icon />
+        )}
       </InputContainer>
-      {/* <div>
-        {!!error && <p>{error}</p>}
-      </div> */}
     </Container>
   );
-}
+};
 
 export default Input;
