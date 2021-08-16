@@ -37,14 +37,22 @@ const Footer = () => {
     {
       id: 4,
       name: "Miguel Maurer",
-      img: "https://picsum.photos/id/1/100/100",
-      social: { linkedin: "#", github: "#", instagram: "#" },
+      img: "https://avatars.githubusercontent.com/u/79239268?v=4",
+      social: {
+        linkedin: "https://www.linkedin.com/in/miguel-maurer/",
+        github: "https://github.com/miguel-maurer",
+        instagram: "https://www.instagram.com/miguelmaurer/",
+      },
     },
     {
       id: 5,
       name: "Rodrigo Diniz",
-      img: "https://picsum.photos/id/1/100/100",
-      social: { linkedin: "#", github: "#", instagram: "#" },
+      img: "https://media-exp1.licdn.com/dms/image/C4E03AQEer_S0wkLJKw/profile-displayphoto-shrink_800_800/0/1624217655629?e=1634774400&v=beta&t=1Rie05qcy8tViWvkmHMjK1DSadxH7NreXSHDde_4Vrs",
+      social: {
+        linkedin: "https://www.linkedin.com/in/rodrigodmonteiro/",
+        github: "https://github.com/Rodrigo-DM",
+        instagram: "https://www.instagram.com/rodrigo_d.m/",
+      },
     },
   ]);
 
