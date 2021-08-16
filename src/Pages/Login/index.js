@@ -1,8 +1,10 @@
-import FormLogin from "../../Components/FormLogin";
-import { PageLoginContainer } from "./styles";
-import LoginImg from "../../Assets/loginImg.svg";
 import { Redirect } from "react-router-dom";
+
 import Header from "../../Components/Header";
+import FormLogin from "../../Components/FormLogin";
+
+import LoginImg from "../../Assets/loginImg.svg";
+import { Content, Image, LoginContainer } from "./styles";
 
 const Login = () => {
   const token = JSON.parse(localStorage.getItem("@Habits:userID")) || "";
@@ -14,10 +16,14 @@ const Login = () => {
   return (
     <>
       <Header />
-      <PageLoginContainer>
-        <FormLogin />
-        <img src={LoginImg} alt="LoginImage" />
-      </PageLoginContainer>
+      <LoginContainer>
+        <Content>
+          <FormLogin />
+        </Content>
+        <Image>
+          <img src={LoginImg} alt="LoginImage" />
+        </Image>
+      </LoginContainer>
     </>
   );
 };
