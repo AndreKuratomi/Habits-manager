@@ -25,9 +25,7 @@ const ModalHabits = ({ display, close }) => {
   const { submitHabits } = useHabits();
 
   const onSubmitFunction = (data) => {
-    console.log(data);
     submitHabits(data);
-    console.log(submitHabits(data));
   };
 
   return (

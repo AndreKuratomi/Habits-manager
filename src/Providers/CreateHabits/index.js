@@ -12,16 +12,18 @@ export const HabitsProvider = ({ children }) => {
   // }, [])
 
   const id = JSON.parse(localStorage.getItem("@Habits:userID"));
+  const token = JSON.parse(localStorage.getItem("@Habits:access"));
+
   const submitHabits = (data) => {
     const newObject = { ...data, user: id };
-    console.log(newObject);
 
     api
-      .post("/habits/", newObject)
-      .then((response) => {
-        const newResponse = response.data;
-        console.log(newResponse);
-        JSON.parse(localStorage.setItem("@Habits:habit", newResponse));
+      .post("/habits/", newObject, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((_) => {
         toast.success("Hábito cadastrado com sucesso!");
       })
       .catch((_) => toast.error("Falha ao cadastrar!"));
