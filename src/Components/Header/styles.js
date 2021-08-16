@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   a {
     transform: translateY(-5px);
-    margin-left: 2rem;
+    margin-left: 1rem;
     span {
       text-shadow: 0 1px 0 #f5f5f5, 0 2px 0 #c9c9c9, 0 3px 0 #bbb,
         0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1),
@@ -21,12 +21,23 @@ export const HeaderContainer = styled.header`
     }
   }
   div {
-    margin-right: 1rem;
-    width: 150px;
-    display: flex;
-    justify-content: space-evenly;
     button {
       width: 70px;
+    }
+    button + button {
+      margin: 0 1rem 0 0.5rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    a {
+      margin-left: 2rem;
+    }
+
+    div {
+      button + button {
+        margin: 0 2rem 0 1rem;
+      }
     }
   }
 `;
