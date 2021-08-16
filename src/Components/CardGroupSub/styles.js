@@ -10,4 +10,5 @@ export const Container = styled.li`
   padding: 5px;
   border-radius: 5px;
   background-color: var(--white);
+  word-break: break-all;
 `;

@@ -38,6 +38,9 @@ export const FormLoginContainer = styled.form`
     margin: 1rem 0;
     a {
       color: var(--orange);
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;

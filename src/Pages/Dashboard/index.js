@@ -20,6 +20,8 @@ import { useUser } from "../../Providers/User";
 
 import ModalHabits from "../../Components/ModalHabits";
 import { useState } from "react";
+import { useAuth } from "../../Providers/Auth";
+import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
@@ -31,8 +33,12 @@ const Dashboard = () => {
     setmodalHabitsDisplay(false);
   };
 
-  const { user } = useUser();
-  console.log(user.id, user.username, user.email);
+  // const { user } = useUser();
+  const { auth } = useAuth();
+
+  if (!auth) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <>

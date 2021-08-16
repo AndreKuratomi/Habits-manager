@@ -15,12 +15,6 @@ export const HomeContainer = styled.div`
           letter-spacing: 7px;
         }
       }
-
-      figure {
-        figcaption {
-          display: none;
-        }
-      }
     }
   }
 

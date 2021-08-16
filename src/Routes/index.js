@@ -1,35 +1,36 @@
 import { Route, Switch } from "react-router-dom";
+
 import Home from "../Pages/Home";
-import Login from "../Pages/Login"
+import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Dashboard from "../Pages/Dashboard";
 import Profile from "../Pages/Profile";
 import Groups from "../Pages/Groups";
-import NotFound from "../Components/404";
+import NotFound from "../Components/NotFound";
 
 const Routes = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <Home/>
+        <Home />
       </Route>
       <Route path="/signup">
-        <SignUp/>
+        <SignUp />
       </Route>
       <Route path="/login">
-        <Login/>
+        <Login />
       </Route>
       <Route path="/dashboard">
-        <Dashboard/>
+        <Dashboard />
       </Route>
       <Route path="/profile">
-        <Profile/>
+        <Profile />
       </Route>
       <Route exact path="/groups">
-        <Groups/>
+        <Groups />
       </Route>
       <Route>
-        <NotFound/>
+        <NotFound />
       </Route>
     </Switch>
   );
