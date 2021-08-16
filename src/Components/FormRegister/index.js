@@ -20,15 +20,15 @@ const FormRegister = () => {
   const history = useHistory();
 
   const formSchema = yup.object().shape({
-    username: yup.string().required("Nome de Usuário obrigatório!!"),
+    username: yup.string().required("Nome obrigatório"),
     email: yup
       .string()
-      .required("Email obrigatório!!")
+      .required("Email obrigatório")
       .email("Digite um email valido"),
     password: yup
       .string()
       .min(6, "No minimo 6 digitos")
-      .required("Senha obrigatorio!!"),
+      .required("Senha obrigatorio"),
   });
 
   const {
@@ -54,9 +54,7 @@ const FormRegister = () => {
           error={errors.username?.message}
           icon={errors.username ? VscError : FaCheck}
           type="text"
-          placeholder={
-            errors.username ? errors.username?.message : "Nome de Usuário"
-          }
+          placeholder="Nome"
         />
         <Input
           register={register}
@@ -64,9 +62,7 @@ const FormRegister = () => {
           error={errors.email?.message}
           icon={errors.email ? VscError : FaCheck}
           type="text"
-          placeholder={
-            errors.email ? errors.email?.message : "Seu melhor E-mail"
-          }
+          placeholder="E-mail"
         />
         <Input
           register={register}
@@ -77,12 +73,12 @@ const FormRegister = () => {
           show={show}
           pass={true}
           type={show ? "text" : "password"}
-          placeholder={errors.password ? errors.password?.message : "Senha"}
+          placeholder="Senha"
         />
 
         <Button type="submit">Enviar</Button>
         <p>
-          Já possui uma conta? Faça <Link to="/login">Login</Link>
+          Já possui uma conta? Faça <Link to="/login">Login</Link>{" "}
         </p>
       </form>
     </Container>
