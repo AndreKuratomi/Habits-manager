@@ -12,6 +12,8 @@ export const DeveloperCardContainer = styled.div`
   img {
     border-radius: 50%;
     border: 4px double var(--light-green);
+    width: 100px;
+    height: 100px;
   }
   p {
     margin: 0.5rem 0;
