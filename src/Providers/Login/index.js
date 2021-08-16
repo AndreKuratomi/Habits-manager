@@ -1,7 +1,8 @@
 import { createContext, useContext } from "react";
-import api from "../../Services/api";
 import jwtDecode from "jwt-decode";
 import { toast } from "react-toastify";
+
+import api from "../../Services/api";
 
 const LoginContext = createContext();
 
@@ -16,10 +17,8 @@ export const LoginProvider = ({ children }) => {
         localStorage.setItem("@Habits:access", JSON.stringify(access));
 
         localStorage.setItem("@Habits:userID", JSON.stringify(decoded.user_id));
-
-        window.location.reload();
       })
-      .catch((_) => toast.error("Nome de Usuário ou Senha Incorreta!"));
+      .catch((err) => toast.error("Nome de Usuário ou Senha Incorreta!"));
   };
 
   return (
