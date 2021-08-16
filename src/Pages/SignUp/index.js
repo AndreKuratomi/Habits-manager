@@ -1,17 +1,22 @@
-import FormRegister from "../../Components/FormRegister";
-import { Container, Backgorund, Content } from "./styles";
 import Header from "../../Components/Header";
+import FormRegister from "../../Components/FormRegister";
+
+import registerImg from "../../Assets/register.svg";
+
+import { RegisterContainer, Image, Content } from "./styles";
 
 const SignUp = () => {
   return (
     <>
       <Header />
-      <Container>
+      <RegisterContainer>
         <Content>
           <FormRegister />
         </Content>
-        <Backgorund />
-      </Container>
+        <Image>
+          <img src={registerImg} alt="LoginImage" />
+        </Image>
+      </RegisterContainer>
     </>
   );
 };
