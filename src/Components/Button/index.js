@@ -1,7 +1,7 @@
-import { Button1 } from "./styles";
+import { BtnContainer } from "./styles";
 
 const Button = ({ children, ...rest }) => {
-  return <Button1 {...rest}>{children}</Button1>;
+  return <BtnContainer {...rest}>{children}</BtnContainer>;
 };
 
 export default Button;
