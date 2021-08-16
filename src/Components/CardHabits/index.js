@@ -17,6 +17,7 @@ const CardHabits = ( { achieved } ) => {
                             :
                             <IoIosClose color="var(--orange)" />
                     }   
+                    
                 </div>
                 <p>Dificuldade: Facil</p>
                 <p>Frequência: Semanal</p>
