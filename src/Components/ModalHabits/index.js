@@ -12,8 +12,8 @@ const ModalHabits = ({ display, close }) => {
     category: yup.string().required("Campo obrigatório!"),
     frequency: yup.string().required("Campo obrigatório!"),
     difficulty: yup.string().required("Campo obrigatório!"),
-    achieved: yup.string().required("Campo obrigatório!"),
-    how_much_achieved: yup.string().required("Campo obrigatório!"),
+    achieved: yup.boolean().required("Campo obrigatório!"),
+    how_much_achieved: yup.number().required("Campo obrigatório!"),
   });
 
   const {
@@ -22,12 +22,12 @@ const ModalHabits = ({ display, close }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const { submitHabits } = useHabits;
+  const { submitHabits } = useHabits();
 
   const onSubmitFunction = (data) => {
-    // console.log(data);
-    // console.log(submitHabits(data));
+    console.log(data);
     submitHabits(data);
+    console.log(submitHabits(data));
   };
 
   return (
@@ -72,8 +72,8 @@ const ModalHabits = ({ display, close }) => {
           <div>
             <h3>Alcançado</h3>
             <select {...register("achieved")}>
-              <option value="Sim">Sim</option>
-              <option value="Não">Não</option>
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
             </select>
           </div>
           <div>
@@ -91,7 +91,6 @@ const ModalHabits = ({ display, close }) => {
               <option value="90">90%</option>
               <option value="100">100%</option>
             </select>
-            {/* inserção automática do id do usuaŕio que já está no localStorage */}
           </div>
           <Button type="submit">Cadastrar novo habito!</Button>
         </form>

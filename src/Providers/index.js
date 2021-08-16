@@ -1,14 +1,15 @@
 import { LoginProvider } from "./Login";
 import { RegisterProvider } from "./Register";
 import { UserProvider } from "./User";
+import { HabitsProvider } from "./CreateHabits";
 
 const Providers = ({ children }) => {
   return (
     <LoginProvider>
       <RegisterProvider>
-        <UserProvider>
-          {children}
-        </UserProvider>
+        <HabitsProvider>
+          <UserProvider>{children}</UserProvider>
+        </HabitsProvider>
       </RegisterProvider>
     </LoginProvider>
   );
