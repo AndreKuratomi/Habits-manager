@@ -16,10 +16,7 @@ const FormLogin = () => {
 
   const schema = yup.object().shape({
     username: yup.string().required("Nome de Usuário Obrigatório!!"),
-    password: yup
-      .string()
-      .min(6, "no mínimo 6 dígitos")
-      .required("Senha Obrigatória!!"),
+    password: yup.string().required("Senha Obrigatória!!"),
   });
 
   const {
@@ -34,7 +31,7 @@ const FormLogin = () => {
 
   const submit = (data) => {
     submitLogin(data);
-  }
+  };
 
   return (
     <FormLoginContainer onSubmit={handleSubmit(submit)}>
@@ -43,8 +40,10 @@ const FormLogin = () => {
         register={register}
         name="username"
         error={errors.username?.message}
-        icon={errors.name ? VscError : FaCheck}
-        placeholder="Nome de usuário"
+        icon={errors.username ? VscError : FaCheck}
+        placeholder={
+          errors.username ? errors.username?.message : "Nome de Usuário"
+        }
       />
       <Input
         register={register}
@@ -53,9 +52,9 @@ const FormLogin = () => {
         icon={show ? BsFillEyeSlashFill : BsFillEyeFill}
         setShow={setShow}
         show={show}
-        pass={true}
+        pass
         type={show ? "text" : "password"}
-        placeholder="Senha"
+        placeholder={errors.password ? errors.password?.message : "Senha"}
       />
 
       <Button type="submit">Entrar</Button>

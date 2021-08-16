@@ -1,35 +1,32 @@
 import styled from "styled-components";
 
-export const PageLoginContainer = styled.main`
+export const LoginContainer = styled.main`
   min-height: calc(100vh - 70px);
   display: flex;
+`;
+
+export const Content = styled.div`
+  display: flex;
   justify-content: center;
-  align-items: center;
-  transform: translateY(-20px);
-
-  img {
-    display: none;
+  flex: 1;
+  form {
+    transform: translateY(15%);
   }
-
-  @media screen and (min-width: 768px) {
-    justify-content: space-evenly;
-    transform: initial;
-
-    img {
-      display: block;
-      width: 350px;
-    }
-  }
-
   @media screen and (min-width: 1024px) {
-    img {
-      width: 450px;
+    align-items: center;
+    form {
+      transform: initial;
     }
   }
+`;
 
-  @media screen and (min-width: 1300px) {
+export const Image = styled.figure`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    flex: 1;
     img {
-      width: 550px;
+      width: 40vw;
     }
   }
 `;
