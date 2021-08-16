@@ -31,10 +31,10 @@ const FormLogin = () => {
   });
 
   const { submitLogin } = useLogin();
-
   const submit = (data) => {
+    console.log(submitLogin(data));
     submitLogin(data);
-  }
+  };
 
   return (
     <FormLoginContainer onSubmit={handleSubmit(submit)}>
