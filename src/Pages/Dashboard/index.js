@@ -5,7 +5,6 @@ import ListHabits from "../../Components/ListHabits";
 // import ListGoals from "../../Components/ListGoals";
 // import ListActivities from "../../Components/ListActivities";
 // import ListGroups from "../../Components/ListGroups";
-// import ListActivities from "../../Components/ListActivities";
 import GroupsSubs from "../../Components/GroupsSubs";
 import Button from "../../Components/Button";
 
@@ -23,25 +22,21 @@ import ModalHabits from "../../Components/ModalHabits";
 import { useState } from "react";
 
 const Dashboard = () => {
-
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
 
   const openModal = () => {
     setmodalHabitsDisplay(true);
-  }
+  };
   const closeModal = () => {
     setmodalHabitsDisplay(false);
-  }
+  };
 
   const { user } = useUser();
   console.log(user.id, user.username, user.email);
 
   return (
     <>
-      <ModalHabits
-        display={modalHabitsDisplay}
-        close={closeModal}  
-      />
+      <ModalHabits display={modalHabitsDisplay} close={closeModal} />
       <Header />
       <MainContainer>
         <MenuDashboard>
