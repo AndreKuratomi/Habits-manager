@@ -8,12 +8,11 @@ import { FaCheck } from "react-icons/fa";
 import { useState } from "react";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import Button from "../Button";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLogin } from "../../Providers/Login";
 
 const FormLogin = () => {
   const [show, setShow] = useState(false);
-  const history = useHistory();
 
   const schema = yup.object().shape({
     username: yup.string().required("Nome de Usuário Obrigatório!!"),
@@ -35,8 +34,7 @@ const FormLogin = () => {
 
   const submit = (data) => {
     submitLogin(data);
-    return history.push("/dashboard");
-  };
+  }
 
   return (
     <FormLoginContainer onSubmit={handleSubmit(submit)}>
