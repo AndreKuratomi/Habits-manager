@@ -33,7 +33,9 @@ const Dashboard = () => {
   return (
     <>
       <ModalHabits display={modalHabitsDisplay} close={closeModal} />
-      <Header />
+
+      <Header isLogged></Header>
+
       <MainContainer>
         <MenuDashboard>
           <DashboardMenu />
@@ -45,8 +47,6 @@ const Dashboard = () => {
             <Button onClick={() => openModal()}>Novo</Button>
           </ContainerHeader>
           <ListHabits />
-          {/* <ListActivities />
-            <ListGoals /> */}
         </ListsContainer>
 
         <AsideContainer>
