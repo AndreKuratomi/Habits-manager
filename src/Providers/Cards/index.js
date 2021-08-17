@@ -11,8 +11,7 @@ export const CardsProvider = ({ children }) => {
     api
       .get("/habits/")
       .then((items) => {
-        console.log(items);
-        // setHabits(items.results);
+        setHabits(items.results);
         console.log(habits);
       })
       .catch((_) => toast.error("Erro de conexão"));
