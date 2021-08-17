@@ -13,45 +13,48 @@ import {
   GroupsDiv,
   ContainerHeader,
 } from "./../Dashboard/styles";
+import { useGroupsList } from "../../Providers/GroupsList";
 
 const DiscoverGroups = () => {
+  const { groupsList } = useGroupsList();
+  console.log(groupsList)
 
-    const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
+  const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
 
-    const openModal = () => {
-      setmodalHabitsDisplay(true);
-    };
-    const closeModal = () => {
-      setmodalHabitsDisplay(false);
-    };
-  
-    return (
-      <>
-        <Header isLogged></Header>
-  
-        <MainContainer>
-          <MenuDashboard>
-            <DashboardMenu />
-          </MenuDashboard>
-  
-          <ListsContainer>
-            <ContainerHeader>
-              <h1>Todos os Grupos</h1>
-              <Button onClick={() => openModal()}>Novo</Button>
-            </ContainerHeader>
-          </ListsContainer>
-  
-          <AsideContainer>
-            <div>
-              <UserCard />
-            </div>
-            <GroupsDiv>
-              <GroupsSubs />
-            </GroupsDiv>
-          </AsideContainer>
-        </MainContainer>
-      </>
-    );
+  const openModal = () => {
+    setmodalHabitsDisplay(true);
+  };
+  const closeModal = () => {
+    setmodalHabitsDisplay(false);
+  };
+
+  return (
+    <>
+      <Header isLogged></Header>
+
+      <MainContainer>
+        <MenuDashboard>
+          <DashboardMenu />
+        </MenuDashboard>
+
+        <ListsContainer>
+          <ContainerHeader>
+            <h1>Todos os Grupos</h1>
+            <Button onClick={() => openModal()}>Novo</Button>
+          </ContainerHeader>
+          <div>
+            <GroupsSubs groups={groupsList} />
+          </div>
+        </ListsContainer>
+
+        <AsideContainer>
+          <div>
+            <UserCard />
+          </div>
+        </AsideContainer>
+      </MainContainer>
+    </>
+  );
 }
 
 export default DiscoverGroups;

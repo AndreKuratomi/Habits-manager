@@ -7,23 +7,24 @@ export const GroupsListProvider = ({ children }) => {
   const [groupsList, setGroupsList] = useState([]);
   const [page, setPage] = useState(1);
   const [nextPage, setNextPage] = useState('');
-  const [prevPage, setPrevPage] = useState('');
 
   useEffect(() => {
-    if (page !== null) {
+    if (nextPage !== null) {
       api
         .get(`/groups/?page=${page}`)
         .then(resp => {
           setNextPage(resp.data.next);
-          setPrevPage(resp.data.previous);
-          setGroupsList(resp.data.results);
+          setPage(page + 1);
+          setGroupsList([...groupsList, ...resp.data.results]);
         })
         .catch(err => console.log(err));
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page])
 
   return (
-    <GroupsListContext.Provider value={{ groupsList, prevPage, nextPage, page, setPage }}>
+    <GroupsListContext.Provider value={{ groupsList }}>
       {children}
     </GroupsListContext.Provider>
   );

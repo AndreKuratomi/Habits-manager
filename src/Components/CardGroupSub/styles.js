@@ -4,7 +4,9 @@ export const Container = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
+  width: 20vw;
+  min-width: 200px;
+  max-width: 280px;
   min-height: 100px;
   margin: 5px;
   padding: 5px;

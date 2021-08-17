@@ -25,12 +25,19 @@ export const MenuDashboard = styled.aside`
 `;
 
 export const ListsContainer = styled.section`
-  min-height: 60vh;
+  height: 80vh;
   width: 100%;
   background-color: var(--green);
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 20px 1px var(--green);
+  overflow: hidden;
+
+  > div {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
 
   @media (min-width: 1024px) {
     width: 70%;
