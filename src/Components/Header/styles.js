@@ -67,18 +67,12 @@ export const HeaderContainer = styled.header`
   }
 
   @media screen and (min-width: 1024px) {
-    /* ${(props) =>
+    ${(props) =>
       props.isLogged &&
-      props.inDesktop &&
       css`
         div {
-          background-color: red;
+          display: none;
         }
-      `} */
-    /* div {
-      button + button {
-        margin: 0 2rem 0 1rem;
-      }
-    } */
+      `}
   }
 `;
