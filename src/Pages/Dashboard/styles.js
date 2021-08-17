@@ -58,8 +58,16 @@ export const AsideContainer = styled.aside`
   justify-content: space-between;
   align-items: center;
 
+  div {
+    display: none;
+  }
+
   @media (min-width: 1024px) {
     width: 20%;
+    
+    div {
+      display: flex;
+    }
   }
 `;
 

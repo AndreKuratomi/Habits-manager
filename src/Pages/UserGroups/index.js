@@ -1,12 +1,9 @@
 import DashboardMenu from "../../Components/DashboardMenu";
 import Header from "../../Components/Header";
 import UserCard from "../../Components/UserCard";
-import ListHabits from "../../Components/ListHabits";
-// import ListGoals from "../../Components/ListGoals";
-// import ListActivities from "../../Components/ListActivities";
-// import ListGroups from "../../Components/ListGroups";
 import GroupsSubs from "../../Components/GroupsSubs";
 import Button from "../../Components/Button";
+import { useState } from "react";
 
 import {
   MainContainer,
@@ -15,13 +12,10 @@ import {
   AsideContainer,
   GroupsDiv,
   ContainerHeader,
-} from "./styles";
+} from "./../Dashboard/styles";
 
-import ModalHabits from "../../Components/ModalHabits";
-import { useState } from "react";
-import { useUser } from "../../Providers/User";
+const UserGroups = () => {
 
-const Dashboard = () => {
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
 
   const openModal = () => {
@@ -33,9 +27,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <ModalHabits display={modalHabitsDisplay} close={closeModal} />
-
-      <Header isLogged />
+      <Header isLogged></Header>
 
       <MainContainer>
         <MenuDashboard>
@@ -44,10 +36,9 @@ const Dashboard = () => {
 
         <ListsContainer>
           <ContainerHeader>
-            <h1>Hábitos</h1>
+            <h1>Grupos inscritos</h1>
             <Button onClick={() => openModal()}>Novo</Button>
           </ContainerHeader>
-          <ListHabits />
         </ListsContainer>
 
         <AsideContainer>
@@ -63,4 +54,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default UserGroups;

@@ -21,6 +21,7 @@ export const HeaderContainer = styled.header`
       font-size: 3rem;
     }
   }
+
   ${(props) =>
     props.isLogged &&
     css`
@@ -29,19 +30,19 @@ export const HeaderContainer = styled.header`
         width: 70px;
         height: 70px;
         margin-right: 15px;
-        div {
+        > div {
           width: 40px;
           height: 40px;
-          span {
+          > span {
             font-size: 1.7rem;
           }
         }
-        h2 {
+        > h2 {
           margin: 5px 0 0;
           font-size: 0.8rem;
           letter-spacing: normal;
         }
-        svg {
+        > svg {
           font-size: 1rem;
           position: absolute;
           top: 7px;
@@ -52,10 +53,10 @@ export const HeaderContainer = styled.header`
 
   div {
     display: flex;
-    button {
+    > button {
       width: 70px;
     }
-    button + button {
+    > button + button {
       margin: 0 1rem;
     }
   }
@@ -67,18 +68,12 @@ export const HeaderContainer = styled.header`
   }
 
   @media screen and (min-width: 1024px) {
-    /* ${(props) =>
+    ${(props) =>
       props.isLogged &&
-      props.inDesktop &&
       css`
         div {
-          background-color: red;
+          display: none;
         }
-      `} */
-    /* div {
-      button + button {
-        margin: 0 2rem 0 1rem;
-      }
-    } */
+      `}
   }
 `;

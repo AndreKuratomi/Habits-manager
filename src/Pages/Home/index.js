@@ -17,6 +17,7 @@ const Home = () => {
         <Button onClick={() => history.push("/login")}>Login</Button>
         <Button onClick={() => history.push("/signup")}>Cadastro</Button>
       </Header>
+
       <main>
         <section>
           <article>
