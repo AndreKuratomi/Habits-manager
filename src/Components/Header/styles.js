@@ -21,6 +21,7 @@ export const HeaderContainer = styled.header`
       font-size: 3rem;
     }
   }
+
   ${(props) =>
     props.isLogged &&
     css`
