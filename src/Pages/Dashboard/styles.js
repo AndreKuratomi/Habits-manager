@@ -2,24 +2,43 @@ import styled from "styled-components";
 
 export const MainContainer = styled.main`
   display: flex;
-  justify-content: space-between;
-  padding: 3rem 1.5rem;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* padding: 3rem 1.5rem; */
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 50px 0;
+  }
 `;
 
 export const MenuDashboard = styled.aside`
+  width: 320px;
   background-color: none;
-  padding: 1rem;
-  width: 10vw;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+
+  @media (min-width: 1024px) {
+    width: 10%;
+  }
 `;
 
 export const ListsContainer = styled.section`
+  min-height: 60vh;
+  width: 100%;
   background-color: var(--green);
   display: flex;
   flex-direction: column;
-  /* padding: 1rem; */
-  width: 60vw;
-  border-radius: 20px;
   box-shadow: 0 0 20px 1px var(--green);
+
+  @media (min-width: 1024px) {
+    width: 70%;
+    border-radius: 10px;
+
+  }
 `;
 
 export const ContainerHeader = styled.header`
@@ -28,23 +47,28 @@ export const ContainerHeader = styled.header`
     padding: 20px;
     background: var(--dark-green);
     color: var(--white);
-    border-radius: 10px 10px 0 0;
+
+    @media (min-width: 1024px){
+      border-radius: 10px 10px 0 0;
+    }
 `;
 
 export const AsideContainer = styled.aside`
+  width: 90%;
   background-color: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 20vw;
+
+  @media (min-width: 1024px) {
+    width: 20%;
+  }
 `;
 
 export const GroupsDiv = styled.div`
+  display: none;
   background-color: var(--green);
   border-radius: 1rem;
   margin-top: 1rem;
-  height: 50vh;
-  width: 90%;
-  min-width: 250px;
 `;

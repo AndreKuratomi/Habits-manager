@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     margin: 20px;
-
-    width: 250px;
+    width: 200px;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -13,7 +12,7 @@ export const Container = styled.div`
 
     header {
         width: 100%;
-        height: 60px;
+        height: 40px;
         font-size: 1.7rem;
         padding: 0 15px;
         color: var(--black);
@@ -23,30 +22,31 @@ export const Container = styled.div`
     }
 
     h1 {
-        font-size: 1.5rem;
-        width: 100%;
+        font-size: 1.2rem;
+        width: 90%;
+        margin: 10px 0;
     }
     
     p {
         width: 80%;
         text-align: left;
-        margin: 10px;
+        margin-top: 20px;
         padding: 0 5px;
         border-left: 3px solid var(--orange);
-        font-size: 1.2rem;
+        font-size: 1rem;
 
         &:last-child {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
     }
 
     div {
-        width: 80%;
+        width: 90%;
         height: 50px;
         font-size: 1.2rem;
         display: flex;
+        flex-flow: row;
         align-items: center;
-        margin: 10px;
         
         svg {
             width: 46px;
@@ -54,5 +54,9 @@ export const Container = styled.div`
             border-radius: 50%;
             background: ${props => props.achieved ? "rgba(0,255,0,0.1);" : "rgb(224, 145, 104, 0.3);"} ;
         }
+    }
+
+    @media (min-width: 1024px) {
+        margin: 30px;
     }
 `;
