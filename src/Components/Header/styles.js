@@ -29,19 +29,19 @@ export const HeaderContainer = styled.header`
         width: 70px;
         height: 70px;
         margin-right: 15px;
-        div {
+        > div {
           width: 40px;
           height: 40px;
-          span {
+          > span {
             font-size: 1.7rem;
           }
         }
-        h2 {
+        > h2 {
           margin: 5px 0 0;
           font-size: 0.8rem;
           letter-spacing: normal;
         }
-        svg {
+        > svg {
           font-size: 1rem;
           position: absolute;
           top: 7px;
@@ -52,10 +52,10 @@ export const HeaderContainer = styled.header`
 
   div {
     display: flex;
-    button {
+    > button {
       width: 70px;
     }
-    button + button {
+    > button + button {
       margin: 0 1rem;
     }
   }
