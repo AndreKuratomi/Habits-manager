@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
+
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import { useLogin } from "../../Providers/Login";
 
 import api from "../../Services/api";
-import { UserCardContainer, UserImage } from "./styles";
+import { UserCardContainer, UserImage, UpdateUserContainer } from "./styles";
+import { toast } from "react-toastify";
 
 const UserCard = () => {
   const { id } = useLogin();
-
   const token = JSON.parse(localStorage.getItem("@Habits:access"));
   const [user, setUser] = useState({});
+  const [show, setShow] = useState(false);
+
+  const schema = yup.object().shape({
+    username: yup.string(),
+  });
 
   useEffect(() => {
     if (id !== "") {
@@ -20,7 +31,25 @@ const UserCard = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, [id, token]);
+  }, [id, token, user]);
+
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const handleUpdateProfile = (data) => {
+    api
+      .patch(`/users/${id}/`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((_) => {
+        toast.success("Nome alterado com sucesso");
+        setShow(false);
+      })
+      .catch((_) => toast.error("Nome já cadastrado"));
+  };
 
   return (
     <UserCardContainer>
@@ -30,7 +59,16 @@ const UserCard = () => {
 
       <h2>{user.username ? user.username : ""}</h2>
 
-      <FaEdit />
+      <FaEdit onClick={() => setShow(true)} />
+
+      <UpdateUserContainer
+        onSubmit={handleSubmit(handleUpdateProfile)}
+        show={show}
+      >
+        <ImCross onClick={() => setShow(false)} />
+        <input {...register("username")} placeholder="Novo nome" />
+        <button type="submit">Atualizar</button>
+      </UpdateUserContainer>
     </UserCardContainer>
   );
 };
