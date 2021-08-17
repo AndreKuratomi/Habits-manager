@@ -1,17 +1,20 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../Services/api";
+import { useUser } from "../User";
 
 const GroupsSubsContext = createContext();
 
 export const GroupsSubsProvider = ({ children }) => {
-  const token = JSON.parse(localStorage.getItem("@Habits:access"));
+  const { token } = useUser();
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
-    api
-      .get("/groups/subscriptions/", { headers: { Authorization: `Bearer ${token}` } })
-      .then(resp => setGroups(resp.data))
-      .catch(err => console.log(err));
+    if (token) {
+      api
+        .get("/groups/subscriptions/", { headers: { Authorization: `Bearer ${token}` } })
+        .then(resp => setGroups(resp.data))
+        .catch(err => console.log(err));
+    }
   }, [token]);
 
   return (
