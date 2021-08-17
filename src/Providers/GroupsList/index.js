@@ -21,7 +21,7 @@ export const GroupsListProvider = ({ children }) => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page])
+  }, [groupsList])
 
   return (
     <GroupsListContext.Provider value={{ groupsList }}>
