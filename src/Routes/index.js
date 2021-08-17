@@ -4,9 +4,9 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Dashboard from "../Pages/Dashboard";
-import Profile from "../Pages/Profile";
-import Groups from "../Pages/Groups";
+import UserGroups from "../Pages/UserGroups";
 import NotFound from "../Components/NotFound";
+import DiscoverGroups from "../Pages/DiscoverGroups";
 
 const Routes = () => {
   return (
@@ -23,12 +23,14 @@ const Routes = () => {
       <Route path="/dashboard">
         <Dashboard />
       </Route>
-      <Route path="/profile">
-        <Profile />
+      <Route path="/groups">
+        <UserGroups />
       </Route>
-      <Route exact path="/groups">
-        <Groups />
+      
+      <Route path="/discover">
+        <DiscoverGroups />
       </Route>
+
       <Route>
         <NotFound />
       </Route>

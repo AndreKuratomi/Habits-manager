@@ -29,6 +29,11 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  p {
+    font-size: 1rem;
+  }
+
   /* position: relative; */
 
   /* .msg-Home {
