@@ -16,12 +16,9 @@ import {
   GroupsDiv,
   ContainerHeader,
 } from "./styles";
-import { useUser } from "../../Providers/User";
 
 import ModalHabits from "../../Components/ModalHabits";
 import { useState } from "react";
-import { useAuth } from "../../Providers/Auth";
-import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
@@ -33,19 +30,11 @@ const Dashboard = () => {
     setmodalHabitsDisplay(false);
   };
 
-  // const { user } = useUser();
-  const { auth } = useAuth();
-
-  if (!auth) {
-    return <Redirect to="/" />;
-  }
-
   return (
     <>
       <ModalHabits display={modalHabitsDisplay} close={closeModal} />
       <Header />
       <MainContainer>
-
         <MenuDashboard>
           <DashboardMenu />
         </MenuDashboard>
@@ -68,7 +57,6 @@ const Dashboard = () => {
             <GroupsSubs />
           </GroupsDiv>
         </AsideContainer>
-        
       </MainContainer>
     </>
   );

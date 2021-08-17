@@ -7,7 +7,9 @@ import api from "../../Services/api";
 const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
-  const [id, setId] = useState('');
+  const [id, setId] = useState(
+    JSON.parse(localStorage.getItem("@Habits:userId")) || ""
+  );
 
   const submitLogin = (data) => {
     api
@@ -17,6 +19,8 @@ export const LoginProvider = ({ children }) => {
         const decoded = jwtDecode(access);
 
         setId(decoded.user_id);
+
+        localStorage.setItem("@Habits:userId", JSON.stringify(decoded.user_id));
         localStorage.setItem("@Habits:access", JSON.stringify(access));
       })
       .catch((_) => toast.error("Nome de Usuário ou Senha Incorreta!"));
