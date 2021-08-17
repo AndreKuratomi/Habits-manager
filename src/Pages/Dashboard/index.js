@@ -45,9 +45,11 @@ const Dashboard = () => {
       <ModalHabits display={modalHabitsDisplay} close={closeModal} />
       <Header />
       <MainContainer>
+
         <MenuDashboard>
           <DashboardMenu />
         </MenuDashboard>
+
         <ListsContainer>
           <ContainerHeader>
             <h1>Hábitos</h1>
@@ -57,6 +59,7 @@ const Dashboard = () => {
           {/* <ListActivities />
             <ListGoals /> */}
         </ListsContainer>
+
         <AsideContainer>
           <div>
             <UserCard />
@@ -65,6 +68,7 @@ const Dashboard = () => {
             <GroupsSubs />
           </GroupsDiv>
         </AsideContainer>
+        
       </MainContainer>
     </>
   );
