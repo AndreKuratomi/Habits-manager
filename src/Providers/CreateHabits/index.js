@@ -7,10 +7,6 @@ import jwtDecode from "jwt-decode";
 const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
-  // useEffect(() => {
-  //   api.get(`/users/${id}`).then().catch()
-  // }, [])
-
   const id = JSON.parse(localStorage.getItem("@Habits:userID"));
   const token = JSON.parse(localStorage.getItem("@Habits:access"));
 
