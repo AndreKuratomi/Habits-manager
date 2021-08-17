@@ -5,7 +5,7 @@ export const UserCardContainer = styled.div`
   color: var(--white);
   box-shadow: 2px 3px 17px 5px rgba(128, 201, 172, 0.6);
 
-  width: 200px;
+  width: 170px;
   height: 200px;
   border-radius: 15px;
 
@@ -22,6 +22,7 @@ export const UserCardContainer = styled.div`
   }
   svg {
     font-size: 1.3rem;
+    cursor: pointer;
   }
 `;
 
@@ -43,12 +44,12 @@ export const UserImage = styled.div`
 `;
 
 export const UpdateUserContainer = styled.form`
-  background-color: rgb(224, 144, 104, 0.6);
+  background-color: rgb(24, 24, 24, 0.6);
   position: absolute;
   top: 25px;
   right: -5px;
-  width: 150px;
-  height: 100px;
+  width: 170px;
+  height: 130px;
 
   padding: 15px;
   border-radius: 5px;
@@ -58,7 +59,7 @@ export const UpdateUserContainer = styled.form`
   align-items: center;
   justify-content: center;
   > svg {
-    color: var(--black);
+    color: var(--orange);
     font-size: 15px;
     position: absolute;
     top: 5px;
@@ -66,9 +67,24 @@ export const UpdateUserContainer = styled.form`
   }
   > input {
     width: 100%;
+    height: 25px;
+    padding-left: 1rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    border: 2px solid var(--green);
+    color: var(--light-green);
+    &::placeholder {
+      color: var(--light-green);
+    }
   }
   > button {
     width: 100%;
-    margin-top: 7px;
+    margin-top: 10px;
+    height: 25px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    top: 215px;
+    right: 0;
   }
 `;
