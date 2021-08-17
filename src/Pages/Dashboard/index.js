@@ -19,6 +19,7 @@ import {
 
 import ModalHabits from "../../Components/ModalHabits";
 import { useState } from "react";
+import { useUser } from "../../Providers/User";
 
 const Dashboard = () => {
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
@@ -34,7 +35,7 @@ const Dashboard = () => {
     <>
       <ModalHabits display={modalHabitsDisplay} close={closeModal} />
 
-      <Header isLogged></Header>
+      <Header isLogged />
 
       <MainContainer>
         <MenuDashboard>

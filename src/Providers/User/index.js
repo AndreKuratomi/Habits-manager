@@ -5,7 +5,7 @@ import { useLogin } from "../Login";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const { id } = useLogin()
+  const { id } = useLogin();
   const token = JSON.parse(localStorage.getItem("@Habits:access"));
   const [user, setUser] = useState({});
 
@@ -13,10 +13,10 @@ export const UserProvider = ({ children }) => {
     if (id !== "") {
       api
         .get(`/users/${id}/`)
-        .then(resp => {
+        .then((resp) => {
           setUser(resp.data);
         })
-        .catch(err => console.log(err))
+        .catch((err) => console.log(err));
     }
   }, [id]);
 
@@ -25,6 +25,6 @@ export const UserProvider = ({ children }) => {
       {children}
     </UserContext.Provider>
   );
-}
+};
 
 export const useUser = () => useContext(UserContext);
