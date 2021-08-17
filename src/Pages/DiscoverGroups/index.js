@@ -14,6 +14,7 @@ import {
   ContainerHeader,
 } from "./../Dashboard/styles";
 import { useGroupsList } from "../../Providers/GroupsList";
+import ModalGroup from "../../Components/ModalGroup";
 
 const DiscoverGroups = () => {
   const { groupsList } = useGroupsList();
@@ -31,6 +32,8 @@ const DiscoverGroups = () => {
   return (
     <>
       <Header isLogged></Header>
+
+      <ModalGroup display={modalHabitsDisplay} close={closeModal} />
 
       <MainContainer>
         <MenuDashboard>
