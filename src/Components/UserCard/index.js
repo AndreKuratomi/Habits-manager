@@ -1,13 +1,18 @@
 import { FaEdit } from "react-icons/fa";
-import { UserCardContainer } from "./styles";
-import ImgProfile from "../../Assets/charMale.png";
+
+import { useUser } from "../../Providers/User";
+import { UserCardContainer, UserImage } from "./styles";
 
 const UserCard = () => {
+  // const { user } = useUser();
+  // console.log(user.username[0]);
   return (
     <UserCardContainer>
-      <img src={ImgProfile} alt="ProfilePhoto" />
-      <h2>Username</h2>
-      <FaEdit />
+      {/* <UserImage>
+        <span>{user?.username[0]}</span>
+      </UserImage>
+      <h2>{user?.username}</h2>
+      <FaEdit /> */}
     </UserCardContainer>
   );
 };
