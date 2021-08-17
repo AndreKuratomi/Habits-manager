@@ -1,23 +1,24 @@
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 import api from "../../Services/api";
 
 const CardsContext = createContext();
 
-const ids =
-
 export const CardsProvider = ({ children }) => {
-  const something = (id) => {
+  const [habits, setHabits] = useState([]);
+
+  const getElements = () => {
     api
-      .get(`/habits/${id}`)
-      .then((response) => {
-        console.log(response);
+      .get("/habits/")
+      .then((items) => {
+        console.log(items);
+        // setHabits(items.results);
+        console.log(habits);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((_) => toast.error("Erro de conexão"));
   };
   return (
-    <CardsContext.Provider value={{ something }}>
+    <CardsContext.Provider value={{ getElements, habits }}>
       {children}
     </CardsContext.Provider>
   );

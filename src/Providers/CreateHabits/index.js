@@ -1,8 +1,7 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext } from "react";
 
 import api from "../../Services/api";
 import { toast } from "react-toastify";
-import jwtDecode from "jwt-decode";
 
 const HabitsContext = createContext();
 

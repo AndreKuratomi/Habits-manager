@@ -1,10 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../Services/api";
+import { useLogin } from "../Login";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const id = JSON.parse(localStorage.getItem("@Habits:userID")) || '';
+  const { id } = useLogin()
+  const token = JSON.parse(localStorage.getItem("@Habits:access"));
   const [user, setUser] = useState({});
 
   useEffect(() => {
@@ -12,11 +14,11 @@ export const UserProvider = ({ children }) => {
       api
         .get(`/users/${id}/`)
         .then(resp => {
-          setUser(resp.data)
+          setUser({ ...resp.data, token: token });
         })
         .catch(err => console.log(err))
     }
-  }, [id]);
+  }, [id, token]);
 
   return (
     <UserContext.Provider value={{ user }}>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-
 import { HeaderContainer } from "./styles";
+import ImgProfile from "../../Assets/charMale.png";
 
 const Header = ({ children }) => {
   return (
@@ -8,6 +8,8 @@ const Header = ({ children }) => {
       <Link to="/">
         <span>Habits</span>
       </Link>
+
+      <img src={ImgProfile} alt="ProfilePhoto" />
 
       <div>{children}</div>
     </HeaderContainer>
