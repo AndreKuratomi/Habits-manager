@@ -3,9 +3,7 @@ import styled from "styled-components";
 export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
-  /* padding: 3rem 1.5rem; */
 
   @media (min-width: 1024px) {
     flex-direction: row;
@@ -37,20 +35,19 @@ export const ListsContainer = styled.section`
   @media (min-width: 1024px) {
     width: 70%;
     border-radius: 10px;
-
   }
 `;
 
 export const ContainerHeader = styled.header`
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background: var(--dark-green);
-    color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: var(--dark-green);
+  color: var(--white);
 
-    @media (min-width: 1024px){
-      border-radius: 10px 10px 0 0;
-    }
+  @media (min-width: 1024px) {
+    border-radius: 10px 10px 0 0;
+  }
 `;
 
 export const AsideContainer = styled.aside`

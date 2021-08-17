@@ -1,17 +1,22 @@
 import { Link } from "react-router-dom";
 import { HeaderContainer } from "./styles";
-import ImgProfile from "../../Assets/charMale.png";
-
-const Header = ({ children }) => {
+import UserCard from "../UserCard";
+const Header = ({ children, isLogged = false, inDesktop = false }) => {
   return (
-    <HeaderContainer>
+    <HeaderContainer isLogged={isLogged} inDesktop={inDesktop}>
       <Link to="/">
         <span>Habits</span>
       </Link>
 
-      <img src={ImgProfile} alt="ProfilePhoto" />
-
-      <div>{children}</div>
+      {isLogged ? (
+        inDesktop ? (
+          <div>{children}</div>
+        ) : (
+          <UserCard />
+        )
+      ) : (
+        <div>{children}</div>
+      )}
     </HeaderContainer>
   );
 };

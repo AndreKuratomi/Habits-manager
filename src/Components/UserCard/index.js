@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { useLogin } from "../../Providers/Login";
 
-import { useUser } from "../../Providers/User";
 import api from "../../Services/api";
 import { UserCardContainer, UserImage } from "./styles";
 
