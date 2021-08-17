@@ -32,12 +32,18 @@ const ModalHabits = ({ display, close }) => {
     <BackGround modal={display}>
       <Container>
         <header>
-          <h1>Cadastre um novo habito a ser alcançado!</h1>
+          <h1>Cadastre um novo hábito a ser alcançado!</h1>
           <button onClick={() => close()}>X</button>
         </header>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
           <h3>Título</h3>
-          <input placeholder="Título" {...register("title")} />
+          <input
+            placeholder={
+              errors.title ? errors.title?.message : "Preencher título"
+            }
+            {...register("title")}
+          />
+
           <div>
             <h3>Categoria</h3>
             <select {...register("category")}>
