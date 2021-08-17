@@ -35,7 +35,6 @@ export const UserImage = styled.div`
 
   font-size: 5rem;
   span {
-    /* transform: translateY(-25px); */
     text-transform: uppercase;
   }
 `;
