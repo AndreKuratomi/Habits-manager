@@ -14,14 +14,14 @@ export const UserProvider = ({ children }) => {
       api
         .get(`/users/${id}/`)
         .then(resp => {
-          setUser({ ...resp.data, token: token });
+          setUser(resp.data);
         })
         .catch(err => console.log(err))
     }
-  }, [id, token]);
+  }, [id]);
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{ user, token }}>
       {children}
     </UserContext.Provider>
   );
