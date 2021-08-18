@@ -8,8 +8,10 @@ import Button from "../Button";
 import { BackGround, Container } from "./styles";
 
 import { useHabits } from "../../Providers/CreateHabits";
+import { useCards } from "../../Providers/Cards";
 
 const ModalHabits = ({ display, close }) => {
+  const { getElements } = useCards();
   const formSchema = yup.object().shape({
     title: yup.string().required("Preenchimento obrigatório!"),
     category: yup.string().required("Campo obrigatório!"),
@@ -29,7 +31,7 @@ const ModalHabits = ({ display, close }) => {
 
   const onSubmitFunction = (data) => {
     submitHabits(data);
-    // getElements()
+    getElements();
   };
 
   return (
