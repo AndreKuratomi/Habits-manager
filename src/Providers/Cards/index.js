@@ -11,9 +11,13 @@
 
 //   const getElements = () => {
 //     api
-//       .get("/habits/")
+//       .get("/habits/personal/", {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       })
 //       .then((items) => {
-//         setHabits([...habits, ...items.data.results]);
+//         setHabits([...habits, ...items.data]);
 //       })
 //       .catch((_) => toast.error("Erro de conexão"));
 //   };
@@ -23,7 +27,7 @@
 //     const filter = habits.filter((item) => item.id !== id);
 
 //     api
-//       .delete(`habits/${id}`, {
+//       .delete(`habits/${id}/`, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //         },
