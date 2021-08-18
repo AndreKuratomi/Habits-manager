@@ -28,7 +28,7 @@ const ListHabits = () => {
     const filter = habits.filter((item) => item.id !== id);
 
     api
-      .delete(`habits/${id}`, {
+      .delete(`/habits/${id}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

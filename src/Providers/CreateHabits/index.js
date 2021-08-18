@@ -6,11 +6,12 @@ import { toast } from "react-toastify";
 const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
-  const id = JSON.parse(localStorage.getItem("@Habits:userID"));
+  const id = JSON.parse(localStorage.getItem("@Habits:userId"));
   const token = JSON.parse(localStorage.getItem("@Habits:access"));
 
   const submitHabits = (data) => {
     const newObject = { ...data, user: id };
+    console.log(newObject);
 
     api
       .post("/habits/", newObject, {
