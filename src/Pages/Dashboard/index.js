@@ -39,10 +39,8 @@ const Dashboard = () => {
     setModal(false);
   };
 
-
   return (
     <>
-
       <Header isLogged />
 
       <MainContainer>
@@ -71,7 +69,7 @@ const Dashboard = () => {
                 <Button onClick={() => openModal()}>Novo</Button>
               </ContainerHeader>
               <div>
-                <GroupsSubs groups={groupsList} card="AllGroups"/>
+                <GroupsSubs groups={groupsList} card="AllGroups" />
               </div>
             </>
           ) : (
@@ -86,9 +84,7 @@ const Dashboard = () => {
               </ContainerHeader>
               <div>
                 <ListHabits />
-                <CardActivities />{" "}
-                {/*Deletar depois, ta aqui só pra ver como fica */}
-                <CardGoals />{" "}
+                {/* <CardGoals />{" "} */}
                 {/*Deletar depois, ta aqui só pra ver como fica */}
               </div>
             </>

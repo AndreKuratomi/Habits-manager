@@ -1,16 +1,18 @@
 import CardActivities from "../CardActivities";
-import { Lists } from "./styles";
+import { ListContainer } from "./styles";
 
 const ListActivities = ({ activities }) => {
   return (
-    <Lists>
+    <ListContainer>
       <h3>Atividades</h3>
-      <div className="user-activities">
+      <ul>
         {activities.map((card) => (
-          <CardActivities card={card} />
+          <li>
+            <CardActivities card={card} />
+          </li>
         ))}
-      </div>
-    </Lists>
+      </ul>
+    </ListContainer>
   );
 };
 

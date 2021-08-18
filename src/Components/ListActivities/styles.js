@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-export const Lists = styled.ul`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const ListContainer = styled.section`
+  h3 {
+    text-align: center;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
