@@ -21,6 +21,7 @@ import {
   ContainerHeader,
 } from "./styles";
 import CardActivities from "../../Components/CardActivities";
+import CardGoals from "../../Components/CardGoals";
 
 import BackgroundModal from "../../Components/BackgroundModal";
 
@@ -85,7 +86,10 @@ const Dashboard = () => {
               </ContainerHeader>
               <div>
                 <ListHabits />
-                <CardActivities />
+                <CardActivities />{" "}
+                {/*Deletar depois, ta aqui só pra ver como fica */}
+                <CardGoals />{" "}
+                {/*Deletar depois, ta aqui só pra ver como fica */}
               </div>
             </>
           )}
