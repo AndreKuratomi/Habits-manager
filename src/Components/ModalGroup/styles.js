@@ -4,6 +4,7 @@ export const Container = styled.article`
   display: flex;
   flex-direction: column;
   width: 50%;
+  height: 80vh;
   background: var(--white);
 
   header {

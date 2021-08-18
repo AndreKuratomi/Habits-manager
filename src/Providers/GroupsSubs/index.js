@@ -28,14 +28,19 @@ export const GroupsSubsProvider = ({ children }) => {
         },
       })
       .then((_) => {
-        // setNewGroup('newGroup');
+        getNewGroup(id)
         toast.success("Entrou com sucesso!");
       })
       .catch((_) => {
-        console.log(_)
         toast.error("Usuario já cadastrado")
       });
   };
+
+  const getNewGroup = (id) => {
+    return api
+      .get(`/groups/${id}/`)
+      .then(resp => setGroups([...groups, resp.data]));
+  }
 
   return (
     <GroupsSubsContext.Provider value={{ groups, setGroups, submitJoinGroup }}>

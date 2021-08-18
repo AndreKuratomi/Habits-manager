@@ -6,6 +6,7 @@ import UserCard from "../../Components/UserCard";
 import ListHabits from "../../Components/ListHabits";
 import GroupsSubs from "../../Components/GroupsSubs";
 import Button from "../../Components/Button";
+
 import ModalHabits from "../../Components/ModalNewHabit";
 import ModalGroups from "../../Components/ModalNewGroup";
 
@@ -19,6 +20,7 @@ import {
   AsideContainer,
   ContainerHeader,
 } from "./styles";
+import CardActivities from "../../Components/CardActivities";
 
 import BackgroundModal from "../../Components/BackgroundModal";
 
@@ -36,8 +38,10 @@ const Dashboard = () => {
     setModal(false);
   };
 
+
   return (
     <>
+
       <Header isLogged />
 
       <MainContainer>
@@ -81,6 +85,7 @@ const Dashboard = () => {
               </ContainerHeader>
               <div>
                 <ListHabits />
+                <CardActivities />
               </div>
             </>
           )}

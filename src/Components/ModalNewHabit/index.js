@@ -2,11 +2,14 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Container } from "./styles";
+import { ImCross } from "react-icons/im";
 import Button from "../Button";
-
 import { useHabits } from "../../Providers/CreateHabits";
+import { useCards } from "../../Providers/Cards";
 
 const ModalHabits = ({ close }) => {
+
+  const { getElements } = useCards();
   const formSchema = yup.object().shape({
     title: yup.string().required("Preenchimento obrigatório!"),
     category: yup.string().required("Campo obrigatório!"),
@@ -26,13 +29,14 @@ const ModalHabits = ({ close }) => {
 
   const onSubmitFunction = (data) => {
     submitHabits(data);
+    getElements();
   };
 
   return (
       <Container>
         <header>
-          <h1>Cadastre um novo hábito a ser alcançado!</h1>
-          <button onClick={() => close()}>X</button>
+          <h1>Cadastre um novo hábito</h1>
+          <ImCross onClick={() => close()} />
         </header>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
           <h3>Título</h3>
@@ -95,7 +99,9 @@ const ModalHabits = ({ close }) => {
               <option value="100">100%</option>
             </select>
           </div>
-          <Button type="submit">Cadastrar novo habito!</Button>
+          <Button type="submit" onClick={() => close()}>
+            Cadastrar novo habito!
+          </Button>
         </form>
       </Container>
   );
