@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { BackGround, Container } from "./styles";
 import Button from "../Button";
 
-import { useGroup } from "../../Providers/CreateGroup";
+import { useGroupsList } from "../../Providers/GroupsList";
 
 const ModalHabits = ({ display, close }) => {
   const formSchema = yup.object().shape({
@@ -19,7 +19,7 @@ const ModalHabits = ({ display, close }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const { submitGroup } = useGroup();
+  const { submitGroup } = useGroupsList();
 
   const onSubmitFunction = (data) => {
     submitGroup(data);
