@@ -1,12 +1,11 @@
-import { List } from "./styles";
-import CardHabits from "../CardHabits";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+
+import CardHabits from "../CardHabits";
+
 import api from "../../Services/api";
 
-// import { useCards } from "../../Providers/Cards";
-
-// const { getElements, habits } = useCards;
+import { List } from "./styles";
 
 const token = JSON.parse(localStorage.getItem("@Habits:access"));
 
@@ -21,13 +20,15 @@ const ListHabits = () => {
         },
       })
       .then((items) => {
-        console.log(items);
         setHabits([...habits, ...items.data]);
       })
       .catch((error) => console.log(error));
   };
 
-  useEffect(() => getElements(), []);
+  useEffect(() => {
+    getElements();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const deleteElements = (id) => {
     const filter = habits.filter((item) => item.id !== id);
