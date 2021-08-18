@@ -1,58 +1,72 @@
 import styled from "styled-components";
 
 export const BackGround = styled.div`
-  position: absolute;
-  z-index: 111;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
   display: ${(props) => (props.modal ? "flex" : "none")};
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
   background: rgba(0, 0, 0, 0.5);
 `;
 
 export const Container = styled.article`
+  background: var(--white);
   display: flex;
   flex-direction: column;
-  width: 30%;
-  background: var(--white);
-
-  header {
-    display: flex;
-    justify-content: space-between;
+  height: 550px;
+  max-height: 550px;
+  transform: translateY(2vh);
+  > header {
+    height: 50px;
+    width: 300px;
     background: var(--black);
     color: var(--white);
-    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
 
-    button {
-      background: var(--black);
-      color: var(--white);
-      border: 0;
+    > h1 {
+      font-size: 1.3rem;
+    }
+    > svg {
+      cursor: pointer;
+      color: var(--orange);
     }
   }
 
   form {
-    padding: 40px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
+    h3 {
+      font-size: 1rem;
+      width: 200px;
+      text-align: center;
+      margin: 20px 0 7px;
+      color: var(--orange);
+    }
     input,
     select {
-      padding: 10px;
+      padding-left: 15px;
       width: 200px;
+      height: 25px;
       border: 2px solid var(--orange);
-      margin: 20px;
       border-radius: 10px;
-    }
-
-    input {
-      width: 400px;
+      background-color: var(--white);
+      color: var(--black);
+      &::placeholder {
+        color: var(--black);
+      }
     }
 
     button {
       width: 200px;
-      align-self: flex-end;
-      margin: 15px 0;
+      margin: 20px 0;
       height: 40px;
       font-size: 1rem;
     }
