@@ -3,27 +3,15 @@ import styled from "styled-components";
 export const Container = styled.article`
   display: flex;
   flex-direction: column;
-  width: 50%;
-  height: 80vh;
+  width: 30%;
   background: var(--white);
 
   header {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     background: var(--black);
     color: var(--white);
     padding: 20px;
-
-    div {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        
-        &:first-child {
-            margin-bottom: 20px;
-        }
-    }
 
     button {
       background: var(--black);
@@ -32,8 +20,26 @@ export const Container = styled.article`
     }
   }
 
-  main {
-      padding: 20px;
-      min-height: 50vh;
+  form {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+
+    input,
+    select {
+      padding: 10px;
+      width: 100%;
+      border: 2px solid var(--orange);
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    button {
+      width: 200px;
+      align-self: flex-end;
+      margin: 15px 0;
+      height: 40px;
+      font-size: 1rem;
+    }
   }
 `;

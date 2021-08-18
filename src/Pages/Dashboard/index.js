@@ -6,8 +6,9 @@ import UserCard from "../../Components/UserCard";
 import ListHabits from "../../Components/ListHabits";
 import GroupsSubs from "../../Components/GroupsSubs";
 import Button from "../../Components/Button";
-import ModalHabits from "../../Components/ModalHabits";
-import ModalGroup from "../../Components/ModalGroup";
+
+import ModalHabits from "../../Components/ModalNewHabit";
+import ModalGroups from "../../Components/ModalNewGroup";
 
 import { useGroupsList } from "../../Providers/GroupsList";
 import { useGroupSubs } from "../../Providers/GroupsSubs";
@@ -22,32 +23,25 @@ import {
 import CardActivities from "../../Components/CardActivities";
 import CardGoals from "../../Components/CardGoals";
 
+import BackgroundModal from "../../Components/BackgroundModal";
+
 const Dashboard = () => {
-  const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
-  const [modalGroupDisplay, setmodalGroupDisplay] = useState(false);
+  const [modal, setModal] = useState(false);
   const [menuItem, setMenuItem] = useState("Habits");
 
   const { groupsList } = useGroupsList();
   const { groups } = useGroupSubs();
 
   const openModal = () => {
-    setmodalHabitsDisplay(true);
+    setModal(true);
   };
   const closeModal = () => {
-    setmodalHabitsDisplay(false);
+    setModal(false);
   };
 
-  const openModalGroup = () => {
-    setmodalGroupDisplay(true);
-  };
-  const closeModalGroup = () => {
-    setmodalGroupDisplay(false);
-  };
 
   return (
     <>
-      <ModalHabits display={modalHabitsDisplay} close={closeModal} />
-      <ModalGroup display={modalGroupDisplay} close={closeModalGroup} />
 
       <Header isLogged />
 
@@ -63,21 +57,29 @@ const Dashboard = () => {
                 <h1>Grupos inscritos</h1>
               </ContainerHeader>
               <div>
-                <GroupsSubs groups={groups} />
+                <GroupsSubs groups={groups} card="SubGroups" />
               </div>
             </>
           ) : menuItem === "AllGroups" ? (
             <>
+              <BackgroundModal
+                children={<ModalGroups close={closeModal} />}
+                modal={modal}
+              />
               <ContainerHeader>
                 <h1>Todos os Grupos</h1>
-                <Button onClick={() => openModalGroup()}>Novo</Button>
+                <Button onClick={() => openModal()}>Novo</Button>
               </ContainerHeader>
               <div>
-                <GroupsSubs groups={groupsList} />
+                <GroupsSubs groups={groupsList} card="AllGroups"/>
               </div>
             </>
           ) : (
             <>
+              <BackgroundModal
+                children={<ModalHabits close={closeModal} />}
+                modal={modal}
+              />
               <ContainerHeader>
                 <h1>Hábitos</h1>
                 <Button onClick={() => openModal()}>Novo</Button>

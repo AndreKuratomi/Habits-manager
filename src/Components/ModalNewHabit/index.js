@@ -1,16 +1,14 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Container } from "./styles";
 import { ImCross } from "react-icons/im";
-
 import Button from "../Button";
-
-import { BackGround, Container } from "./styles";
-
 import { useHabits } from "../../Providers/CreateHabits";
 import { useCards } from "../../Providers/Cards";
 
-const ModalHabits = ({ display, close }) => {
+const ModalHabits = ({ close }) => {
+
   const { getElements } = useCards();
   const formSchema = yup.object().shape({
     title: yup.string().required("Preenchimento obrigatório!"),
@@ -35,7 +33,6 @@ const ModalHabits = ({ display, close }) => {
   };
 
   return (
-    <BackGround modal={display}>
       <Container>
         <header>
           <h1>Cadastre um novo hábito</h1>
@@ -107,7 +104,6 @@ const ModalHabits = ({ display, close }) => {
           </Button>
         </form>
       </Container>
-    </BackGround>
   );
 };
 

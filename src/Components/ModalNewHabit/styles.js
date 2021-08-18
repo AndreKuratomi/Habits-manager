@@ -1,17 +1,5 @@
 import styled from "styled-components";
 
-export const BackGround = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  display: ${(props) => (props.modal ? "flex" : "none")};
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
-`;
-
 export const Container = styled.article`
   background: var(--white);
   display: flex;

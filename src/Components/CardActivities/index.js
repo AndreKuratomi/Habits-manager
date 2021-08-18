@@ -2,23 +2,15 @@ import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
 import Button from "../Button";
 import { Container } from "./style";
 
-const CardActivities = () => {
+const CardActivities = ( { card } ) => {
   return (
     <Container>
-      <header>
-        <h1>Atividade</h1>
-      </header>
-
-      <p>
-        <strong>Nome: </strong>
-        <br />
-        Viajar para a cidade vizinha
-      </p>
-      <p>
-        <strong>Data pra realizacao:</strong>
-        <br /> 01-10-2021
-      </p>
-
+      <header>Atividades</header>
+      <div>
+        {/* <p>{card.title}</p> */}
+        {/* <span>Data pra realizacao: {card.realization_time}</span> */}
+        {/* fazer a formatcao da data */}
+      </div>
       <div>
         <Button>
           <IoMdRefreshCircle />

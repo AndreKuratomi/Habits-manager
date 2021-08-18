@@ -2,7 +2,7 @@ import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
 import Button from "../Button";
 import { Container } from "./style";
 
-const CardGoals = () => {
+const CardGoals = ( { card } ) => {
   return (
     <Container>
       <header>
