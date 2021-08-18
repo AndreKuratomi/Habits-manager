@@ -1,65 +1,74 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin: 20px;
-  width: 200px;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+  width: 250px;
+  margin: 20px 0;
   border: 1px solid var(--black);
   background: var(--white);
+  color: var(--black);
   box-shadow: 8px 8px 0 -1px var(--black);
 
-  header {
-    width: 100%;
-    height: 40px;
-    font-size: 1.7rem;
-    padding: 0 15px;
-    color: var(--black);
-    border-bottom: 1px solid var(--black);
-    display: flex;
-    align-items: center;
-  }
+  > header {
+    padding: 15px;
+    background-color: var(--black);
+    color: var(--orange);
+    text-align: center;
 
-  h1 {
-    font-size: 1.2rem;
-    width: 90%;
-    margin: 10px 0;
-  }
-
-  p {
-    width: 80%;
-    text-align: left;
-    margin-top: 20px;
-    padding: 0 5px;
-    border-left: 3px solid var(--orange);
-    font-size: 1rem;
-
-    &:last-child {
-      margin-bottom: 20px;
+    > h1 {
+      font-size: 1.2rem;
     }
   }
 
-  div {
-    width: 90%;
-    height: 50px;
-    font-size: 1.2rem;
+  > .category {
+    margin: 10px;
+    margin-left: 20px;
+    height: 35px;
     display: flex;
-    flex-flow: row;
     align-items: center;
+    justify-content: space-between;
+    > h2 {
+      font-size: 1.1rem;
+    }
 
-    svg {
-      width: 46px;
-      height: 40px;
-      border-radius: 50%;
+    > svg {
+      width: 30px;
+      height: 30px;
       background: ${(card) =>
         card.achieved === true
           ? "rgba(0,255,0,0.1);"
           : "rgb(224, 145, 104, 0.3);"};
+      border-radius: 50%;
     }
   }
 
+  p {
+    margin-left: 20px;
+    border-left: 3px solid var(--orange);
+    padding-left: 5px;
+    &:nth-child(4) {
+      margin: 10px 0;
+      margin-left: 20px;
+    }
+  }
+  .buttons {
+    margin: 10px auto;
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+
+    button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        font-size: 2rem;
+      }
+    }
+  }
   @media (min-width: 1024px) {
-    margin: 30px;
   }
 `;
