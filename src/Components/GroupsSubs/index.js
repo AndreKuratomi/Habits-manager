@@ -1,9 +1,7 @@
 import { Container } from "./styles";
 import CardGroupSub from "../CardGroupSub";
-import { useGroupSubs } from "../../Providers/GroupsSubs";
 
-const GroupsSubs = () => {
-  const { groups } = useGroupSubs();
+const GroupsSubs = ({ groups }) => {
 
   return (
     <Container>

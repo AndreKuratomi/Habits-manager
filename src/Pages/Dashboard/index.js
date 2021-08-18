@@ -47,16 +47,15 @@ const Dashboard = () => {
             <h1>Hábitos</h1>
             <Button onClick={() => openModal()}>Novo</Button>
           </ContainerHeader>
-          <ListHabits />
+          <div>
+            <ListHabits />
+          </div>
         </ListsContainer>
 
         <AsideContainer>
           <div>
             <UserCard />
           </div>
-          <GroupsDiv>
-            <GroupsSubs />
-          </GroupsDiv>
         </AsideContainer>
       </MainContainer>
     </>

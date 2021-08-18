@@ -13,8 +13,11 @@ import {
   GroupsDiv,
   ContainerHeader,
 } from "./../Dashboard/styles";
+import { useGroupSubs } from "../../Providers/GroupsSubs";
 
 const UserGroups = () => {
+
+  const { groups } = useGroupSubs();
 
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
 
@@ -39,15 +42,15 @@ const UserGroups = () => {
             <h1>Grupos inscritos</h1>
             <Button onClick={() => openModal()}>Novo</Button>
           </ContainerHeader>
+          <div>
+            <GroupsSubs groups={groups} />
+          </div>
         </ListsContainer>
 
         <AsideContainer>
           <div>
             <UserCard />
           </div>
-          <GroupsDiv>
-            <GroupsSubs />
-          </GroupsDiv>
         </AsideContainer>
       </MainContainer>
     </>
