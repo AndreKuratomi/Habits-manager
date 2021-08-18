@@ -22,9 +22,7 @@ const Providers = ({ children }) => {
               <CardsProvider>
                 <GroupsListProvider>
                   <GroupProvider>
-                    <JoinGroupProvider>
-                      <GroupsSubsProvider>{children}</GroupsSubsProvider>
-                    </JoinGroupProvider>
+                    <GroupsSubsProvider>{children}</GroupsSubsProvider>
                   </GroupProvider>
                 </GroupsListProvider>
               </CardsProvider>
