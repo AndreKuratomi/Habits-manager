@@ -1,9 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../Services/api";
+import { toast } from "react-toastify";
+import { useUser } from "../User";
 
 const GroupsListContext = createContext();
 
 export const GroupsListProvider = ({ children }) => {
+  const { token } = useUser();
   const [groupsList, setGroupsList] = useState([]);
   const [page, setPage] = useState(1);
   const [nextPage, setNextPage] = useState("");
@@ -23,8 +26,22 @@ export const GroupsListProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [groupsList]);
 
+  const submitGroup = (data) => {
+    api
+      .post("/groups/", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((_) => {
+        toast.success("Grupo criado com sucesso!");
+      })
+      .catch((_) => toast.error("Falha ao cadastrar!"));
+  };
+
+
   return (
-    <GroupsListContext.Provider value={{ groupsList }}>
+    <GroupsListContext.Provider value={{ groupsList, submitGroup }}>
       {children}
     </GroupsListContext.Provider>
   );

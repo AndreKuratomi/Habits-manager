@@ -10,7 +10,6 @@ import { HabitsProvider } from "./CreateHabits";
 
 import { GroupsSubsProvider } from "./GroupsSubs";
 import { GroupsListProvider } from "./GroupsList";
-import { GroupProvider } from "./CreateGroup";
 
 const Providers = ({ children }) => {
   return (
@@ -22,9 +21,7 @@ const Providers = ({ children }) => {
               {/* <CardsProvider> */}
               {/* <DeleteProvider> */}
               <GroupsListProvider>
-                <GroupProvider>
-                  <GroupsSubsProvider>{children}</GroupsSubsProvider>
-                </GroupProvider>
+                <GroupsSubsProvider>{children}</GroupsSubsProvider>
               </GroupsListProvider>
               {/* </DeleteProvider> */}
               {/* </CardsProvider> */}
