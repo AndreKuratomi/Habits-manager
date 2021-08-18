@@ -34,7 +34,6 @@ export const GroupsListProvider = ({ children }) => {
         },
       })
       .then((resp) => {
-        console.log(resp.data)
         setGroupsList([...groupsList, resp.data])
         toast.success("Grupo criado com sucesso!");
       })
