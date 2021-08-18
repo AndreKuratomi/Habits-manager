@@ -1,42 +1,50 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin: 20px;
-  max-width: 500px;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+  width: 250px;
+  margin: 20px 0;
   border: 1px solid var(--black);
   background: var(--white);
+  color: var(--black);
   box-shadow: 8px 8px 0 -1px var(--black);
-  padding-bottom: 20px;
 
-  header {
-    width: 100%;
-    height: 60px;
+  > header {
+    padding: 15px;
+    background-color: var(--black);
+    color: var(--orange);
     text-align: center;
-    font-size: 1.7rem;
-    padding-top: 15px;
-    margin-bottom: 20px;
-    color: var(--black);
-    border-bottom: 1px solid var(--black);
+    margin-bottom: 10px;
+    > h1 {
+      font-size: 1.2rem;
+    }
   }
 
-  div {
+  > p {
+    margin-left: 20px;
     border-left: 3px solid var(--orange);
-    width: 90%;
-    margin-bottom: 15px;
-    p {
-      text-align: left;
-      padding: 0 5px;
-      font-size: 1.2rem;
-      font-weight: bold;
+    padding-left: 5px;
+    &:nth-child(3) {
+      margin: 10px 0;
+      margin-left: 20px;
     }
+  }
 
-    span {
-      width: 80%;
-      text-align: left;
-      padding: 0 10px;
+  > div {
+    margin: 10px auto;
+    width: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    > button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      > svg {
+        font-size: 2rem;
+      }
     }
   }
 `;

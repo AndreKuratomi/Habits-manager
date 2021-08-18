@@ -1,18 +1,34 @@
+import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
+import Button from "../Button";
 import { Container } from "./style";
 
 const CardGoals = () => {
   return (
     <Container>
-      <header>Metas</header>
+      <header>
+        <h1>Meta</h1>
+      </header>
+
+      <p>
+        <strong>Nome:</strong>
+        <br /> Emagrecer 10kg em 3 meses
+      </p>
+      <p>
+        <strong>Dificuldade:</strong>
+        <br /> Medio
+      </p>
+      <p>
+        <strong>Quantos fizeram:</strong>
+        <br /> 50
+      </p>
+
       <div>
-        <p>Nome da meta</p>
-        <p>Dificuldade: Medio</p>
-        <p>Quantos fizeram: 50</p>
-      </div>
-      <div>
-        <p>Nome da meta</p>
-        <p>Dificuldade: Medio</p>
-        <p>Quantos fizeram: 50</p>
+        <Button>
+          <IoMdRefreshCircle />
+        </Button>
+        <Button>
+          <IoMdRemoveCircle />
+        </Button>
       </div>
     </Container>
   );
