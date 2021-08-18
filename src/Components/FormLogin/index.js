@@ -13,7 +13,7 @@ import Input from "../Input";
 import Button from "../Button";
 
 import { useLogin } from "../../Providers/Login";
-import { useAuth } from "../../Providers/Auth";
+// import { useAuth } from "../../Providers/Auth";
 import { FormLoginContainer } from "./styles";
 
 const FormLogin = () => {
@@ -33,10 +33,10 @@ const FormLogin = () => {
   });
 
   const { submitLogin } = useLogin();
-  const { setAuth } = useAuth();
+  // const { setAuth } = useAuth();
 
   const submit = (data) => {
-    setAuth(true);
+    // setAuth(true);
     submitLogin(data);
   };
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { toast } from "react-toastify";
@@ -14,40 +14,30 @@ import Button from "../Button";
 import { UserCardContainer, UserImage, UpdateUserContainer } from "./styles";
 
 const UserCard = () => {
-  const { id } = useLogin();
-  const token = JSON.parse(localStorage.getItem("@Habits:access"));
-  const [user, setUser] = useState({});
+  const { user, setUser } = useLogin();
   const [show, setShow] = useState(false);
 
   const schema = yup.object().shape({
     username: yup.string(),
   });
 
-  useEffect(() => {
-    if (id !== "") {
-      api
-        .get(`/users/${id}/`)
-        .then((resp) => {
-          setUser({ ...resp.data, token: token });
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [id, token, user]);
-
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
 
   const handleUpdateProfile = (data) => {
+    console.log(data)
     api
-      .patch(`/users/${id}/`, data, {
+      .patch(`/users/${user.id}/`, data, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
       .then((_) => {
         toast.success("Nome alterado com sucesso");
         setShow(false);
+        setUser({ name: data.username, id: user.id, token: user.token });
+        localStorage.setItem("@Habits:user", JSON.stringify({ name: data.username, id: user.id, token: user.token }))
       })
       .catch((_) => toast.error("Nome já cadastrado"));
   };
@@ -55,10 +45,10 @@ const UserCard = () => {
   return (
     <UserCardContainer>
       <UserImage>
-        <span>{user.username ? user.username[0] : null}</span>
+        <span>{user.name ? user.name[0] : null}</span>
       </UserImage>
 
-      <h2>{user.username ? user.username : ""}</h2>
+      <h2>{user.name ? user.name : ""}</h2>
 
       <FaEdit onClick={() => setShow(true)} />
 
