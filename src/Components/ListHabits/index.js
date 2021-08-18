@@ -6,9 +6,10 @@ import { useCards } from "../../Providers/Cards";
 
 const ListHabits = () => {
   const { getElements, habits } = useCards();
-  console.log(habits);
 
-  useEffect(() => getElements(), []);
+  useEffect(() => {
+    getElements();
+  }, []);
 
   return (
     <List>
