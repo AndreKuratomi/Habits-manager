@@ -2,15 +2,10 @@ import { Container } from "./style";
 import { CgCheck } from "react-icons/cg";
 import { IoIosClose } from "react-icons/io";
 
-// import { useCards } from "../../Providers/Cards";
+import { useCards } from "../../Providers/Cards";
 
-// const { deleteElements, updateElements } = useCards;
-
-// import { useDelete } from "../../Providers/DeleteElements";
-
-// const { deleteElements, updateElements } = useDelete;
-
-const CardHabits = ({ card, deleteElements, updateElements }) => {
+const CardHabits = ({ card }) => {
+  const { deleteElements, updateElements } = useCards();
   return (
     <Container card={card}>
       <header>

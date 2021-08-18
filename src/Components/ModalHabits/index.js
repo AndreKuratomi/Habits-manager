@@ -29,6 +29,7 @@ const ModalHabits = ({ display, close }) => {
 
   const onSubmitFunction = (data) => {
     submitHabits(data);
+    // getElements()
   };
 
   return (
