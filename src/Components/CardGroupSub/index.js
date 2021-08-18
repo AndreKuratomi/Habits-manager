@@ -1,12 +1,12 @@
 import { Container } from "./styles";
-import { useJoinGroup } from "../../Providers/JoinGroup";
+import { useGroupSubs } from "../../Providers/GroupsSubs";
 
 const CardGroupSub = ({ group }) => {
   const { name, description } = group;
   const nam = name.length > 40 ? name.substring(0, 40) + '...' : name;
   const desc = description.length > 74 ? description.substring(0, 74) + '...' : description;
 
-  const { submitJoinGroup } = useJoinGroup();
+  const { submitJoinGroup } = useGroupSubs();
 
   return (
     <Container>

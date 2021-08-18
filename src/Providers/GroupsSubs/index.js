@@ -1,13 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../Services/api";
 import { useUser } from "../User";
+import { toast } from "react-toastify";
 
 const GroupsSubsContext = createContext();
 
 export const GroupsSubsProvider = ({ children }) => {
   const { token } = useUser();
   const [groups, setGroups] = useState([]);
-  const [newGroup, setNewGroup] = useState('');
 
   useEffect(() => {
     if (token) {
@@ -18,10 +18,27 @@ export const GroupsSubsProvider = ({ children }) => {
         .then((resp) => setGroups(resp.data))
         .catch((err) => console.log(err));
     }
-  }, [token, newGroup]);
+  }, [token]);
+
+  const submitJoinGroup = (id) => {
+    api
+      .post(`/groups/${id}/subscribe/`, null, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((_) => {
+        // setNewGroup('newGroup');
+        toast.success("Entrou com sucesso!");
+      })
+      .catch((_) => {
+        console.log(_)
+        toast.error("Usuario já cadastrado")
+      });
+  };
 
   return (
-    <GroupsSubsContext.Provider value={{ groups, setGroups, setNewGroup }}>
+    <GroupsSubsContext.Provider value={{ groups, setGroups, submitJoinGroup }}>
       {children}
     </GroupsSubsContext.Provider>
   );
