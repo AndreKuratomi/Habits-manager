@@ -1,14 +1,16 @@
-import {
-  FcHome,
-  FcReadingEbook,
-  FcConferenceCall,
-  FcBullish,
-} from "react-icons/fc";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
+import { HiOutlineUserGroup, HiOutlineHome } from "react-icons/hi";
+import { IoPersonOutline } from "react-icons/io5";
+import { useHistory } from "react-router-dom";
 
 import { Container, Button } from "./styles";
 
 const DashboardMenu = ({ setMenuItem }) => {
-  const handleHome = () => {};
+  const history = useHistory();
+
+  const handleHome = () => {
+    history.push("/");
+  };
 
   const handleHabits = () => {
     setMenuItem("Habits");
@@ -24,17 +26,17 @@ const DashboardMenu = ({ setMenuItem }) => {
 
   return (
     <Container>
-      <Button>
-        <FcHome />
+      <Button onClick={handleHome}>
+        <HiOutlineHome />
       </Button>
       <Button onClick={handleHabits}>
-        <FcReadingEbook />
+        <IoPersonOutline />
       </Button>
       <Button onClick={handleSubGroups}>
-        <FcConferenceCall />
+        <AiOutlineUsergroupAdd />
       </Button>
       <Button onClick={handleAllGroups}>
-        <FcBullish />
+        <HiOutlineUserGroup />
       </Button>
     </Container>
   );
