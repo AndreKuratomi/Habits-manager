@@ -10,6 +10,7 @@ import { CardsProvider } from "./Cards";
 import { GroupsSubsProvider } from "./GroupsSubs";
 import { GroupsListProvider } from "./GroupsList";
 import { GroupProvider } from "./CreateGroup";
+import { JoinGroupProvider } from "./JoinGroup";
 
 const Providers = ({ children }) => {
   return (
@@ -21,7 +22,9 @@ const Providers = ({ children }) => {
               <CardsProvider>
                 <GroupsListProvider>
                   <GroupProvider>
-                    <GroupsSubsProvider>{children}</GroupsSubsProvider>
+                    <JoinGroupProvider>
+                      <GroupsSubsProvider>{children}</GroupsSubsProvider>
+                    </JoinGroupProvider>
                   </GroupProvider>
                 </GroupsListProvider>
               </CardsProvider>

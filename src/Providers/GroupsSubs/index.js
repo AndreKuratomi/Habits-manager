@@ -7,6 +7,7 @@ const GroupsSubsContext = createContext();
 export const GroupsSubsProvider = ({ children }) => {
   const { token } = useUser();
   const [groups, setGroups] = useState([]);
+  const [newGroup, setNewGroup] = useState('');
 
   useEffect(() => {
     if (token) {
@@ -15,10 +16,10 @@ export const GroupsSubsProvider = ({ children }) => {
         .then(resp => setGroups(resp.data))
         .catch(err => console.log(err));
     }
-  }, [token]);
+  }, [token, newGroup]);
 
   return (
-    <GroupsSubsContext.Provider value={{ groups, setGroups }}>
+    <GroupsSubsContext.Provider value={{ groups, setGroups, setNewGroup }}>
       {children}
     </GroupsSubsContext.Provider>
   )
