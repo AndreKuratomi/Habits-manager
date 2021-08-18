@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { BackGround, Container } from "./styles";
+import { Container } from "./styles";
 import Button from "../Button";
 
 import { useHabits } from "../../Providers/CreateHabits";
 
-const ModalHabits = ({ display, close }) => {
+const ModalHabits = ({ close }) => {
   const formSchema = yup.object().shape({
     title: yup.string().required("Preenchimento obrigatório!"),
     category: yup.string().required("Campo obrigatório!"),
@@ -29,7 +29,6 @@ const ModalHabits = ({ display, close }) => {
   };
 
   return (
-    <BackGround modal={display}>
       <Container>
         <header>
           <h1>Cadastre um novo hábito a ser alcançado!</h1>
@@ -99,7 +98,6 @@ const ModalHabits = ({ display, close }) => {
           <Button type="submit">Cadastrar novo habito!</Button>
         </form>
       </Container>
-    </BackGround>
   );
 };
 

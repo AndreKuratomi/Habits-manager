@@ -18,7 +18,7 @@ export const Container = styled.div`
     font-size: 1.7rem;
     padding-top: 15px;
     margin-bottom: 20px;
-    color: var(--black);
+    color: var(--white);
     border-bottom: 1px solid var(--black);
   }
 

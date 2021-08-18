@@ -1,16 +1,13 @@
 import { Container } from "./style";
 
-const CardActivities = () => {
+const CardActivities = ( {card } ) => {
   return (
     <Container>
       <header>Atividades</header>
       <div>
-        <p>Nome da atividade</p>
-        <span>Data pra realizacao</span>
-      </div>
-      <div>
-        <p>Ler capitulo 10</p>
-        <span>Prazo: 12/08/2021</span>
+        <p>{card.title}</p>
+        <span>Data pra realizacao: {card.realization_time}</span>
+        {/* fazer a formatcao da data */}
       </div>
     </Container>
   );

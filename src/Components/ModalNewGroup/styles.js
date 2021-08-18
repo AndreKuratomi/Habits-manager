@@ -1,16 +1,5 @@
 import styled from "styled-components";
 
-export const BackGround = styled.div`
-  position: absolute;
-  z-index: 111;
-  display: ${(props) => (props.modal ? "flex" : "none")};
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-`;
-
 export const Container = styled.article`
   display: flex;
   flex-direction: column;
@@ -39,14 +28,10 @@ export const Container = styled.article`
     input,
     select {
       padding: 10px;
-      width: 200px;
+      width: 100%;
       border: 2px solid var(--orange);
       margin: 20px;
       border-radius: 10px;
-    }
-
-    input {
-      width: 400px;
     }
 
     button {

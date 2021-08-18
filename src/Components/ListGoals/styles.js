@@ -5,4 +5,5 @@ export const Lists = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;

@@ -1,18 +1,13 @@
 import { Container } from "./style";
 
-const CardGoals = () => {
+const CardGoals = ( { card } ) => {
   return (
     <Container>
       <header>Metas</header>
       <div>
-        <p>Nome da meta</p>
-        <p>Dificuldade: Medio</p>
-        <p>Quantos fizeram: 50</p>
-      </div>
-      <div>
-        <p>Nome da meta</p>
-        <p>Dificuldade: Medio</p>
-        <p>Quantos fizeram: 50</p>
+        <p>{card.title}</p>
+        <p>Dificuldade: {card.difficulty}</p>
+        <p>Quantos fizeram: {card.how_much_achieved}</p>
       </div>
     </Container>
   );
