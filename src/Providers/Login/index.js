@@ -1,14 +1,16 @@
 import { createContext, useContext, useState } from "react";
 import jwtDecode from "jwt-decode";
 import { toast } from "react-toastify";
+import { useAuth } from "../../Providers/Auth";
 
 import api from "../../Services/api";
 
 const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
-  const [id, setId] = useState(
-    JSON.parse(localStorage.getItem("@Habits:userId")) || ""
+  const { setAuth } = useAuth();
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("@Habits:user")) || {}
   );
 
   const submitLogin = (data) => {
@@ -18,8 +20,12 @@ export const LoginProvider = ({ children }) => {
         const { access } = resp.data;
         const decoded = jwtDecode(access);
 
-        setId(decoded.user_id);
+        setAuth(true);
 
+        setUser({ name: data.username, id: decoded.user_id, token: access });
+
+        localStorage.setItem("@Habits:user", JSON.stringify({ name: data.username, id: decoded.user_id, token: access }))
+        localStorage.setItem("@Habits:userName", JSON.stringify(data.username));
         localStorage.setItem("@Habits:userId", JSON.stringify(decoded.user_id));
         localStorage.setItem("@Habits:access", JSON.stringify(access));
       })
@@ -27,7 +33,7 @@ export const LoginProvider = ({ children }) => {
   };
 
   return (
-    <LoginContext.Provider value={{ submitLogin, id }}>
+    <LoginContext.Provider value={{ submitLogin, user, setUser }}>
       {children}
     </LoginContext.Provider>
   );
