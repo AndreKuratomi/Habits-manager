@@ -11,9 +11,11 @@ export const GroupsSubsProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       api
-        .get("/groups/subscriptions/", { headers: { Authorization: `Bearer ${token}` } })
-        .then(resp => setGroups(resp.data))
-        .catch(err => console.log(err));
+        .get("/groups/subscriptions/", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((resp) => setGroups(resp.data))
+        .catch((err) => console.log(err));
     }
   }, [token]);
 
@@ -21,7 +23,7 @@ export const GroupsSubsProvider = ({ children }) => {
     <GroupsSubsContext.Provider value={{ groups, setGroups }}>
       {children}
     </GroupsSubsContext.Provider>
-  )
-}
+  );
+};
 
 export const useGroupSubs = () => useContext(GroupsSubsContext);

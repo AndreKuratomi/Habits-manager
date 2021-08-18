@@ -44,7 +44,9 @@ const ModalHabits = ({ display, close }) => {
             <h3>Descrição</h3>
             <input
               placeholder={
-                errors.description ? errors.description?.message : "Preencher descrição"
+                errors.description
+                  ? errors.description?.message
+                  : "Preencher descrição"
               }
               {...register("description")}
             />

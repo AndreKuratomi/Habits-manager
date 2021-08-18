@@ -71,7 +71,7 @@ export const AsideContainer = styled.aside`
 
   @media (min-width: 1024px) {
     width: 20%;
-    
+
     div {
       display: flex;
     }

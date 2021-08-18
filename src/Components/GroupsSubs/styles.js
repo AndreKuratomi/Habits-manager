@@ -5,7 +5,7 @@ export const Container = styled.ul`
   max-height: 100%;
   padding: 10px;
   display: flex;
-  flex-flow: row  wrap;
+  flex-flow: row wrap;
   align-items: flex-start;
   justify-content: center;
 `;

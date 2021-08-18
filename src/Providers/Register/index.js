@@ -10,16 +10,15 @@ export const RegisterProvider = ({ children }) => {
       .post("/users/", data)
       .then((_) => {
         toast.success("Cadastro realizado com sucesso!");
-
       })
       .catch((_) => toast.error("Algo deu errado, tente novamente!"));
-  }
+  };
 
   return (
     <RegisterContext.Provider value={{ submitRegister }}>
       {children}
     </RegisterContext.Provider>
   );
-}
+};
 
 export const useRegister = () => useContext(RegisterContext);

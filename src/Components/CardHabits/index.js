@@ -2,7 +2,7 @@ import { Container } from "./style";
 import { CgCheck } from "react-icons/cg";
 import { IoIosClose } from "react-icons/io";
 
-import { useCards } from "../../Providers/Cards";
+// import { useCards } from "../../Providers/Cards";
 
 // const { deleteElements, updateElements } = useCards;
 

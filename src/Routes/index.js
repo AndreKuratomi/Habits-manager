@@ -26,7 +26,7 @@ const Routes = () => {
       <Route path="/groups">
         <UserGroups />
       </Route>
-      
+
       <Route path="/discover">
         <DiscoverGroups />
       </Route>
