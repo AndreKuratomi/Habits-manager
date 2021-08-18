@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { BackGround, Container } from "./styles";
+import { ImCross } from "react-icons/im";
+
 import Button from "../Button";
+
+import { BackGround, Container } from "./styles";
 
 import { useHabits } from "../../Providers/CreateHabits";
 
@@ -32,8 +35,8 @@ const ModalHabits = ({ display, close }) => {
     <BackGround modal={display}>
       <Container>
         <header>
-          <h1>Cadastre um novo hábito a ser alcançado!</h1>
-          <button onClick={() => close()}>X</button>
+          <h1>Cadastre um novo hábito</h1>
+          <ImCross onClick={() => close()} />
         </header>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
           <h3>Título</h3>
