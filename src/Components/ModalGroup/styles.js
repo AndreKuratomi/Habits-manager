@@ -1,39 +1,32 @@
 import styled from "styled-components";
 
 export const Container = styled.article`
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 80vh;
   background: var(--white);
-
+  width: 90%;
+  height: 80vh;
+  overflow: auto;
   header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     background: var(--black);
     color: var(--white);
     padding: 20px;
 
     div {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        
-        &:first-child {
-            margin-bottom: 20px;
-        }
-    }
+      display: flex;
+      justify-content: space-between;
 
-    button {
-      background: var(--black);
-      color: var(--white);
-      border: 0;
+      svg {
+        cursor: pointer;
+        color: var(--orange);
+      }
+
+      &:first-child {
+        margin-bottom: 10px;
+      }
     }
   }
 
   main {
-      padding: 20px;
-      min-height: 50vh;
+    padding: 20px;
+    min-height: 50vh;
   }
 `;
