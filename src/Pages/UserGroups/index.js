@@ -40,7 +40,6 @@ const UserGroups = () => {
         <ListsContainer>
           <ContainerHeader>
             <h1>Grupos inscritos</h1>
-            <Button onClick={() => openModal()}>Novo</Button>
           </ContainerHeader>
           <div>
             <GroupsSubs groups={groups} />
