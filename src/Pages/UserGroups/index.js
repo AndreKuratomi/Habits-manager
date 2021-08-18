@@ -2,7 +2,7 @@ import DashboardMenu from "../../Components/DashboardMenu";
 import Header from "../../Components/Header";
 import UserCard from "../../Components/UserCard";
 import GroupsSubs from "../../Components/GroupsSubs";
-import Button from "../../Components/Button";
+// import Button from "../../Components/Button";
 import { useState } from "react";
 
 import {
@@ -10,13 +10,12 @@ import {
   MenuDashboard,
   ListsContainer,
   AsideContainer,
-  GroupsDiv,
+  // GroupsDiv,
   ContainerHeader,
 } from "./../Dashboard/styles";
 import { useGroupSubs } from "../../Providers/GroupsSubs";
 
 const UserGroups = () => {
-
   const { groups } = useGroupSubs();
 
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);

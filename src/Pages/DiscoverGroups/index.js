@@ -10,7 +10,7 @@ import {
   MenuDashboard,
   ListsContainer,
   AsideContainer,
-  GroupsDiv,
+  // GroupsDiv,
   ContainerHeader,
 } from "./../Dashboard/styles";
 import { useGroupsList } from "../../Providers/GroupsList";
@@ -18,7 +18,7 @@ import ModalGroup from "../../Components/ModalGroup";
 
 const DiscoverGroups = () => {
   const { groupsList } = useGroupsList();
-  console.log(groupsList)
+  console.log(groupsList);
 
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
 
@@ -58,6 +58,6 @@ const DiscoverGroups = () => {
       </MainContainer>
     </>
   );
-}
+};
 
 export default DiscoverGroups;

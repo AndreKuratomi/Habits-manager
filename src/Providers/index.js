@@ -5,7 +5,8 @@ import { RegisterProvider } from "./Register";
 import { UserProvider } from "./User";
 
 import { HabitsProvider } from "./CreateHabits";
-import { CardsProvider } from "./Cards";
+// import { DeleteProvider } from "./DeleteElements";
+// import { CardsProvider } from "./Cards";
 
 import { GroupsSubsProvider } from "./GroupsSubs";
 import { GroupsListProvider } from "./GroupsList";
@@ -19,13 +20,15 @@ const Providers = ({ children }) => {
         <RegisterProvider>
           <UserProvider>
             <HabitsProvider>
-              <CardsProvider>
-                <GroupsListProvider>
-                  <GroupProvider>
-                    <GroupsSubsProvider>{children}</GroupsSubsProvider>
-                  </GroupProvider>
-                </GroupsListProvider>
-              </CardsProvider>
+              {/* <CardsProvider> */}
+              {/* <DeleteProvider> */}
+              <GroupsListProvider>
+                <GroupProvider>
+                  <GroupsSubsProvider>{children}</GroupsSubsProvider>
+                </GroupProvider>
+              </GroupsListProvider>
+              {/* </DeleteProvider> */}
+              {/* </CardsProvider> */}
             </HabitsProvider>
           </UserProvider>
         </RegisterProvider>

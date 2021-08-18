@@ -30,7 +30,6 @@ const DashboardMenu = () => {
         // onMouseOver={() => setMensage2(!mensage2)}
         // onMouseOut={() => setMensage2(!mensage2)}
         onClick={() => history.push("/dashboard")}
-
       >
         {/* {mensage2 && <p className="msg-Habits">Hábitos</p>} */}
 
@@ -56,7 +55,6 @@ const DashboardMenu = () => {
 
         <FcBullish />
       </Button>
-
     </Container>
   );
 };
