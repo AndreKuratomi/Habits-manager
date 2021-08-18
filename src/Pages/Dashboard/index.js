@@ -7,6 +7,7 @@ import ListHabits from "../../Components/ListHabits";
 import GroupsSubs from "../../Components/GroupsSubs";
 import Button from "../../Components/Button";
 import ModalHabits from "../../Components/ModalHabits";
+import ModalGroup from "../../Components/ModalGroup";
 
 import { useGroupsList } from "../../Providers/GroupsList";
 import { useGroupSubs } from "../../Providers/GroupsSubs";
@@ -21,6 +22,7 @@ import {
 
 const Dashboard = () => {
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
+  const [modalGroupDisplay, setmodalGroupDisplay] = useState(false);
   const [menuItem, setMenuItem] = useState("Habits");
 
   const { groupsList } = useGroupsList();
@@ -33,9 +35,17 @@ const Dashboard = () => {
     setmodalHabitsDisplay(false);
   };
 
+  const openModalGroup = () => {
+    setmodalGroupDisplay(true);
+  };
+  const closeModalGroup = () => {
+    setmodalGroupDisplay(false);
+  };
+
   return (
     <>
       <ModalHabits display={modalHabitsDisplay} close={closeModal} />
+      <ModalGroup display={modalGroupDisplay} close={closeModalGroup} />
 
       <Header isLogged />
 
@@ -58,7 +68,7 @@ const Dashboard = () => {
             <>
               <ContainerHeader>
                 <h1>Todos os Grupos</h1>
-                <Button onClick={() => openModal()}>Novo</Button>
+                <Button onClick={() => openModalGroup()}>Novo</Button>
               </ContainerHeader>
               <div>
                 <GroupsSubs groups={groupsList} />

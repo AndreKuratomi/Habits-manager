@@ -33,7 +33,9 @@ export const GroupsListProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((_) => {
+      .then((resp) => {
+        console.log(resp.data)
+        setGroupsList([...groupsList, resp.data])
         toast.success("Grupo criado com sucesso!");
       })
       .catch((_) => toast.error("Falha ao cadastrar!"));
