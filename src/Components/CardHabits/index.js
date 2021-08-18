@@ -5,11 +5,15 @@ import {
   IoMdRefreshCircle,
 } from "react-icons/io";
 
+import { useCards } from "../../Providers/Cards";
+
 import Button from "../Button";
 
 import { Container } from "./style";
 
-const CardHabits = ({ card, deleteElements, updateElements }) => {
+const CardHabits = ({ card }) => {
+  const { deleteElements, updateElements } = useCards();
+
   return (
     <Container card={card}>
       <header>
