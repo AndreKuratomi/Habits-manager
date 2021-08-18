@@ -15,11 +15,16 @@ const ListHabits = () => {
 
   const getElements = () => {
     api
-      .get("/habits/")
-      .then((items) => {
-        setHabits([...habits, ...items.data.results]);
+      .get("/habits/personal/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .catch((_) => toast.error("Erro de conexão"));
+      .then((items) => {
+        console.log(items);
+        setHabits([...habits, ...items.data]);
+      })
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => getElements(), []);
