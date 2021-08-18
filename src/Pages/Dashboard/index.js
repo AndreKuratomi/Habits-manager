@@ -19,6 +19,7 @@ import {
   AsideContainer,
   ContainerHeader,
 } from "./styles";
+import CardActivities from "../../Components/CardActivities";
 
 const Dashboard = () => {
   const [modalHabitsDisplay, setmodalHabitsDisplay] = useState(false);
@@ -82,6 +83,7 @@ const Dashboard = () => {
               </ContainerHeader>
               <div>
                 <ListHabits />
+                <CardActivities />
               </div>
             </>
           )}

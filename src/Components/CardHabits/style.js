@@ -41,7 +41,7 @@ export const Container = styled.div`
     }
   }
 
-  p {
+  > p {
     margin-left: 20px;
     border-left: 3px solid var(--orange);
     padding-left: 5px;
@@ -56,7 +56,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-evenly;
 
-    button {
+    > button {
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -64,11 +64,9 @@ export const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      svg {
+      > svg {
         font-size: 2rem;
       }
     }
-  }
-  @media (min-width: 1024px) {
   }
 `;
