@@ -1,4 +1,5 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useUser } from "../User";
 
 import api from "../../Services/api";
 import { toast } from "react-toastify";
@@ -6,27 +7,39 @@ import { toast } from "react-toastify";
 const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
-  const id = JSON.parse(localStorage.getItem("@Habits:userId"));
-  const token = JSON.parse(localStorage.getItem("@Habits:access"));
+  const { user, token } = useUser();
+  const [habits, setHabits] = useState([]);
+  console.log(user, token)
 
-  const submitHabits = (data) => {
-    const newObject = { ...data, user: id };
-    console.log(newObject);
-
+  useEffect(() => {
     api
-      .post("/habits/", newObject, {
+      .get("/habits/personal/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((_) => {
+      .then((items) => {
+        setHabits(items.data);
+      })
+      .catch((_) => toast.error("Erro de conexão"));
+  }, [token]);
+
+  const submitHabits = (data) => {
+    api
+      .post("/habits/", { ...data, user: user.id }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => {
+        setHabits([...habits, resp.data]);
         toast.success("Hábito cadastrado com sucesso!");
       })
       .catch((_) => toast.error("Falha ao cadastrar!"));
   };
 
   return (
-    <HabitsContext.Provider value={{ submitHabits }}>
+    <HabitsContext.Provider value={{ submitHabits, habits }}>
       {children}
     </HabitsContext.Provider>
   );
