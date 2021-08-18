@@ -2,7 +2,7 @@ import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
 import Button from "../Button";
 import { Container } from "./style";
 
-const CardGoals = ( { card } ) => {
+const CardGoals = ({ card }) => {
   return (
     <Container>
       <header>
@@ -11,15 +11,15 @@ const CardGoals = ( { card } ) => {
 
       <p>
         <strong>Nome:</strong>
-        <br /> Emagrecer 10kg em 3 meses
+        <br /> {card.title}
       </p>
       <p>
         <strong>Dificuldade:</strong>
-        <br /> Medio
+        <br /> {card.difficulty}
       </p>
       <p>
         <strong>Quantos fizeram:</strong>
-        <br /> 50
+        <br /> {card.how_much_achieved}
       </p>
 
       <div>
