@@ -21,7 +21,6 @@ export const CardsProvider = ({ children }) => {
       })
       .catch((_) => toast.error("Erro de conexão"));
   };
-  // melhor ficar numa ListsProvider????
 
   const deleteElements = (id) => {
     const filter = habits.filter((item) => item.id !== id);
@@ -36,12 +35,8 @@ export const CardsProvider = ({ children }) => {
       .catch((_) => toast.error("Erro de conexão"));
   };
 
-  const updateElements = () => {};
-
   return (
-    <CardsContext.Provider
-      value={{ habits, getElements, deleteElements, updateElements }}
-    >
+    <CardsContext.Provider value={{ habits, getElements, deleteElements }}>
       {children}
     </CardsContext.Provider>
   );
