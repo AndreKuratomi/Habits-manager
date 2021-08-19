@@ -24,6 +24,11 @@ export const Container = styled.div`
     margin-left: 20px;
     border-left: 3px solid var(--orange);
     padding-left: 5px;
+
+    span {
+      display: block;
+    }
+
     &:nth-child(3) {
       margin: 10px 0;
       margin-left: 20px;

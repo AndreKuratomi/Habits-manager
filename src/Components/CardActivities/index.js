@@ -30,6 +30,8 @@ const CardActivities = ({ activity }) => {
       .catch((err) => console.log(err));
   };
 
+  const date = `${activity.realization_time.slice(8,10)}/${activity.realization_time.slice(5,7)}/${activity.realization_time.slice(0,4)}`
+
   return (
     <Container>
       <BackgroundModal
@@ -41,7 +43,8 @@ const CardActivities = ({ activity }) => {
       </header>
       <p>{activity.title}</p>
       <p>
-        <strong>Data pra realizacao:</strong> {activity.realization_time}
+        <strong>Data pra realizacao:</strong>
+        <span>{date}</span>
       </p>
       <div className="buttons">
         <Button onClick={openModal}>
