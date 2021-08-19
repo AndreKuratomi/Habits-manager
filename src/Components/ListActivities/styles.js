@@ -24,9 +24,6 @@ export const ListContainer = styled.section`
       display: flex;
       justify-content: center;
 
-      div {
-        width: 80%;
-      }
     }
   }
 `;
