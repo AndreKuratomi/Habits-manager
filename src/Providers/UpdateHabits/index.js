@@ -14,7 +14,7 @@ export const UpdateProvider = ({ children }) => {
     console.log(token);
     api
       .patch(`/habits/${id}/`, data, {
-        header: {
+        headers: {
           Authorization: `Bearer ${token}`,
         },
       })
