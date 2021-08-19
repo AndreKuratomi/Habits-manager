@@ -29,7 +29,7 @@ export const Container = styled.div`
       margin-left: 20px;
     }
   }
-  > div {
+  > .buttons {
     margin: 10px auto;
     width: 150px;
     display: flex;
