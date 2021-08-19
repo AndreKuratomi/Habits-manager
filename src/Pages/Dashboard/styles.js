@@ -25,7 +25,6 @@ export const MenuDashboard = styled.aside`
 `;
 
 export const ListsContainer = styled.section`
-  height: 80vh;
   width: 100%;
   background-color: var(--green);
   display: flex;
@@ -41,6 +40,7 @@ export const ListsContainer = styled.section`
 
   @media (min-width: 1024px) {
     width: 70%;
+    height: 80vh;
     border-radius: 10px;
   }
 `;
