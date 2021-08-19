@@ -9,7 +9,6 @@ export const Container = styled.article`
   transform: translateY(2vh);
   > header {
     height: 50px;
-    /* width: 300px; */
     background: var(--black);
     color: var(--white);
     display: flex;
@@ -30,7 +29,11 @@ export const Container = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     h3 {
       font-size: 1rem;
       width: 200px;
@@ -41,19 +44,19 @@ export const Container = styled.article`
     input,
     select {
       padding-left: 15px;
-      width: 200px;
+      width: 150px;
       height: 25px;
       border: 2px solid var(--orange);
       border-radius: 10px;
       background-color: var(--white);
       color: var(--black);
-      &::placeholder {
+      text &::placeholder {
         color: var(--black);
       }
     }
 
     button {
-      width: 200px;
+      width: 170px;
       margin: 20px 0;
       height: 40px;
       font-size: 1rem;

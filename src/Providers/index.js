@@ -2,7 +2,6 @@ import { AuthProvider } from "./Auth";
 
 import { LoginProvider } from "./Login";
 import { RegisterProvider } from "./Register";
-// import { UserProvider } from "./User";
 
 import { HabitsProvider } from "./Habits";
 import { UpdateProvider } from "./UpdateHabits";
@@ -15,7 +14,6 @@ const Providers = ({ children }) => {
     <AuthProvider>
       <LoginProvider>
         <RegisterProvider>
-          {/* <UserProvider> */}
           <UpdateProvider>
             <HabitsProvider>
               <GroupsListProvider>
@@ -23,7 +21,6 @@ const Providers = ({ children }) => {
               </GroupsListProvider>
             </HabitsProvider>
           </UpdateProvider>
-          {/* </UserProvider> */}
         </RegisterProvider>
       </LoginProvider>
     </AuthProvider>
