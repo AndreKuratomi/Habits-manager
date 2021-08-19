@@ -4,9 +4,7 @@ export const Container = styled.article`
   background: var(--white);
   display: flex;
   flex-direction: column;
-  height: 550px;
-  max-height: 550px;
-  transform: translateY(2vh);
+
   > header {
     height: 50px;
     width: 300px;
@@ -47,6 +45,7 @@ export const Container = styled.article`
       border-radius: 10px;
       background-color: var(--white);
       color: var(--black);
+      margin: 10px 0;
       &::placeholder {
         color: var(--black);
       }
@@ -54,9 +53,29 @@ export const Container = styled.article`
 
     button {
       width: 200px;
-      margin: 20px 0;
+      margin: 30px 0;
       height: 40px;
       font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    width: 30%;
+    height: auto;
+
+    header {
+      width: 100%;
+    }
+
+    form {
+      h3 {
+        font-size: 1.2rem;
+      }
+      
+      input,
+      select {
+        height: 40px;
+      }
     }
   }
 `;
