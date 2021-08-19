@@ -1,30 +1,31 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
-import { useLogin } from "../Login";
+import { useUser } from "../User";
 
 const GroupsListContext = createContext();
 
 export const GroupsListProvider = ({ children }) => {
-  const { user } = useLogin();
+  const { user } = useUser();
   const [groupsList, setGroupsList] = useState([]);
   const [page, setPage] = useState(1);
   const [nextPage, setNextPage] = useState("");
 
   useEffect(() => {
-    if (nextPage !== null) {
-      api
-        .get(`/groups/?page=${page}`)
-        .then((resp) => {
-          setNextPage(resp.data.next);
-          setPage(page + 1);
-          setGroupsList([...groupsList, ...resp.data.results]);
-        })
-        .catch((err) => console.log(err));
+    if (user.token) {
+      if (nextPage !== null) {
+        api
+          .get(`/groups/?page=${page}`)
+          .then((resp) => {
+            setNextPage(resp.data.next);
+            setPage(page + 1);
+            setGroupsList([...groupsList, ...resp.data.results]);
+          })
+          .catch((err) => console.log(err));
+      }
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [groupsList]);
+  }, [groupsList, user]);
 
   const submitGroup = (data) => {
     api

@@ -12,8 +12,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import Input from "../Input";
 import Button from "../Button";
 
-import { useLogin } from "../../Providers/Login";
-// import { useAuth } from "../../Providers/Auth";
+import { useUser } from "../../Providers/User";
 import { FormLoginContainer } from "./styles";
 
 const FormLogin = () => {
@@ -32,11 +31,9 @@ const FormLogin = () => {
     resolver: yupResolver(schema),
   });
 
-  const { submitLogin } = useLogin();
-  // const { setAuth } = useAuth();
+  const { submitLogin } = useUser();
 
   const submit = (data) => {
-    // setAuth(true);
     submitLogin(data);
   };
 

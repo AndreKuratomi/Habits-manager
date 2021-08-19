@@ -1,6 +1,4 @@
-import { AuthProvider } from "./Auth";
-
-import { LoginProvider } from "./Login";
+import { UserProvider } from "./User";
 import { RegisterProvider } from "./Register";
 
 import { HabitsProvider } from "./Habits";
@@ -11,19 +9,17 @@ import { GroupsListProvider } from "./GroupsList";
 
 const Providers = ({ children }) => {
   return (
-    <AuthProvider>
-      <LoginProvider>
-        <RegisterProvider>
-          <UpdateProvider>
-            <HabitsProvider>
-              <GroupsListProvider>
-                <GroupsSubsProvider>{children}</GroupsSubsProvider>
-              </GroupsListProvider>
-            </HabitsProvider>
-          </UpdateProvider>
-        </RegisterProvider>
-      </LoginProvider>
-    </AuthProvider>
+    <UserProvider>
+      <RegisterProvider>
+        <UpdateProvider>
+          <HabitsProvider>
+            <GroupsListProvider>
+              <GroupsSubsProvider>{children}</GroupsSubsProvider>
+            </GroupsListProvider>
+          </HabitsProvider>
+        </UpdateProvider>
+      </RegisterProvider>
+    </UserProvider>
   );
 };
 

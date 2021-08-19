@@ -6,9 +6,8 @@ import { ImCross } from "react-icons/im";
 import Button from "../Button";
 import { Container } from "./styles";
 import api from "../../Services/api";
-import { useState } from "react";
 import { toast } from "react-toastify";
-import { useLogin } from "../../Providers/Login";
+import { useUser } from "../../Providers/User";
 
 const ModalNewActivity = ({ close, groupId, setActiv, activities }) => {
   const formSchema = yup.object().shape({
@@ -22,10 +21,10 @@ const ModalNewActivity = ({ close, groupId, setActiv, activities }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const { user } = useLogin();
+  const { user } = useUser();
 
   const onSubmitActivity = (data) => {
-    data.realization_time = `${data.realization_time.slice(6)}-${data.realization_time.slice(3,5)}-${data.realization_time.slice(0,2)}T15:00:00Z`;
+    data.realization_time = `${data.realization_time.slice(6)}-${data.realization_time.slice(3, 5)}-${data.realization_time.slice(0, 2)}T15:00:00Z`;
     createActivity(data);
     close();
   };

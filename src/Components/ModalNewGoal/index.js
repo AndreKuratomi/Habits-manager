@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ImCross } from "react-icons/im";
 import Button from "../Button";
 import { Container } from "./styles";
-import { useLogin } from "../../Providers/Login";
+import { useUser } from "../../Providers/User";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
 
@@ -22,7 +22,7 @@ const ModalNewGoal = ({ close, groupId, goals, setGoa }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const { user } = useLogin();
+  const { user } = useUser();
 
   const onSubmitGoal = (data) => {
     createGoal(data);

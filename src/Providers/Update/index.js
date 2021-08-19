@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import { useLogin } from "../Login";
+import { useUser } from "../User";
 import { toast } from "react-toastify";
 import api from "../../Services/api";
 
@@ -7,7 +7,7 @@ const UpdateContext = createContext();
 
 export const UpdateProvider = ({ children }) => {
   const [update, setUpdate] = useState({});
-  const { user } = useLogin();
+  const { user } = useUser();
 
   const updateElements = (id, data) => {
     api

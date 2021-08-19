@@ -4,7 +4,7 @@ import {
   IoMdRemoveCircle,
 } from "react-icons/io";
 import { toast } from "react-toastify";
-import { useLogin } from "../../Providers/Login";
+import { useUser } from "../../Providers/User";
 import api from "../../Services/api";
 import Button from "../Button";
 import { Container } from "./style";
@@ -14,7 +14,7 @@ import ModalPatchGoal from "../ModalPatchGoal";
 import { CgCheck } from "react-icons/cg";
 
 const CardGoals = ({ goal, goals, setGoa }) => {
-  const { user } = useLogin();
+  const { user } = useUser();
   const [modal, setModal] = useState(false);
 
   const openModal = () => {
@@ -37,7 +37,7 @@ const CardGoals = ({ goal, goals, setGoa }) => {
         setGoa(newGoals);
         toast.success("Meta Deletada");
       })
-      .catch((err) => console.log(err));
+      .catch((_) => toast.error("Não foi possivel deletar"));
   };
 
   return (

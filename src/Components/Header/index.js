@@ -2,13 +2,12 @@ import { Link } from "react-router-dom";
 import { HeaderContainer } from "./styles";
 import { useHistory } from "react-router-dom";
 import Button from "../Button";
-import { useAuth } from "../../Providers/Auth";
+import { useUser } from "../../Providers/User";
 import UserLogged from "../UserLogged";
 
 const Header = () => {
   const history = useHistory();
-
-  const { auth } = useAuth();
+  const { auth } = useUser();
 
   return (
     <HeaderContainer>

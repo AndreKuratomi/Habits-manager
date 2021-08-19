@@ -26,6 +26,7 @@ const ModalHabits = ({ close }) => {
 
   const onSubmitFunction = (data) => {
     submitHabits(data);
+    close();
   };
 
   return (
@@ -51,8 +52,6 @@ const ModalHabits = ({ close }) => {
             <option value="Sono">Sono</option>
             <option value="Atividade física">Atividade física</option>
           </select>
-          {/*
-          Planejamento diário (especifique) */}
         </div>
         <div>
           <h3>Frequencia</h3>

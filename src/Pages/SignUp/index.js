@@ -4,11 +4,11 @@ import FormRegister from "../../Components/FormRegister";
 import registerImg from "../../Assets/register.svg";
 
 import { RegisterContainer, Image, Content } from "./styles";
-import { useAuth } from "../../Providers/Auth";
+import { useUser } from "../../Providers/User";
 import { Redirect } from "react-router-dom";
 
 const SignUp = () => {
-  const { auth } = useAuth();
+  const { auth } = useUser();
 
   if (auth) {
     return <Redirect to="/dashboard" />;

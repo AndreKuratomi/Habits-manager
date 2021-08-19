@@ -1,16 +1,11 @@
-// import { useHistory } from "react-router-dom";
-
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
-// import Button from "../../Components/Button";
 
 import ImgHome1 from "../../Assets/HomeImg1.svg";
 
 import { HomeContainer } from "./styles";
 
 const Home = () => {
-  // const history = useHistory();
-
   return (
     <HomeContainer>
       <Header />
