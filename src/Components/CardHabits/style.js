@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 250px;
   margin: 20px 0;
-  border: 1px solid var(--black);
+  border: 3px solid var(--orange);
+  border-radius: 10px;
   background: var(--white);
   color: var(--black);
   box-shadow: 8px 8px 0 -1px var(--black);
@@ -13,7 +14,7 @@ export const Container = styled.div`
     background-color: var(--black);
     color: var(--orange);
     text-align: center;
-
+    border-radius: 6px 6px 0 0;
     > h1 {
       font-size: 1.2rem;
     }

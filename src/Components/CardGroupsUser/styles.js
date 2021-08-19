@@ -2,15 +2,35 @@ import styled from "styled-components";
 
 export const Container = styled.button`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 20vw;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 100vw;
   min-width: 200px;
   max-width: 280px;
-  min-height: 100px;
-  margin: 5px;
-  padding: 5px;
+  min-height: 125px;
+  margin: 20px;
   border-radius: 5px;
   background-color: var(--white);
   word-break: break-all;
+  border: 3px solid var(--orange);
+  border-radius: 10px;
+  box-shadow: 8px 8px 0 -1px var(--black);
+
+  h3 {
+    background-color: var(--black);
+    color: var(--orange);
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px 7px 0 0;
+  }
+
+  p {
+    margin: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    p {
+      font-size: 1.1rem;
+    }
+  }
 `;
