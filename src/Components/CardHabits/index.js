@@ -54,7 +54,7 @@ const CardHabits = ({ card }) => {
       </div>
 
       <BackgroundModal
-        children={<ModalPatch close={closePatchModal} />}
+        children={<ModalPatch close={closePatchModal} card={card} />}
         modal={patchModal}
       />
     </Container>
