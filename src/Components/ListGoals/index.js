@@ -1,15 +1,18 @@
 import CardGoals from "../CardGoals";
-import { Lists } from "./styles";
+import { ListGoalsContainer } from "./styles";
 
 const ListGoals = ({ goals }) => {
   return (
-    <Lists>
-      <div className="user-goals">
-        {goals.map((card) => (
-          <CardGoals card={card} />
+    <ListGoalsContainer>
+      <h3>Metas</h3>
+      <ul>
+        {goals.map((goal) => (
+          <li key={goal.id}>
+            <CardGoals card={goal} />
+          </li>
         ))}
-      </div>
-    </Lists>
+      </ul>
+    </ListGoalsContainer>
   );
 };
 
