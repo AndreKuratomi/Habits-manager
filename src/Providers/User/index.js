@@ -5,9 +5,11 @@ import { useLogin } from "../Login";
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const { id } = useLogin();
+  const id = useLogin();
   const token = JSON.parse(localStorage.getItem("@Habits:access"));
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("@Habits:user")) || {}
+  );
 
   useEffect(() => {
     if (id !== "") {

@@ -1,15 +1,10 @@
 import { List } from "./styles";
 import CardHabits from "../CardHabits";
-import { useEffect } from "react";
 
-import { useCards } from "../../Providers/Cards";
+import { useHabits } from "../../Providers/Habits";
 
 const ListHabits = () => {
-  const { getElements, habits } = useCards();
-
-  useEffect(() => {
-    getElements();
-  }, []);
+  const { habits } = useHabits();
 
   return (
     <List>

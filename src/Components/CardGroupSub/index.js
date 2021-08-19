@@ -2,18 +2,26 @@ import { useGroupSubs } from "../../Providers/GroupsSubs";
 
 import Button from "../Button";
 
-import { Container } from "./styles";
+import { Container, Header } from "./styles";
 
 const CardGroupSub = ({ group }) => {
-  const { name, description } = group;
+  const { name, description, activities, goals, users_on_group } = group;
+
   const { submitJoinGroup } = useGroupSubs();
+
+  const desc = description.length > 82 ? description.substring(0, 82) + "..." : description;
 
   return (
     <Container>
-      <h3>
-        <span>{name}</span>
-      </h3>
-      <p>{description}</p>
+      <Header>
+        <p>{name} </p>
+      </Header>
+      <p>{desc}</p>
+      <div>
+        <p>Atividades: <span>{activities.length}</span></p>
+        <p>Metas: <span>{goals.length}</span></p>
+        <p>Membros: <span>{users_on_group.length}</span></p>
+      </div>
       <Button onClick={() => submitJoinGroup(group.id)}>Entrar</Button>
     </Container>
   );
