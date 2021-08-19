@@ -4,9 +4,21 @@ import { useLogin } from "../../Providers/Login";
 import api from "../../Services/api";
 import Button from "../Button";
 import { Container } from "./style";
+import BackgroundModal from "../BackgroundModal";
+import { useState } from "react";
+import ModalPatchGoal from "../ModalPatchGoal";
 
 const CardGoals = ({ goal }) => {
   const { user } = useLogin();
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(true);
+  };
+
+  const closeModal = () => {
+    setModal(false);
+  };
 
   const handleDeleteGoal = (id) => {
     api
@@ -21,6 +33,10 @@ const CardGoals = ({ goal }) => {
 
   return (
     <Container>
+      <BackgroundModal
+        children={<ModalPatchGoal close={closeModal} goal={goal} />}
+        modal={modal}
+      />
       <header>
         <h1>Meta</h1>
       </header>
@@ -38,8 +54,8 @@ const CardGoals = ({ goal }) => {
         <br /> {goal.how_much_achieved}
       </p>
 
-      <div>
-        <Button>
+      <div className="buttons">
+        <Button onClick={openModal}>
           <IoMdRefreshCircle />
         </Button>
         <Button onClick={() => handleDeleteGoal(goal.id)}>

@@ -9,9 +9,6 @@ export const UpdateProvider = ({ children }) => {
   const [update, setUpdate] = useState({});
 
   const updateElements = (id, data) => {
-    console.log(id);
-    console.log(data);
-    console.log(token);
     api
       .patch(`/habits/${id}/`, data, {
         headers: {
@@ -22,8 +19,21 @@ export const UpdateProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+  const updateGoal = (id, data) => {
+    api
+      .patch(`/goals/${id}/`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => console.log(resp))
+      .catch((err) => console.log(err));
+  };
+
   return (
-    <UpdateContext.Provider value={{ updateElements, update, setUpdate }}>
+    <UpdateContext.Provider
+      value={{ updateElements, update, setUpdate, updateGoal }}
+    >
       {children}
     </UpdateContext.Provider>
   );

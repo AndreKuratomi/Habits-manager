@@ -10,7 +10,7 @@ import {
 import { useHabits } from "../../Providers/Habits";
 
 import Button from "../Button";
-import ModalPatch from "../ModalPatch";
+import ModalPatchHabit from "../ModalPatchHabit";
 import BackgroundModal from "../BackgroundModal";
 
 import { Container } from "./style";
@@ -54,7 +54,7 @@ const CardHabits = ({ card }) => {
       </div>
 
       <BackgroundModal
-        children={<ModalPatch close={closePatchModal} card={card} />}
+        children={<ModalPatchHabit close={closePatchModal} card={card} />}
         modal={patchModal}
       />
     </Container>
