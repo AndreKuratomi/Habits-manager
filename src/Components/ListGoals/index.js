@@ -5,7 +5,7 @@ import CardGoals from "../CardGoals";
 import ModalNewGoal from "../ModalNewGoal";
 import { ListGoalsContainer } from "./styles";
 
-const ListGoals = ({ goals }) => {
+const ListGoals = ({ goals, groupId }) => {
   const [modal, setModal] = useState(false);
 
   const openModal = () => {
@@ -18,7 +18,7 @@ const ListGoals = ({ goals }) => {
   return (
     <ListGoalsContainer>
       <BackgroundModal
-        children={<ModalNewGoal close={closeModal} />}
+        children={<ModalNewGoal close={closeModal} groupId={groupId} />}
         modal={modal}
       />
       <h3>Metas</h3>
@@ -26,7 +26,7 @@ const ListGoals = ({ goals }) => {
       <ul>
         {goals.map((goal) => (
           <li key={goal.id}>
-            <CardGoals card={goal} />
+            <CardGoals goal={goal} />
           </li>
         ))}
       </ul>

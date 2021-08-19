@@ -1,32 +1,77 @@
-import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
+import {
+  IoIosClose,
+  IoMdRefreshCircle,
+  IoMdRemoveCircle,
+} from "react-icons/io";
+import { toast } from "react-toastify";
+import { useLogin } from "../../Providers/Login";
+import api from "../../Services/api";
 import Button from "../Button";
 import { Container } from "./style";
+import BackgroundModal from "../BackgroundModal";
+import { useState } from "react";
+import ModalPatchGoal from "../ModalPatchGoal";
+import { CgCheck } from "react-icons/cg";
 
-const CardGoals = ({ card }) => {
+const CardGoals = ({ goal }) => {
+  const { user } = useLogin();
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(true);
+  };
+
+  const closeModal = () => {
+    setModal(false);
+  };
+
+  const handleDeleteGoal = (id) => {
+    api
+      .delete(`/goals/${id}/`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((_) => toast.success("Meta Deletada"))
+      .catch((err) => console.log(err));
+  };
+
   return (
-    <Container>
+    <Container goal={goal}>
+      <BackgroundModal
+        children={<ModalPatchGoal close={closeModal} goal={goal} />}
+        modal={modal}
+      />
       <header>
         <h1>Meta</h1>
       </header>
 
+      <div className="achieved">
+        {goal.achieved === true ? (
+          <CgCheck color="var(--green)" />
+        ) : (
+          <IoIosClose color="var(--orange)" />
+        )}
+      </div>
+
       <p>
         <strong>Nome:</strong>
-        <br /> {card.title}
+        <br /> {goal.title}
       </p>
       <p>
         <strong>Dificuldade:</strong>
-        <br /> {card.difficulty}
+        <br /> {goal.difficulty}
       </p>
       <p>
         <strong>Quantos fizeram:</strong>
-        <br /> {card.how_much_achieved}
+        <br /> {goal.how_much_achieved}
       </p>
 
-      <div>
-        <Button>
+      <div className="buttons">
+        <Button onClick={openModal}>
           <IoMdRefreshCircle />
         </Button>
-        <Button>
+        <Button onClick={() => handleDeleteGoal(goal.id)}>
           <IoMdRemoveCircle />
         </Button>
       </div>

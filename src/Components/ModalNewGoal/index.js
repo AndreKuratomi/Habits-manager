@@ -5,11 +5,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ImCross } from "react-icons/im";
 import Button from "../Button";
 import { Container } from "./styles";
+import { useLogin } from "../../Providers/Login";
+import api from "../../Services/api";
+import { toast } from "react-toastify";
 
-const ModalNewGoal = ({ close }) => {
+const ModalNewGoal = ({ close, groupId }) => {
   const formSchema = yup.object().shape({
     title: yup.string().required("Preenchimento obrigatório!"),
     difficulty: yup.string().required("Campo obrigatório!"),
+    how_much_achieved: yup.number().required("Campo obrigatório"),
   });
 
   const {
@@ -18,8 +22,25 @@ const ModalNewGoal = ({ close }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const onSubmitFunction = (data) => {
-    console.log(data);
+  const { user } = useLogin();
+
+  const onSubmitGoal = (data) => {
+    createGoal(data);
+  };
+
+  const createGoal = (data) => {
+    api
+      .post(
+        `/goals/`,
+        { ...data, group: groupId },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      )
+      .then((_) => toast.success("Meta Cadastrada"))
+      .catch((_) => toast.error("Erro ao cadastrar"));
   };
 
   return (
@@ -28,7 +49,7 @@ const ModalNewGoal = ({ close }) => {
         <h1>Cadastre uma nova Meta</h1>
         <ImCross onClick={() => close()} />
       </header>
-      <form onSubmit={handleSubmit(onSubmitFunction)}>
+      <form onSubmit={handleSubmit(onSubmitGoal)}>
         <h3>Título</h3>
         <input
           placeholder={
@@ -45,6 +66,16 @@ const ModalNewGoal = ({ close }) => {
           <option value="Muito difícil">Muito difícil</option>
         </select>
 
+        <h3>Quanto Alcançado</h3>
+        <input
+          type="number"
+          placeholder={
+            errors.how_much_achieved
+              ? errors.how_much_achieved?.message
+              : "0 - 100"
+          }
+          {...register("how_much_achieved")}
+        />
         <Button type="submit" onClick={() => close()}>
           Cadastrar nova Meta!
         </Button>

@@ -1,20 +1,18 @@
-import { useState } from "react";
 import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
 import { toast } from "react-toastify";
+import { useLogin } from "../../Providers/Login";
 import api from "../../Services/api";
 import Button from "../Button";
 import { Container } from "./style";
 
 const CardActivities = ({ activity }) => {
-  const [token] = useState(
-    JSON.parse(localStorage.getItem("@Habits:access")) || ""
-  );
+  const { user } = useLogin();
 
   const handleDeleteActivity = (id) => {
     api
       .delete(`/activities/${id}/`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
       .then((_) => toast.success("Atividade Deletada"))

@@ -17,7 +17,7 @@ const Login = () => {
 
   return (
     <>
-      <Header />
+      <Header isLogged />
       <LoginContainer>
         <Content>
           <FormLogin />

@@ -8,9 +8,8 @@ import GroupsSubs from "../../Components/GroupsSubs";
 import Button from "../../Components/Button";
 
 import ModalHabits from "../../Components/ModalNewHabit";
-import ModalGroups from "../../Components/ModalNewGroup";
-import ModalPatch from "../../Components/ModalPatch";
-
+import ModalNewGroup from "../../Components/ModalNewGroup";
+// import ModalPatch from "../../Components/ModalPatch";
 import { useGroupsList } from "../../Providers/GroupsList";
 import { useGroupSubs } from "../../Providers/GroupsSubs";
 
@@ -23,13 +22,11 @@ import {
 } from "./styles";
 
 import BackgroundModal from "../../Components/BackgroundModal";
-import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
   const [modal, setModal] = useState(false);
   const [menuItem, setMenuItem] = useState("");
 
-  const history = useHistory();
 
   const { groupsList } = useGroupsList();
   const { groups } = useGroupSubs();
@@ -41,16 +38,9 @@ const Dashboard = () => {
     setModal(false);
   };
 
-  const handleLogout = () => {
-    localStorage.clear();
-    history.push("/");
-    window.location.reload();
-  };
-
   return (
     <>
-      <Header isLogged />
-      <Button onClick={handleLogout}>Logout</Button>
+      <Header />
       <MainContainer>
         <MenuDashboard>
           <DashboardMenu setMenuItem={setMenuItem} />
@@ -69,7 +59,7 @@ const Dashboard = () => {
           ) : menuItem === "AllGroups" ? (
             <>
               <BackgroundModal
-                children={<ModalGroups close={closeModal} />}
+                children={<ModalNewGroup close={closeModal} />}
                 modal={modal}
               />
               <ContainerHeader>

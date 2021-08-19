@@ -7,7 +7,7 @@ import { ImCross } from "react-icons/im";
 
 import { useGroupsList } from "../../Providers/GroupsList";
 
-const ModalGroups = ({ close }) => {
+const ModalNewGroup = ({ close }) => {
   const formSchema = yup.object().shape({
     name: yup.string().required("Preenchimento obrigatório!"),
     description: yup.string().required("Campo obrigatório!"),
@@ -35,9 +35,7 @@ const ModalGroups = ({ close }) => {
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <h3>Título</h3>
         <input
-          placeholder={
-            errors.title ? errors.title?.message : "Preencher Nome"
-          }
+          placeholder={errors.title ? errors.title?.message : "Preencher Nome"}
           {...register("name")}
         />
         <div>
@@ -71,4 +69,4 @@ const ModalGroups = ({ close }) => {
   );
 };
 
-export default ModalGroups;
+export default ModalNewGroup;

@@ -2,6 +2,7 @@ import { Container } from "./styles";
 import { useState } from "react";
 import BackgroundModal from "./../BackgroundModal";
 import ModalGroup from "../ModalGroup";
+import { Header } from "../CardGroupSub/styles";
 
 const CardGroupsUser = ({ group }) => {
   const { name, description } = group;
