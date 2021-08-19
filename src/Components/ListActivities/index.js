@@ -5,7 +5,7 @@ import CardActivities from "../CardActivities";
 import ModalNewActivity from "../ModalNewActivity";
 import { ListContainer } from "./styles";
 
-const ListActivities = ({ activities }) => {
+const ListActivities = ({ activities, groupId }) => {
   const [modal, setModal] = useState(false);
 
   const openModal = () => {
@@ -18,7 +18,7 @@ const ListActivities = ({ activities }) => {
   return (
     <ListContainer>
       <BackgroundModal
-        children={<ModalNewActivity close={closeModal} />}
+        children={<ModalNewActivity close={closeModal} groupId={groupId} />}
         modal={modal}
       />
       <h3>Atividades</h3>
@@ -26,7 +26,7 @@ const ListActivities = ({ activities }) => {
       <ul>
         {activities.map((activity) => (
           <li key={activity.id}>
-            <CardActivities card={activity} />
+            <CardActivities activity={activity} />
           </li>
         ))}
       </ul>
