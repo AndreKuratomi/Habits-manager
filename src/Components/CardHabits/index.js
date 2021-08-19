@@ -11,6 +11,7 @@ import { useHabits } from "../../Providers/Habits";
 
 import Button from "../Button";
 import ModalPatch from "../ModalPatch";
+import BackgroundModal from "../BackgroundModal";
 
 import { Container } from "./style";
 
@@ -51,13 +52,11 @@ const CardHabits = ({ card }) => {
           <IoMdRemoveCircle />
         </Button>
       </div>
-      {patchModal === true ? (
-        <>
-          <ModalPatch close={closePatchModal} card={card} />
-        </>
-      ) : (
-        <></>
-      )}
+
+      <BackgroundModal
+        children={<ModalPatch close={closePatchModal} />}
+        modal={patchModal}
+      />
     </Container>
   );
 };
