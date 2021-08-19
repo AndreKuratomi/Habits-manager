@@ -26,16 +26,6 @@ const Footer = () => {
     },
     {
       id: 3,
-      name: "Guilherme Barreto",
-      img: "https://avatars.githubusercontent.com/u/33358133?v=4",
-      social: {
-        linkedin: "https://www.linkedin.com/in/guilherme-barreto-silva",
-        github: "https://github.com/guibarsi",
-        instagram: "https://www.instagram.com/guibarretim/",
-      },
-    },
-    {
-      id: 4,
       name: "Miguel Maurer",
       img: "https://avatars.githubusercontent.com/u/79239268?v=4",
       social: {
@@ -45,7 +35,7 @@ const Footer = () => {
       },
     },
     {
-      id: 5,
+      id: 4,
       name: "Rodrigo Diniz",
       img: "https://media-exp1.licdn.com/dms/image/C4E03AQEer_S0wkLJKw/profile-displayphoto-shrink_800_800/0/1624217655629?e=1634774400&v=beta&t=1Rie05qcy8tViWvkmHMjK1DSadxH7NreXSHDde_4Vrs",
       social: {
