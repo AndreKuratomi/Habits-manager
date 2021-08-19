@@ -22,10 +22,13 @@ import {
 } from "./styles";
 
 import BackgroundModal from "../../Components/BackgroundModal";
+import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
   const [modal, setModal] = useState(false);
   const [menuItem, setMenuItem] = useState("");
+
+  const history = useHistory();
 
   const { groupsList } = useGroupsList();
   const { groups } = useGroupSubs();
@@ -37,10 +40,16 @@ const Dashboard = () => {
     setModal(false);
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    history.push("/");
+    window.location.reload();
+  };
+
   return (
     <>
       <Header isLogged />
-
+      <Button onClick={handleLogout}>Logout</Button>
       <MainContainer>
         <MenuDashboard>
           <DashboardMenu setMenuItem={setMenuItem} />
