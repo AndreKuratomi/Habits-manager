@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Container } from "./styles";
+import { ImCross } from "react-icons/im";
 import Button from "../Button";
 
 import { useUpdate } from "../../Providers/UpdateHabits";
@@ -12,11 +13,9 @@ const ModalPatch = ({ close, card }) => {
     how_much_achieved: yup.number().required("Campo obrigatório!"),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(formSchema) });
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(formSchema),
+  });
 
   const { updateElements } = useUpdate();
 
@@ -28,7 +27,7 @@ const ModalPatch = ({ close, card }) => {
     <Container>
       <header>
         <h1>Atualize</h1>
-        <button onClick={() => close()}>X</button>
+        <ImCross onClick={() => close()} />
       </header>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <div>
