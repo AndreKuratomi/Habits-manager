@@ -17,7 +17,7 @@ export const UpdateProvider = ({ children }) => {
         },
       })
       .then((_) => toast.success("Hábito atualizado com sucesso!"))
-      .catch((_) => toast.error("Erro de conexão"));
+      .catch((_) => toast.error("Erro ao Atualizar Hábito"));
   };
 
   const updateGoal = (id, data) => {
@@ -31,9 +31,20 @@ export const UpdateProvider = ({ children }) => {
       .catch((_) => toast.error("Erro ao atualizar Meta"));
   };
 
+  const updateActivity = (id, data) => {
+    api
+      .patch(`/activities/${id}/`, data, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((_) => toast.success("Atividade Atualizada"))
+      .catch((_) => toast.error("Erro ao atualizar atividade"));
+  };
+
   return (
     <UpdateContext.Provider
-      value={{ updateElements, update, setUpdate, updateGoal }}
+      value={{ updateElements, update, setUpdate, updateGoal, updateActivity }}
     >
       {children}
     </UpdateContext.Provider>

@@ -7,34 +7,31 @@ import Button from "../Button";
 
 import { useUpdate } from "../../Providers/Update";
 
-const ModalPatchGoal = ({ close, goal }) => {
+const ModalPatchActivity = ({ close, activity }) => {
   const formSchema = yup.object().shape({
-    achieved: yup.boolean().required("Campo obrigatório!"),
+    title: yup.string().required("Campo obrigatório!"),
   });
 
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(formSchema),
   });
 
-  const { updateGoal } = useUpdate();
+  const { updateActivity } = useUpdate();
 
-  const onSubmitPatchGoal = (data) => {
-    updateGoal(goal.id, data);
+  const onSubmitPatchActivity = (data) => {
+    updateActivity(activity.id, data);
     close();
   };
 
   return (
     <Container>
       <header>
-        <h1>Atualize a Meta</h1>
+        <h1>Atualize a Atividade</h1>
         <ImCross onClick={() => close()} />
       </header>
-      <form onSubmit={handleSubmit(onSubmitPatchGoal)}>
-        <h3>Alcançado</h3>
-        <select {...register("achieved")}>
-          <option value="true">Sim</option>
-          <option value="false">Não</option>
-        </select>
+      <form onSubmit={handleSubmit(onSubmitPatchActivity)}>
+        <h3>Título</h3>
+        <input placeholder="Novo título" {...register("title")} />
 
         <Button type="submit">Atualizar</Button>
       </form>
@@ -42,4 +39,4 @@ const ModalPatchGoal = ({ close, goal }) => {
   );
 };
 
-export default ModalPatchGoal;
+export default ModalPatchActivity;

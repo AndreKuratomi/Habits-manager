@@ -25,6 +25,7 @@ export const HabitsProvider = ({ children }) => {
 
   useEffect(() => {
     updates();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.token]);
 
   const submitHabits = (data) => {
