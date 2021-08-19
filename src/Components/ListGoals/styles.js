@@ -23,10 +23,6 @@ export const ListGoalsContainer = styled.section`
       width: 100%;
       display: flex;
       justify-content: center;
-
-      div {
-        width: 80%;
-      }
     }
   }
 `;
