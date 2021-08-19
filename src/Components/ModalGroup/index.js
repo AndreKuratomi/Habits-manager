@@ -20,7 +20,7 @@ const ModalGroup = ({ close, group }) => {
 
       <main>
         <ListActivities activities={activities} groupId={id} />
-        <ListGoals goals={goals} />
+        <ListGoals goals={goals} groupId={id} />
       </main>
     </Container>
   );
