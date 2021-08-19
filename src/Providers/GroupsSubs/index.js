@@ -1,46 +1,46 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../Services/api";
-import { useUser } from "../User";
 import { toast } from "react-toastify";
+import { useLogin } from "../Login";
 
 const GroupsSubsContext = createContext();
 
 export const GroupsSubsProvider = ({ children }) => {
-  const { token } = useUser();
+  const { user } = useLogin();
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
-    if (token) {
+    if (user.token) {
       api
         .get("/groups/subscriptions/", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${user.token}` },
         })
         .then((resp) => setGroups(resp.data))
         .catch((err) => console.log(err));
     }
-  }, [token]);
+  }, [user.token, groups]);
 
   const submitJoinGroup = (id) => {
     api
       .post(`/groups/${id}/subscribe/`, null, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
       .then((_) => {
-        getNewGroup(id)
+        getNewGroup(id);
         toast.success("Entrou com sucesso!");
       })
       .catch((_) => {
-        toast.error("Usuario já cadastrado")
+        toast.error("Usuario já cadastrado");
       });
   };
 
   const getNewGroup = (id) => {
     return api
       .get(`/groups/${id}/`)
-      .then(resp => setGroups([...groups, resp.data]));
-  }
+      .then((resp) => setGroups([...groups, resp.data]));
+  };
 
   return (
     <GroupsSubsContext.Provider value={{ groups, setGroups, submitJoinGroup }}>

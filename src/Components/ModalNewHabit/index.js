@@ -95,9 +95,7 @@ const ModalHabits = ({ close }) => {
             <option value="100">100%</option>
           </select>
         </div>
-        <Button type="submit" onClick={() => close()}>
-          Cadastrar novo habito!
-        </Button>
+        <Button type="submit">Cadastrar novo habito!</Button>
       </form>
     </Container>
   );

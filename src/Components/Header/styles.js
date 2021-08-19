@@ -51,7 +51,7 @@ export const HeaderContainer = styled.header`
       }
     `}
 
-  div {
+  > div {
     display: flex;
     > button {
       width: 70px;
@@ -69,8 +69,8 @@ export const HeaderContainer = styled.header`
 
   @media screen and (min-width: 1024px) {
     ${(props) =>
-      props.isLogged &&
-      css`
+    props.isLogged &&
+    css`
         div {
           display: none;
         }

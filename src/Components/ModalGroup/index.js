@@ -3,6 +3,8 @@ import ListGoals from "../ListGoals";
 import { Container } from "./styles";
 import { ImCross } from "react-icons/im";
 const ModalGroup = ({ close, group }) => {
+  const { activities, goals, id } = group;
+
   return (
     <Container>
       <header>
@@ -17,8 +19,8 @@ const ModalGroup = ({ close, group }) => {
       </header>
 
       <main>
-        <ListActivities activities={group.activities} />
-        <ListGoals goals={group.goals} />
+        <ListActivities activities={activities} groupId={id} />
+        <ListGoals goals={goals} groupId={id} />
       </main>
     </Container>
   );

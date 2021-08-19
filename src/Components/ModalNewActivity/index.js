@@ -5,8 +5,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ImCross } from "react-icons/im";
 import Button from "../Button";
 import { Container } from "./styles";
+import api from "../../Services/api";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { useLogin } from "../../Providers/Login";
 
-const ModalNewActivity = ({ close }) => {
+const ModalNewActivity = ({ close, groupId }) => {
   const formSchema = yup.object().shape({
     title: yup.string().required("Preenchimento obrigatório!"),
     realization_time: yup.string().required("Campo obrigatório!"),
@@ -18,8 +22,25 @@ const ModalNewActivity = ({ close }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const onSubmitFunction = (data) => {
-    console.log(data);
+  const { user } = useLogin();
+
+  const onSubmitActivity = (data) => {
+    createActivity(data);
+  };
+
+  const createActivity = (data) => {
+    api
+      .post(
+        `/activities/`,
+        { ...data, group: groupId },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      )
+      .then((_) => toast.success("Atividade Cadastrada"))
+      .catch((_) => toast.error("Erro ao cadastrar"));
   };
 
   return (
@@ -28,7 +49,7 @@ const ModalNewActivity = ({ close }) => {
         <h1>Cadastre uma nova Atividade</h1>
         <ImCross onClick={() => close()} />
       </header>
-      <form onSubmit={handleSubmit(onSubmitFunction)}>
+      <form onSubmit={handleSubmit(onSubmitActivity)}>
         <h3>Título</h3>
         <input
           placeholder={

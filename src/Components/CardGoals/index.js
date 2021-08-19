@@ -1,8 +1,24 @@
 import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
+import { toast } from "react-toastify";
+import { useLogin } from "../../Providers/Login";
+import api from "../../Services/api";
 import Button from "../Button";
 import { Container } from "./style";
 
-const CardGoals = ({ card }) => {
+const CardGoals = ({ goal }) => {
+  const { user } = useLogin();
+
+  const handleDeleteGoal = (id) => {
+    api
+      .delete(`/goals/${id}/`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((_) => toast.success("Meta Deletada"))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <Container>
       <header>
@@ -11,22 +27,22 @@ const CardGoals = ({ card }) => {
 
       <p>
         <strong>Nome:</strong>
-        <br /> {card.title}
+        <br /> {goal.title}
       </p>
       <p>
         <strong>Dificuldade:</strong>
-        <br /> {card.difficulty}
+        <br /> {goal.difficulty}
       </p>
       <p>
         <strong>Quantos fizeram:</strong>
-        <br /> {card.how_much_achieved}
+        <br /> {goal.how_much_achieved}
       </p>
 
       <div>
         <Button>
           <IoMdRefreshCircle />
         </Button>
-        <Button>
+        <Button onClick={() => handleDeleteGoal(goal.id)}>
           <IoMdRemoveCircle />
         </Button>
       </div>
