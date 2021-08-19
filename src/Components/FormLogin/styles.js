@@ -14,6 +14,8 @@ export const FormLoginContainer = styled.form`
   h2 {
     color: var(--orange);
     margin: 1.5rem 0;
+    font-family: var(--serif);
+    font-weight: normal;
   }
   div {
     width: 90%;
@@ -36,6 +38,7 @@ export const FormLoginContainer = styled.form`
   }
   p {
     margin: 1rem 0;
+    font-family: var(--sansSerif);
     a {
       color: var(--orange);
       &:hover {

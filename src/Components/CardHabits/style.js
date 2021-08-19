@@ -17,6 +17,8 @@ export const Container = styled.div`
     border-radius: 6px 6px 0 0;
     > h1 {
       font-size: 1.2rem;
+      font-family: var(--serif);
+      font-weight: normal;
     }
   }
 
@@ -29,6 +31,8 @@ export const Container = styled.div`
     justify-content: space-between;
     > h2 {
       font-size: 1.1rem;
+      font-family: var(--serif);
+      font-weight: normal;
     }
 
     > svg {
@@ -46,6 +50,7 @@ export const Container = styled.div`
     margin-left: 20px;
     border-left: 3px solid var(--orange);
     padding-left: 5px;
+    font-family: var(--sansSerif);
     &:nth-child(4) {
       margin: 10px 0;
       margin-left: 20px;

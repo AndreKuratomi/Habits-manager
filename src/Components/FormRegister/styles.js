@@ -14,6 +14,8 @@ export const Container = styled.div`
   h2 {
     color: var(--orange);
     margin-bottom: 20px;
+    font-family: var(--serif);
+    font-weight: normal;
   }
 
   form {
@@ -25,7 +27,7 @@ export const Container = styled.div`
 
     p {
       margin-top: 10px;
-
+      font-family: var(--sansSerif);
       a {
         color: var(--orange);
         &:hover {

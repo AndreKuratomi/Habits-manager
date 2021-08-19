@@ -7,7 +7,8 @@ export const BtnContainer = styled.button`
   color: var(--white);
   height: 30px;
   width: 100px;
-
+  font-family: var(--sansSerif);
+  font-size: 1rem;
   &:hover {
     filter: brightness(1.15);
     transition: 0.5s;

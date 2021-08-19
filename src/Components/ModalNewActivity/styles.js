@@ -13,6 +13,7 @@ export const Container = styled.article`
 
     > h1 {
       font-size: 1rem;
+      font-weight: normal;
     }
     > svg {
       cursor: pointer;
@@ -29,6 +30,7 @@ export const Container = styled.article`
       width: 200px;
       margin: 20px 0 7px;
       color: var(--orange);
+      font-weight: normal;
     }
     input {
       padding-left: 15px;
