@@ -25,7 +25,7 @@ import BackgroundModal from "../../Components/BackgroundModal";
 
 const Dashboard = () => {
   const [modal, setModal] = useState(false);
-  const [menuItem, setMenuItem] = useState("Habits");
+  const [menuItem, setMenuItem] = useState("");
 
   const { groupsList } = useGroupsList();
   const { groups } = useGroupSubs();
