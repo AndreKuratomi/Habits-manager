@@ -4,11 +4,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Container } from "./styles";
 import { ImCross } from "react-icons/im";
 import Button from "../Button";
-import { useHabits } from "../../Providers/CreateHabits";
-import { useCards } from "../../Providers/Cards";
+import { useHabits } from "../../Providers/Habits";
 
 const ModalHabits = ({ close }) => {
-  const { getElements } = useCards();
   const formSchema = yup.object().shape({
     title: yup.string().required("Preenchimento obrigatório!"),
     category: yup.string().required("Campo obrigatório!"),
@@ -28,7 +26,6 @@ const ModalHabits = ({ close }) => {
 
   const onSubmitFunction = (data) => {
     submitHabits(data);
-    getElements();
   };
 
   return (
