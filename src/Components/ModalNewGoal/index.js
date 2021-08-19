@@ -9,7 +9,7 @@ import { useLogin } from "../../Providers/Login";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
 
-const ModalNewGoal = ({ close, groupId }) => {
+const ModalNewGoal = ({ close, groupId, goals, setGoa }) => {
   const formSchema = yup.object().shape({
     title: yup.string().required("Preenchimento obrigatório!"),
     difficulty: yup.string().required("Campo obrigatório!"),
@@ -26,6 +26,7 @@ const ModalNewGoal = ({ close, groupId }) => {
 
   const onSubmitGoal = (data) => {
     createGoal(data);
+    close();
   };
 
   const createGoal = (data) => {
@@ -39,7 +40,10 @@ const ModalNewGoal = ({ close, groupId }) => {
           },
         }
       )
-      .then((_) => toast.success("Meta Cadastrada"))
+      .then((resp) => {
+        setGoa([...goals, resp.data]);
+        toast.success("Meta Cadastrada");
+      })
       .catch((_) => toast.error("Erro ao cadastrar"));
   };
 
@@ -76,9 +80,7 @@ const ModalNewGoal = ({ close, groupId }) => {
           }
           {...register("how_much_achieved")}
         />
-        <Button type="submit" onClick={() => close()}>
-          Cadastrar nova Meta!
-        </Button>
+        <Button type="submit">Cadastrar nova Meta!</Button>
       </form>
     </Container>
   );

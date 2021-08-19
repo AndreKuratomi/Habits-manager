@@ -18,7 +18,7 @@ export const GroupsSubsProvider = ({ children }) => {
         .then((resp) => setGroups(resp.data))
         .catch((err) => console.log(err));
     }
-  }, [user.token, groups]);
+  }, [user.token]);
 
   const submitJoinGroup = (id) => {
     api

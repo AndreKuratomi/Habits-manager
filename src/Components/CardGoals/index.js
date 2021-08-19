@@ -13,7 +13,7 @@ import { useState } from "react";
 import ModalPatchGoal from "../ModalPatchGoal";
 import { CgCheck } from "react-icons/cg";
 
-const CardGoals = ({ goal }) => {
+const CardGoals = ({ goal, goals, setGoa }) => {
   const { user } = useLogin();
   const [modal, setModal] = useState(false);
 
@@ -26,13 +26,17 @@ const CardGoals = ({ goal }) => {
   };
 
   const handleDeleteGoal = (id) => {
+    const newGoals = goals.filter((item) => item.id !== id);
     api
       .delete(`/goals/${id}/`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => toast.success("Meta Deletada"))
+      .then((_) => {
+        setGoa(newGoals);
+        toast.success("Meta Deletada");
+      })
       .catch((err) => console.log(err));
   };
 

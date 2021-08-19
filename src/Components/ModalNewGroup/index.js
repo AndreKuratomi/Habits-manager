@@ -24,6 +24,7 @@ const ModalNewGroup = ({ close }) => {
 
   const onSubmitFunction = (data) => {
     submitGroup(data);
+    close();
   };
 
   return (
@@ -61,9 +62,7 @@ const ModalNewGroup = ({ close }) => {
           </select>
         </div>
 
-        <Button type="submit" onClick={close}>
-          Cadastrar
-        </Button>
+        <Button type="submit">Cadastrar</Button>
       </form>
     </Container>
   );
