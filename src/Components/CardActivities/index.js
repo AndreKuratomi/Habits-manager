@@ -35,12 +35,25 @@ const CardActivities = ({ activity, activities, setActiv }) => {
       .catch((err) => console.log(err));
   };
 
-  const date = `${activity.realization_time.slice(8,10)}/${activity.realization_time.slice(5,7)}/${activity.realization_time.slice(0,4)}`
+  const date = `${activity.realization_time.slice(
+    8,
+    10
+  )}/${activity.realization_time.slice(5, 7)}/${activity.realization_time.slice(
+    0,
+    4
+  )}`;
 
   return (
     <Container>
       <BackgroundModal
-        children={<ModalPatchActivity close={closeModal} activity={activity} />}
+        children={
+          <ModalPatchActivity
+            close={closeModal}
+            activity={activity}
+            activities={activities}
+            setActiv={setActiv}
+          />
+        }
         modal={modal}
       />
       <header>
