@@ -1,35 +1,39 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useUser } from "../User";
 
 import api from "../../Services/api";
 import { toast } from "react-toastify";
+import { useLogin } from "../Login";
 
 const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
-  const { user, token } = useUser();
+  const { user } = useLogin();
   const [habits, setHabits] = useState([]);
 
   useEffect(() => {
     api
       .get("/habits/personal/", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
       .then((items) => {
         setHabits(items.data);
       })
       .catch((_) => toast.error("Erro de conexão"));
-  }, [token]);
+  }, [user.token]);
 
   const submitHabits = (data) => {
     api
-      .post("/habits/", { ...data, user: user.id }, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .post(
+        "/habits/",
+        { ...data, user: user.id },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      )
       .then((resp) => {
         setHabits([...habits, resp.data]);
         toast.success("Hábito cadastrado com sucesso!");
@@ -43,13 +47,12 @@ export const HabitsProvider = ({ children }) => {
     api
       .delete(`habits/${id}/`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
       .then((_) => {
         setHabits(filter);
-        toast.success("Card deletado com sucesso"
-        )
+        toast.success("Card deletado com sucesso");
       })
       .catch((_) => toast.error("Erro de conexão"));
   };

@@ -17,7 +17,7 @@ const ModalGroup = ({ close, group }) => {
       </header>
 
       <main>
-        <ListActivities activities={group.activities} />
+        <ListActivities activities={group.activities} groupId={group.id} />
         <ListGoals goals={group.goals} />
       </main>
     </Container>

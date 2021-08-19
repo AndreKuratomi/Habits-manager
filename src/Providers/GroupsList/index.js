@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
-import { useUser } from "../User";
+import { useLogin } from "../Login";
 
 const GroupsListContext = createContext();
 
 export const GroupsListProvider = ({ children }) => {
-  const { token } = useUser();
+  const { user } = useLogin();
   const [groupsList, setGroupsList] = useState([]);
   const [page, setPage] = useState(1);
   const [nextPage, setNextPage] = useState("");
@@ -30,16 +30,15 @@ export const GroupsListProvider = ({ children }) => {
     api
       .post("/groups/", data, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
       .then((resp) => {
-        setGroupsList([...groupsList, resp.data])
+        setGroupsList([...groupsList, resp.data]);
         toast.success("Grupo criado com sucesso!");
       })
       .catch((_) => toast.error("Falha ao cadastrar!"));
   };
-
 
   return (
     <GroupsListContext.Provider value={{ groupsList, submitGroup }}>
