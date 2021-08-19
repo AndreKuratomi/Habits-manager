@@ -1,4 +1,8 @@
-import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
+import {
+  IoIosClose,
+  IoMdRefreshCircle,
+  IoMdRemoveCircle,
+} from "react-icons/io";
 import { toast } from "react-toastify";
 import { useLogin } from "../../Providers/Login";
 import api from "../../Services/api";
@@ -7,6 +11,7 @@ import { Container } from "./style";
 import BackgroundModal from "../BackgroundModal";
 import { useState } from "react";
 import ModalPatchGoal from "../ModalPatchGoal";
+import { CgCheck } from "react-icons/cg";
 
 const CardGoals = ({ goal }) => {
   const { user } = useLogin();
@@ -32,7 +37,7 @@ const CardGoals = ({ goal }) => {
   };
 
   return (
-    <Container>
+    <Container goal={goal}>
       <BackgroundModal
         children={<ModalPatchGoal close={closeModal} goal={goal} />}
         modal={modal}
@@ -40,6 +45,14 @@ const CardGoals = ({ goal }) => {
       <header>
         <h1>Meta</h1>
       </header>
+
+      <div className="achieved">
+        {goal.achieved === true ? (
+          <CgCheck color="var(--green)" />
+        ) : (
+          <IoIosClose color="var(--orange)" />
+        )}
+      </div>
 
       <p>
         <strong>Nome:</strong>

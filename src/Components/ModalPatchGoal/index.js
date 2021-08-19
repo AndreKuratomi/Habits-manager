@@ -5,7 +5,7 @@ import { Container } from "./styles";
 import { ImCross } from "react-icons/im";
 import Button from "../Button";
 
-import { useUpdate } from "../../Providers/UpdateHabits";
+import { useUpdate } from "../../Providers/Update";
 
 const ModalPatchGoal = ({ close, goal }) => {
   const formSchema = yup.object().shape({
@@ -20,6 +20,7 @@ const ModalPatchGoal = ({ close, goal }) => {
 
   const onSubmitPatchGoal = (data) => {
     updateGoal(goal.id, data);
+    close();
   };
 
   return (

@@ -1,4 +1,5 @@
 import { createContext, useState, useContext } from "react";
+import { toast } from "react-toastify";
 import api from "../../Services/api";
 
 const UpdateContext = createContext();
@@ -26,8 +27,8 @@ export const UpdateProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((resp) => console.log(resp))
-      .catch((err) => console.log(err));
+      .then((_) => toast.success("Meta Atualizada"))
+      .catch((_) => toast.error("Erro ao atualizar Meta"));
   };
 
   return (
