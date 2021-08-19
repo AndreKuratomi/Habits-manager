@@ -1,9 +1,11 @@
+import { useState } from "react";
+import { ImCross } from "react-icons/im";
+
 import ListActivities from "../ListActivities";
 import ListGoals from "../ListGoals";
+
 import { Container } from "./styles";
-import { ImCross } from "react-icons/im";
-import { useGroupSubs } from "../../Providers/GroupsSubs";
-import { useEffect, useState } from "react";
+
 const ModalGroup = ({ close, group }) => {
   const { activities, goals, id } = group;
 
