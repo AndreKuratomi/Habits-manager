@@ -7,7 +7,7 @@ import Button from "../Button";
 
 import { useUpdate } from "../../Providers/UpdateHabits";
 
-const ModalPatch = ({ close, card }) => {
+const ModalPatchHabit = ({ close, card }) => {
   const formSchema = yup.object().shape({
     achieved: yup.boolean().required("Campo obrigatório!"),
     how_much_achieved: yup.number().required("Campo obrigatório!"),
@@ -59,4 +59,4 @@ const ModalPatch = ({ close, card }) => {
   );
 };
 
-export default ModalPatch;
+export default ModalPatchHabit;
