@@ -1,25 +1,23 @@
 import { createContext, useState, useContext } from "react";
+import { useLogin } from "../Login";
 import api from "../../Services/api";
+import { toast } from "react-toastify";
 
 const UpdateContext = createContext();
 
-const token = JSON.parse(localStorage.getItem("@Habits:access"));
-
 export const UpdateProvider = ({ children }) => {
   const [update, setUpdate] = useState({});
+  const { user } = useLogin();
 
   const updateElements = (id, data) => {
-    console.log(id);
-    console.log(data);
-    console.log(token);
     api
       .patch(`/habits/${id}/`, data, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
-      .then((resp) => console.log(resp))
-      .catch((err) => console.log(err));
+      .then((_) => toast.success("Hábito atualizado com sucesso!"))
+      .catch((_) => toast.error("Erro de conexão"));
   };
 
   return (

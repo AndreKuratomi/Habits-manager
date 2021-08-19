@@ -6,6 +6,7 @@ import { ImCross } from "react-icons/im";
 import Button from "../Button";
 
 import { useUpdate } from "../../Providers/UpdateHabits";
+import { useHabits } from "../../Providers/Habits";
 
 const ModalPatch = ({ close, card }) => {
   const formSchema = yup.object().shape({
@@ -18,9 +19,11 @@ const ModalPatch = ({ close, card }) => {
   });
 
   const { updateElements } = useUpdate();
+  const { updates } = useHabits();
 
   const onSubmitFunction = (data) => {
     updateElements(card.id, data);
+    updates();
   };
 
   return (
