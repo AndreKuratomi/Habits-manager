@@ -1,7 +1,7 @@
 import { List } from "./styles";
 import CardHabits from "../CardHabits";
 
-import { useHabits } from "../../Providers/CreateHabits";
+import { useHabits } from "../../Providers/Habits";
 
 const ListHabits = () => {
   const { habits } = useHabits();

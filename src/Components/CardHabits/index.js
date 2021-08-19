@@ -7,7 +7,7 @@ import {
   IoMdRefreshCircle,
 } from "react-icons/io";
 
-import { useCards } from "../../Providers/Cards";
+import { useHabits } from "../../Providers/Habits";
 
 import Button from "../Button";
 import ModalPatch from "../ModalPatch";
@@ -15,7 +15,7 @@ import ModalPatch from "../ModalPatch";
 import { Container } from "./style";
 
 const CardHabits = ({ card }) => {
-  const { deleteElements } = useCards();
+  const { deleteElement } = useHabits();
 
   const [patchModal, setPatchModal] = useState(false);
   const openPatchModal = () => {
@@ -47,7 +47,7 @@ const CardHabits = ({ card }) => {
         <Button onClick={() => openPatchModal()}>
           <IoMdRefreshCircle />
         </Button>
-        <Button onClick={() => deleteElements(card.id)}>
+        <Button onClick={() => deleteElement(card.id)}>
           <IoMdRemoveCircle />
         </Button>
       </div>

@@ -9,7 +9,6 @@ const HabitsContext = createContext();
 export const HabitsProvider = ({ children }) => {
   const { user, token } = useUser();
   const [habits, setHabits] = useState([]);
-  console.log(user, token)
 
   useEffect(() => {
     api
@@ -38,8 +37,25 @@ export const HabitsProvider = ({ children }) => {
       .catch((_) => toast.error("Falha ao cadastrar!"));
   };
 
+  const deleteElement = (id) => {
+    const filter = habits.filter((item) => item.id !== id);
+
+    api
+      .delete(`habits/${id}/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((_) => {
+        setHabits(filter);
+        toast.success("Card deletado com sucesso"
+        )
+      })
+      .catch((_) => toast.error("Erro de conexão"));
+  };
+
   return (
-    <HabitsContext.Provider value={{ submitHabits, habits }}>
+    <HabitsContext.Provider value={{ submitHabits, habits, deleteElement }}>
       {children}
     </HabitsContext.Provider>
   );

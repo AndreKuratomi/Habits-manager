@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Container } from "./styles";
 import { ImCross } from "react-icons/im";
 import Button from "../Button";
-import { useHabits } from "../../Providers/CreateHabits";
+import { useHabits } from "../../Providers/Habits";
 
 const ModalHabits = ({ close }) => {
   const formSchema = yup.object().shape({
