@@ -25,6 +25,7 @@ const ModalNewActivity = ({ close, groupId, setActiv, activities }) => {
   const { user } = useLogin();
 
   const onSubmitActivity = (data) => {
+    data.realization_time = `${data.realization_time.slice(6)}-${data.realization_time.slice(3,5)}-${data.realization_time.slice(0,2)}T15:00:00Z`;
     createActivity(data);
     close();
   };
@@ -67,7 +68,7 @@ const ModalNewActivity = ({ close, groupId, setActiv, activities }) => {
           placeholder={
             errors.realization_time
               ? errors.realization_time?.message
-              : "Preencher Data"
+              : "DD/MM/AA"
           }
           {...register("realization_time")}
         />
