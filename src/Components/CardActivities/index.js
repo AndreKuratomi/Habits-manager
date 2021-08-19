@@ -1,12 +1,23 @@
+import { useState } from "react";
 import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
 import { toast } from "react-toastify";
 import { useLogin } from "../../Providers/Login";
 import api from "../../Services/api";
+import BackgroundModal from "../BackgroundModal";
 import Button from "../Button";
+import ModalPatchActivity from "../ModalPatchActivity";
 import { Container } from "./style";
 
 const CardActivities = ({ activity }) => {
   const { user } = useLogin();
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(true);
+  };
+  const closeModal = () => {
+    setModal(false);
+  };
 
   const handleDeleteActivity = (id) => {
     api
@@ -21,6 +32,10 @@ const CardActivities = ({ activity }) => {
 
   return (
     <Container>
+      <BackgroundModal
+        children={<ModalPatchActivity close={closeModal} activity={activity} />}
+        modal={modal}
+      />
       <header>
         <h1>Atividade</h1>
       </header>
@@ -28,9 +43,8 @@ const CardActivities = ({ activity }) => {
       <p>
         <strong>Data pra realizacao:</strong> {activity.realization_time}
       </p>
-      {/* fazer a formatcao da data */}
-      <div>
-        <Button>
+      <div className="buttons">
+        <Button onClick={openModal}>
           <IoMdRefreshCircle />
         </Button>
         <Button onClick={() => handleDeleteActivity(activity.id)}>

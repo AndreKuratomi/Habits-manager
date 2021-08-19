@@ -4,7 +4,7 @@ import { LoginProvider } from "./Login";
 import { RegisterProvider } from "./Register";
 
 import { HabitsProvider } from "./Habits";
-import { UpdateProvider } from "./UpdateHabits";
+import { UpdateProvider } from "./Update";
 
 import { GroupsSubsProvider } from "./GroupsSubs";
 import { GroupsListProvider } from "./GroupsList";

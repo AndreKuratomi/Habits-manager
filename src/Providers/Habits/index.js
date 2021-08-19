@@ -10,7 +10,7 @@ export const HabitsProvider = ({ children }) => {
   const { user } = useLogin();
   const [habits, setHabits] = useState([]);
 
-  useEffect(() => {
+  const updates = () => {
     api
       .get("/habits/personal/", {
         headers: {
@@ -21,6 +21,11 @@ export const HabitsProvider = ({ children }) => {
         setHabits(items.data);
       })
       .catch((_) => toast.error("Erro de conexão"));
+  };
+
+  useEffect(() => {
+    updates();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.token]);
 
   const submitHabits = (data) => {
@@ -58,7 +63,9 @@ export const HabitsProvider = ({ children }) => {
   };
 
   return (
-    <HabitsContext.Provider value={{ submitHabits, habits, deleteElement }}>
+    <HabitsContext.Provider
+      value={{ submitHabits, habits, deleteElement, updates }}
+    >
       {children}
     </HabitsContext.Provider>
   );
