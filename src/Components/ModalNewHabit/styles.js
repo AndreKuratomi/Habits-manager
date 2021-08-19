@@ -5,8 +5,7 @@ export const Container = styled.article`
   display: flex;
   flex-direction: column;
   height: 550px;
-  max-height: 550px;
-  transform: translateY(2vh);
+
   > header {
     height: 50px;
     width: 300px;
@@ -23,6 +22,7 @@ export const Container = styled.article`
     > svg {
       cursor: pointer;
       color: var(--orange);
+
     }
   }
 
@@ -57,6 +57,26 @@ export const Container = styled.article`
       margin: 20px 0;
       height: 40px;
       font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    width: 30%;
+    height: auto;
+    
+    > header {
+      width: 100%;
+    }
+
+    > form {
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      input,
+      select {
+        height: 40px;
+      }
     }
   }
 `;

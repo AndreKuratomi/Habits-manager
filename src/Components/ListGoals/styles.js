@@ -10,12 +10,23 @@ export const ListGoalsContainer = styled.section`
     text-align: center;
     padding-top: 0.5rem;
     margin: 0.5rem 0 1rem;
-    border-top: 4px solid var(--orange);
   }
 
   ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  @media (min-width: 1024px) {
+    li {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      div {
+        width: 80%;
+      }
+    }
   }
 `;

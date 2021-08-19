@@ -5,6 +5,7 @@ export const Container = styled.article`
   width: 90%;
   height: 80vh;
   overflow: auto;
+
   header {
     background: var(--black);
     color: var(--white);
@@ -28,5 +29,31 @@ export const Container = styled.article`
   main {
     padding: 20px;
     min-height: 50vh;
+
+
+    section {
+      margin: 10px;
+      &:last-child {
+        border-top: 4px solid var(--orange);
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    main {
+      display: flex;
+
+      section {
+        width: 50%;
+
+        &:first-child {
+          border-right: 4px solid var(--orange);
+        }
+
+        &:last-child {
+          border-top: none;
+        }
+      }
+    }
   }
 `;
