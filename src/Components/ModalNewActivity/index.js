@@ -10,7 +10,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useLogin } from "../../Providers/Login";
 
-const ModalNewActivity = ({ close, groupId }) => {
+const ModalNewActivity = ({ close, groupId, setActiv, activities }) => {
   const formSchema = yup.object().shape({
     title: yup.string().required("Preenchimento obrigatório!"),
     realization_time: yup.string().required("Campo obrigatório!"),
@@ -26,6 +26,7 @@ const ModalNewActivity = ({ close, groupId }) => {
 
   const onSubmitActivity = (data) => {
     createActivity(data);
+    close();
   };
 
   const createActivity = (data) => {
@@ -39,7 +40,10 @@ const ModalNewActivity = ({ close, groupId }) => {
           },
         }
       )
-      .then((_) => toast.success("Atividade Cadastrada"))
+      .then((resp) => {
+        setActiv([...activities, resp.data]);
+        toast.success("Atividade Cadastrada");
+      })
       .catch((_) => toast.error("Erro ao cadastrar"));
   };
 
@@ -68,9 +72,7 @@ const ModalNewActivity = ({ close, groupId }) => {
           {...register("realization_time")}
         />
 
-        <Button type="submit" onClick={() => close()}>
-          Cadastrar nova Atividade!
-        </Button>
+        <Button type="submit">Cadastrar nova Atividade!</Button>
       </form>
     </Container>
   );

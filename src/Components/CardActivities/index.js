@@ -8,7 +8,7 @@ import Button from "../Button";
 import ModalPatchActivity from "../ModalPatchActivity";
 import { Container } from "./style";
 
-const CardActivities = ({ activity }) => {
+const CardActivities = ({ activity, activities, setActiv }) => {
   const { user } = useLogin();
   const [modal, setModal] = useState(false);
 
@@ -20,13 +20,18 @@ const CardActivities = ({ activity }) => {
   };
 
   const handleDeleteActivity = (id) => {
+    const newActivities = activities.filter((item) => item.id !== id);
+
     api
       .delete(`/activities/${id}/`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => toast.success("Atividade Deletada"))
+      .then((_) => {
+        setActiv(newActivities);
+        toast.success("Atividade Deletada");
+      })
       .catch((err) => console.log(err));
   };
 

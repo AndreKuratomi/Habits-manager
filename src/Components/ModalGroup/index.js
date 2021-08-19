@@ -2,8 +2,13 @@ import ListActivities from "../ListActivities";
 import ListGoals from "../ListGoals";
 import { Container } from "./styles";
 import { ImCross } from "react-icons/im";
+import { useGroupSubs } from "../../Providers/GroupsSubs";
+import { useEffect, useState } from "react";
 const ModalGroup = ({ close, group }) => {
   const { activities, goals, id } = group;
+
+  const [activ, setActiv] = useState(activities);
+  const [goa, setGoa] = useState(goals);
 
   return (
     <Container>
@@ -19,8 +24,8 @@ const ModalGroup = ({ close, group }) => {
       </header>
 
       <main>
-        <ListActivities activities={activities} groupId={id} />
-        <ListGoals goals={goals} groupId={id} />
+        <ListActivities activities={activ} setActiv={setActiv} groupId={id} />
+        <ListGoals goals={goa} groupId={id} setGoa={setGoa} />
       </main>
     </Container>
   );
