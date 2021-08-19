@@ -11,6 +11,14 @@ export const Container = styled.article`
     color: var(--white);
     padding: 20px;
 
+    h1 {
+      font-family: var(--serif);
+    }
+
+    p { 
+      font-family: var(--sansSerif);
+    }
+
     div {
       display: flex;
       justify-content: space-between;

@@ -17,6 +17,8 @@ export const Container = styled.article`
 
     > h1 {
       font-size: 1.3rem;
+      font-family: var(--serif);
+      font-weight: normal;
     }
     > svg {
       cursor: pointer;
@@ -31,6 +33,8 @@ export const Container = styled.article`
 
     h3 {
       font-size: 1rem;
+      font-family: var(--serif);
+      font-weight: normal;
       width: 200px;
       text-align: center;
       margin: 20px 0 7px;

@@ -24,6 +24,7 @@ const ModalPatchHabit = ({ close, card }) => {
   const onSubmitFunction = (data) => {
     updateElements(card.id, data);
     updates();
+    close();
   };
 
   return (

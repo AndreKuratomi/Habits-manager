@@ -2,9 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.article`
   background: var(--white);
-  display: flex;
-  flex-direction: column;
-  height: 550px;
 
   > header {
     height: 50px;
@@ -17,12 +14,12 @@ export const Container = styled.article`
     padding: 0 15px;
 
     > h1 {
-      font-size: 1.3rem;
+      font-family: var(--serif);
+      font-weight: normal;
     }
     > svg {
       cursor: pointer;
       color: var(--orange);
-
     }
   }
 
@@ -35,8 +32,10 @@ export const Container = styled.article`
       font-size: 1rem;
       width: 200px;
       text-align: center;
-      margin: 20px 0 7px;
+      margin: 15px 0 5px;
       color: var(--orange);
+      font-family: var(--serif);
+      font-weight: normal;
     }
     input,
     select {
@@ -56,27 +55,6 @@ export const Container = styled.article`
       width: 200px;
       margin: 20px 0;
       height: 40px;
-      font-size: 1rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    width: 30%;
-    height: auto;
-    
-    > header {
-      width: 100%;
-    }
-
-    > form {
-      h3 {
-        font-size: 1.2rem;
-      }
-
-      input,
-      select {
-        height: 40px;
-      }
     }
   }
 `;

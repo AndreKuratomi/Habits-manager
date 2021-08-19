@@ -54,7 +54,7 @@ export const HeaderContainer = styled.header`
   > div {
     display: flex;
     > button {
-      width: 70px;
+      width: 100px;
     }
     > button + button {
       margin: 0 1rem;

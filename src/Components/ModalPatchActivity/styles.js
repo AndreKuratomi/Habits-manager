@@ -2,17 +2,19 @@ import styled from "styled-components";
 
 export const Container = styled.article`
   background: var(--white);
-  width: 250px;
-  height: 220px;
+  width: 300px;
+  height: 300px;
 
   > header {
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 
     > h1 {
       font-size: 1.1rem;
+      font-weight: normal;
     }
     > svg {
       cursor: pointer;
@@ -27,6 +29,7 @@ export const Container = styled.article`
     > h3 {
       width: 200px;
       color: var(--orange);
+      font-weight: normal;
     }
 
     > input {
