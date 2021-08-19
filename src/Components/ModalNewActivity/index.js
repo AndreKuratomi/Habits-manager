@@ -8,6 +8,7 @@ import { Container } from "./styles";
 import api from "../../Services/api";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useLogin } from "../../Providers/Login";
 
 const ModalNewActivity = ({ close, groupId }) => {
   const formSchema = yup.object().shape({
@@ -21,9 +22,7 @@ const ModalNewActivity = ({ close, groupId }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const [token] = useState(
-    JSON.parse(localStorage.getItem("@Habits:access")) || ""
-  );
+  const { user } = useLogin();
 
   const onSubmitActivity = (data) => {
     createActivity(data);
@@ -36,7 +35,7 @@ const ModalNewActivity = ({ close, groupId }) => {
         { ...data, group: groupId },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${user.token}`,
           },
         }
       )
