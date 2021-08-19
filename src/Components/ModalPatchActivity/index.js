@@ -7,7 +7,7 @@ import Button from "../Button";
 
 import { useUpdate } from "../../Providers/Update";
 
-const ModalPatchActivity = ({ close, activity }) => {
+const ModalPatchActivity = ({ close, activity, activities, setActiv }) => {
   const formSchema = yup.object().shape({
     title: yup.string().required("Campo obrigatório!"),
   });
@@ -19,7 +19,7 @@ const ModalPatchActivity = ({ close, activity }) => {
   const { updateActivity } = useUpdate();
 
   const onSubmitPatchActivity = (data) => {
-    updateActivity(activity.id, data);
+    updateActivity(activity.id, data, activities, setActiv);
     close();
   };
 

@@ -20,25 +20,49 @@ export const UpdateProvider = ({ children }) => {
       .catch((_) => toast.error("Erro ao Atualizar Hábito"));
   };
 
-  const updateGoal = (id, data) => {
+  const updateGoal = (id, data, goals, setGoa) => {
+    const findGoal = goals.find((item) => item.id === id);
+
     api
       .patch(`/goals/${id}/`, data, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => toast.success("Meta Atualizada"))
+      .then((resp) => {
+        const newGoals = goals.map((goal) => {
+          if (goal.id === findGoal.id) {
+            return resp.data;
+          }
+          return goal;
+        });
+
+        setGoa(newGoals);
+        toast.success("Meta Atualizada");
+      })
       .catch((_) => toast.error("Erro ao atualizar Meta"));
   };
 
-  const updateActivity = (id, data) => {
+  const updateActivity = (id, data, activities, setActiv) => {
+    const findActivity = activities.find((item) => item.id === id);
+
     api
-      .patch(`/activities/${id}/`, data, {
+      .patch(`/activities/${findActivity.id}/`, data, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       })
-      .then((_) => toast.success("Atividade Atualizada"))
+      .then((resp) => {
+        const newActivities = activities.map((activity) => {
+          if (activity.id === findActivity.id) {
+            return resp.data;
+          }
+          return activity;
+        });
+
+        setActiv(newActivities);
+        toast.success("Atividade Atualizada");
+      })
       .catch((_) => toast.error("Erro ao atualizar atividade"));
   };
 

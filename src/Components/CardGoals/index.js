@@ -43,7 +43,14 @@ const CardGoals = ({ goal, goals, setGoa }) => {
   return (
     <Container goal={goal}>
       <BackgroundModal
-        children={<ModalPatchGoal close={closeModal} goal={goal} />}
+        children={
+          <ModalPatchGoal
+            close={closeModal}
+            goal={goal}
+            goals={goals}
+            setGoa={setGoa}
+          />
+        }
         modal={modal}
       />
       <header>
