@@ -6,9 +6,9 @@ const ListActivities = ({ activities }) => {
     <ListContainer>
       <h3>Atividades</h3>
       <ul>
-        {activities.map((card) => (
-          <li>
-            <CardActivities card={card} />
+        {activities.map((activity) => (
+          <li key={activity.id}>
+            <CardActivities card={activity} />
           </li>
         ))}
       </ul>

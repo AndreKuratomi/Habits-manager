@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { CgCheck } from "react-icons/cg";
 import {
   IoIosClose,
@@ -8,11 +10,20 @@ import {
 import { useCards } from "../../Providers/Cards";
 
 import Button from "../Button";
+import ModalPatch from "../ModalPatch";
 
 import { Container } from "./style";
 
 const CardHabits = ({ card }) => {
-  const { deleteElements, updateElements } = useCards();
+  const { deleteElements } = useCards();
+
+  const [patchModal, setPatchModal] = useState(false);
+  const openPatchModal = () => {
+    setPatchModal(true);
+  };
+  const closePatchModal = () => {
+    setPatchModal(false);
+  };
 
   return (
     <Container card={card}>
@@ -33,13 +44,20 @@ const CardHabits = ({ card }) => {
       <p>Alcançado: {card.how_much_achieved}%</p>
 
       <div className="buttons">
-        <Button onClick={updateElements}>
+        <Button onClick={() => openPatchModal()}>
           <IoMdRefreshCircle />
         </Button>
         <Button onClick={() => deleteElements(card.id)}>
           <IoMdRemoveCircle />
         </Button>
       </div>
+      {patchModal === true ? (
+        <>
+          <ModalPatch close={closePatchModal} card={card} />
+        </>
+      ) : (
+        <></>
+      )}
     </Container>
   );
 };
