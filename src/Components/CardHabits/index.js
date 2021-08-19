@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { CgCheck } from "react-icons/cg";
 import {
@@ -39,11 +39,9 @@ const CardHabits = ({ card }) => {
           <IoIosClose color="var(--orange)" />
         )}
       </div>
-
       <p>Dificuldade: {card.difficulty}</p>
       <p>Frequência: {card.frequency}</p>
       <p>Alcançado: {card.how_much_achieved}%</p>
-
       <div className="buttons">
         <Button onClick={() => openPatchModal()}>
           <IoMdRefreshCircle />
@@ -52,7 +50,6 @@ const CardHabits = ({ card }) => {
           <IoMdRemoveCircle />
         </Button>
       </div>
-
       <BackgroundModal
         children={<ModalPatchHabit close={closePatchModal} card={card} />}
         modal={patchModal}
