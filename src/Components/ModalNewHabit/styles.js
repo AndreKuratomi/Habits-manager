@@ -18,6 +18,8 @@ export const Container = styled.article`
 
     > h1 {
       font-size: 1.3rem;
+      font-family: var(--serif);
+      font-weight: normal;
     }
     > svg {
       cursor: pointer;
@@ -37,6 +39,8 @@ export const Container = styled.article`
       text-align: center;
       margin: 20px 0 7px;
       color: var(--orange);
+      font-family: var(--serif);
+      font-weight: normal;
     }
     input,
     select {

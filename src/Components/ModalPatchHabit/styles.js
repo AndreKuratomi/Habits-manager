@@ -4,6 +4,7 @@ export const Container = styled.article`
   background: var(--white);
   display: flex;
   flex-direction: column;
+  width: 300px;
   height: 275px;
   max-height: 550px;
   transform: translateY(2vh);
@@ -18,6 +19,8 @@ export const Container = styled.article`
 
     > h1 {
       font-size: 1.3rem;
+      font-family: var(--serif);
+      font-weight: normal;
     }
     > svg {
       cursor: pointer;
@@ -40,6 +43,8 @@ export const Container = styled.article`
       text-align: center;
       margin: 20px 0 7px;
       color: var(--orange);
+      font-family: var(--serif);
+      font-weight: normal;
     }
     input,
     select {
@@ -62,4 +67,5 @@ export const Container = styled.article`
       font-size: 1rem;
     }
   }
+
 `;

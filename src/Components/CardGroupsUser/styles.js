@@ -22,10 +22,13 @@ export const Container = styled.button`
     width: 100%;
     padding: 10px;
     border-radius: 7px 7px 0 0;
+    font-family: var(--serif);
+    font-weight: normal;
   }
 
   p {
     margin: 20px;
+    font-family: var(--sansSerif);
   }
 
   @media (min-width: 1024px) {

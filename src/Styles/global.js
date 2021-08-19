@@ -8,6 +8,8 @@ export default createGlobalStyle`
     --orange: #E09168;
     --white: #F5F5F5;
     --black: #181818;
+    --sansSerif: 'Quicksand', sans-serif;
+    --serif: 'Roboto Slab', serif;
   }
   *{
     margin: 0;

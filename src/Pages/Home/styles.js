@@ -10,9 +10,16 @@ export const HomeContainer = styled.div`
         width: 300px;
         margin: 2rem auto 0;
         text-align: center;
+
         h2 {
+          font-family: var(--serif);
+          font-weight: normal;
           margin-bottom: 1rem;
           letter-spacing: 7px;
+        }
+
+        p {
+          font-family: var(--sansSerif);
         }
       }
     }

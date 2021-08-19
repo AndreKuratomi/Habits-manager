@@ -17,6 +17,7 @@ export const DeveloperCardContainer = styled.div`
   }
   p {
     margin: 0.5rem 0;
+    font-family: var(--sansSerif);
   }
   ul {
     width: 100%;

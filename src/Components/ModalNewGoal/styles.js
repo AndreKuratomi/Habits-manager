@@ -13,6 +13,7 @@ export const Container = styled.article`
 
     > h1 {
       font-size: 1rem;
+      font-weight: normal;
     }
     > svg {
       cursor: pointer;
@@ -30,6 +31,7 @@ export const Container = styled.article`
       margin: 20px 0 7px;
       color: var(--orange);
       border: 0;
+      font-weight: normal;
     }
     > input,
     select {

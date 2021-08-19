@@ -22,6 +22,8 @@ export const Container = styled.div`
 
     > h1 {
       font-size: 1.2rem;
+      font-family: var(--serif);
+      font-weight: normal;
     }
   }
 
@@ -44,6 +46,7 @@ export const Container = styled.div`
     margin-left: 20px;
     border-left: 3px solid var(--orange);
     padding-left: 5px;
+    font-family: var(--sansSerif);
     &:nth-child(5) {
       margin: 10px 0;
       margin-left: 20px;

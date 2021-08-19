@@ -10,6 +10,8 @@ export const ListGoalsContainer = styled.section`
     text-align: center;
     padding-top: 0.5rem;
     margin: 0.5rem 0 1rem;
+    font-family: var(--serif);
+    font-size: 1.5rem;
   }
 
   ul {
@@ -18,6 +20,11 @@ export const ListGoalsContainer = styled.section`
     justify-content: center;
   }
 
+  button {
+    width: 130px;
+    height: 40px;
+  }
+  
   @media (min-width: 1024px) {
     li {
       width: 100%;

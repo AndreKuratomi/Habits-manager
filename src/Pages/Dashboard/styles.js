@@ -52,6 +52,11 @@ export const ContainerHeader = styled.header`
   background: var(--dark-green);
   color: var(--white);
 
+  h1 {
+    font-family: var(--serif);
+    font-weight: normal;
+  }
+
   @media (min-width: 1024px) {
     border-radius: 10px 10px 0 0;
   }

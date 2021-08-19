@@ -27,5 +27,7 @@ export const Logo = styled.div`
   p {
     color: var(--black);
     font-size: 32px;
+    text-transform: uppercase;
+    font-family: var(--serif);
   }
 `;

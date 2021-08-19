@@ -17,7 +17,7 @@ export const Container = styled.li`
     text-overflow: ellipsis;
     white-space: normal;
     text-align: left;
-
+    font-family: var(--sansSerif);
     margin: 10px;
   }
 
@@ -62,5 +62,7 @@ export const Header = styled.div`
     overflow: hidden;
     white-space: nowrap;
     margin: 10px;
+    font-family: var(--serif);
+    font-weight: normal;
   }
 `;

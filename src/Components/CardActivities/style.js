@@ -18,12 +18,17 @@ export const Container = styled.div`
     border-radius: 7px 7px 0 0;
     > h1 {
       font-size: 1.2rem;
+      font-family: var(--serif);
+      font-weight: normal;
     }
   }
+
   > p {
+    font-family: var(--sansSerif);
     margin-left: 20px;
     border-left: 3px solid var(--orange);
     padding-left: 5px;
+    font-size: 1.1rem;
 
     span {
       display: block;
