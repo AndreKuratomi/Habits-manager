@@ -4,7 +4,7 @@ export const Container = styled.article`
   background: var(--white);
   > header {
     height: 50px;
-    width: 280px;
+    width: 290px;
     background: var(--black);
     color: var(--white);
     display: flex;
@@ -38,6 +38,7 @@ export const Container = styled.article`
       border-radius: 10px;
       background-color: var(--white);
       color: var(--black);
+      margin: 20px 0;
       &::placeholder {
         color: var(--black);
       }
@@ -48,6 +49,29 @@ export const Container = styled.article`
       margin: 20px 0;
       height: 35px;
       font-size: 0.9rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    width: 30%;
+    height: auto;
+    
+    > header {
+      width: 100%;
+
+      h1 {
+        font-size: 1.3rem;
+      }
+    }
+
+    > form {
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      input {
+        height: 40px;
+      }
     }
   }
 `;
