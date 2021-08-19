@@ -5,7 +5,7 @@ import { Container } from "./styles";
 import { ImCross } from "react-icons/im";
 import Button from "../Button";
 
-import { useUpdate } from "../../Providers/UpdateHabits";
+import { useUpdate } from "../../Providers/Update";
 
 const ModalPatchHabit = ({ close, card }) => {
   const formSchema = yup.object().shape({
