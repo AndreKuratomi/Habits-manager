@@ -12,11 +12,9 @@ const ModalPatch = ({ close, card }) => {
     how_much_achieved: yup.number().required("Campo obrigatório!"),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(formSchema) });
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(formSchema),
+  });
 
   const { updateElements } = useUpdate();
 
