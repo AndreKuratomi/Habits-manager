@@ -8,9 +8,8 @@ import GroupsSubs from "../../Components/GroupsSubs";
 import Button from "../../Components/Button";
 
 import ModalHabits from "../../Components/ModalNewHabit";
-import ModalGroups from "../../Components/ModalNewGroup";
-import ModalPatch from "../../Components/ModalPatch";
-
+import ModalNewGroup from "../../Components/ModalNewGroup";
+// import ModalPatch from "../../Components/ModalPatch";
 import { useGroupsList } from "../../Providers/GroupsList";
 import { useGroupSubs } from "../../Providers/GroupsSubs";
 
@@ -60,7 +59,7 @@ const Dashboard = () => {
           ) : menuItem === "AllGroups" ? (
             <>
               <BackgroundModal
-                children={<ModalGroups close={closeModal} />}
+                children={<ModalNewGroup close={closeModal} />}
                 modal={modal}
               />
               <ContainerHeader>
