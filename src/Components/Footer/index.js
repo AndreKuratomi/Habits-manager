@@ -7,7 +7,7 @@ const Footer = () => {
     {
       id: 1,
       name: "André Kuratomi",
-      img: "https://media-exp1.licdn.com/dms/image/D4D35AQFoK2XUr9TLfA/profile-framedphoto-shrink_800_800/0/1628720055092?e=1629219600&v=beta&t=vGZ8XHAYXllWch47ztpw-EAzczPaaxLkz6tVH9AJK8I",
+      img: "https://avatars.githubusercontent.com/u/68620412?v=4",
       social: {
         linkedin: "https://www.linkedin.com/in/andre-kuratomi",
         github: "https://github.com/AndreKuratomi",
