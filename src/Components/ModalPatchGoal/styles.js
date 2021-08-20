@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.article`
   background: var(--white);
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
 
   > header {
     height: 50px;
@@ -11,9 +11,11 @@ export const Container = styled.article`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 
     > h1 {
       font-size: 1.1rem;
+      font-weight: normal;
     }
     > svg {
       cursor: pointer;
@@ -29,6 +31,7 @@ export const Container = styled.article`
       border: 0;
       width: 200px;
       color: var(--orange);
+      font-weight: normal;
     }
 
     > select {
@@ -49,7 +52,7 @@ export const Container = styled.article`
       width: 150px;
       margin-top: 20px;
       height: 35px;
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
   }
 `;

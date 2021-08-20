@@ -53,6 +53,7 @@ const ModalHabits = ({ close }) => {
             <option value="Atividade física">Atividade física</option>
           </select>
         </div>
+
         <div>
           <h3>Frequencia</h3>
           <select {...register("frequency")}>

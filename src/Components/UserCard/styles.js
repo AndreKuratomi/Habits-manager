@@ -19,6 +19,7 @@ export const UserCardContainer = styled.div`
     font-size: 1.5rem;
     letter-spacing: 5px;
     margin: 0.5rem;
+    font-family: var(--sansSerif);
   }
   svg {
     font-size: 1.3rem;
@@ -40,6 +41,7 @@ export const UserImage = styled.div`
   font-size: 5rem;
   span {
     text-transform: uppercase;
+    font-family: var(--serif);
   }
 `;
 

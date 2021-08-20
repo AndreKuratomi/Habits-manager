@@ -1,13 +1,14 @@
-import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
-import { ImCross } from "react-icons/im";
-import Button from "../Button";
-import { Container } from "./styles";
-import api from "../../Services/api";
 import { toast } from "react-toastify";
+import { ImCross } from "react-icons/im";
+
+import api from "../../Services/api";
 import { useUser } from "../../Providers/User";
+import Button from "../Button";
+
+import { Container } from "./styles";
 
 const ModalNewActivity = ({ close, groupId, setActiv, activities }) => {
   const formSchema = yup.object().shape({
@@ -24,7 +25,12 @@ const ModalNewActivity = ({ close, groupId, setActiv, activities }) => {
   const { user } = useUser();
 
   const onSubmitActivity = (data) => {
-    data.realization_time = `${data.realization_time.slice(6)}-${data.realization_time.slice(3, 5)}-${data.realization_time.slice(0, 2)}T15:00:00Z`;
+    data.realization_time = `${data.realization_time.slice(
+      6
+    )}-${data.realization_time.slice(3, 5)}-${data.realization_time.slice(
+      0,
+      2
+    )}T15:00:00Z`;
     createActivity(data);
     close();
   };
