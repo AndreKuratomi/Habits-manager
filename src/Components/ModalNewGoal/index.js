@@ -71,15 +71,19 @@ const ModalNewGoal = ({ close, groupId, goals, setGoa }) => {
         </select>
 
         <h3>Quanto Alcançado</h3>
-        <input
-          type="number"
-          placeholder={
-            errors.how_much_achieved
-              ? errors.how_much_achieved?.message
-              : "0 - 100"
-          }
-          {...register("how_much_achieved")}
-        />
+        <select {...register("how_much_achieved")}>
+          <option value="0">0%</option>
+          <option value="10">10%</option>
+          <option value="20">20%</option>
+          <option value="30">30%</option>
+          <option value="40">40%</option>
+          <option value="50">50%</option>
+          <option value="60">60%</option>
+          <option value="70">70%</option>
+          <option value="80">80%</option>
+          <option value="90">90%</option>
+          <option value="100">100%</option>
+        </select>
         <Button type="submit">Cadastrar nova Meta!</Button>
       </form>
     </Container>

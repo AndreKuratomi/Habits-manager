@@ -74,8 +74,8 @@ const CardGoals = ({ goal, goals, setGoa }) => {
         <br /> {goal.difficulty}
       </p>
       <p>
-        <strong>Quantos fizeram:</strong>
-        <br /> {goal.how_much_achieved}
+        <strong>Quanto Alcançado:</strong>
+        <br /> {goal.how_much_achieved}%
       </p>
 
       <div className="buttons">

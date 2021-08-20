@@ -23,7 +23,7 @@ export default createGlobalStyle`
    
   }
 
-  body, div{
+  body, div, article{
     &::-webkit-scrollbar {
     width: 15px;               
     }
