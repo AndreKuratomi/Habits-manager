@@ -2,13 +2,13 @@ import { useHistory } from "react-router-dom";
 
 import Button from "../Button";
 import notFound from "./../../Assets/notFound.svg";
-import { useAuth } from "../../Providers/Auth";
+import { useUser } from "../../Providers/User";
 
 import { Container, Image } from "./styles";
 
 const NotFound = () => {
   const history = useHistory();
-  const { auth } = useAuth();
+  const { auth } = useUser();
 
   const goBack = () => {
     if (auth) {

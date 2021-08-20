@@ -9,7 +9,6 @@ import Button from "../../Components/Button";
 
 import ModalHabits from "../../Components/ModalNewHabit";
 import ModalNewGroup from "../../Components/ModalNewGroup";
-// import ModalPatch from "../../Components/ModalPatch";
 import { useGroupsList } from "../../Providers/GroupsList";
 import { useGroupSubs } from "../../Providers/GroupsSubs";
 
@@ -22,14 +21,20 @@ import {
 } from "./styles";
 
 import BackgroundModal from "../../Components/BackgroundModal";
+import { useUser } from "../../Providers/User";
+import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
   const [modal, setModal] = useState(false);
   const [menuItem, setMenuItem] = useState("");
-
-
   const { groupsList } = useGroupsList();
   const { groups } = useGroupSubs();
+
+  const { auth } = useUser();
+
+  if (!auth) {
+    return <Redirect to="/login" />;
+  }
 
   const openModal = () => {
     setModal(true);

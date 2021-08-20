@@ -4,12 +4,12 @@ import Header from "../../Components/Header";
 import FormLogin from "../../Components/FormLogin";
 
 import LoginImg from "../../Assets/loginImg.svg";
-import { useAuth } from "../../Providers/Auth";
+import { useUser } from "../../Providers/User";
 
 import { Content, Image, LoginContainer } from "./styles";
 
 const Login = () => {
-  const { auth } = useAuth();
+  const { auth } = useUser();
 
   if (auth) {
     return <Redirect to="/dashboard" />;

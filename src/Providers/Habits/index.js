@@ -2,12 +2,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 import api from "../../Services/api";
 import { toast } from "react-toastify";
-import { useLogin } from "../Login";
+import { useUser } from "../User";
 
 const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
-  const { user } = useLogin();
+  const { user } = useUser();
   const [habits, setHabits] = useState([]);
 
   const updates = () => {
@@ -28,7 +28,7 @@ export const HabitsProvider = ({ children }) => {
       updates();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user.token]);
+  }, [user]);
 
   const submitHabits = (data) => {
     api

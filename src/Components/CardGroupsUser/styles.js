@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Container = styled.button`
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
   width: 100vw;
   min-width: 200px;
   max-width: 280px;
-  min-height: 125px;
+  min-height: 145px;
+  max-height: 145px;
   margin: 20px;
   border-radius: 5px;
   background-color: var(--white);
@@ -16,7 +16,7 @@ export const Container = styled.button`
   border-radius: 10px;
   box-shadow: 8px 8px 0 -1px var(--black);
 
-  h3 {
+  > h3 {
     background-color: var(--black);
     color: var(--orange);
     width: 100%;
@@ -26,7 +26,7 @@ export const Container = styled.button`
     font-weight: normal;
   }
 
-  p {
+  > p {
     margin: 20px;
     font-family: var(--sansSerif);
   }

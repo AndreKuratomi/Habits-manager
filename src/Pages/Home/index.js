@@ -1,16 +1,11 @@
-// import { useHistory } from "react-router-dom";
-
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
-// import Button from "../../Components/Button";
 
 import ImgHome1 from "../../Assets/HomeImg1.svg";
 
 import { HomeContainer } from "./styles";
 
 const Home = () => {
-  // const history = useHistory();
-
   return (
     <HomeContainer>
       <Header />
@@ -18,11 +13,9 @@ const Home = () => {
       <main>
         <section>
           <article>
-            <h2>Titulo</h2>
+            <h2>Habits</h2>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
+              Crie bons hábitos, se conecte com grupos do seu interesse, defina metas e atividades para descobrir o que há de melhor em você!
             </p>
           </article>
           <figure>

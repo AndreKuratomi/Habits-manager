@@ -19,8 +19,26 @@ export default createGlobalStyle`
 
   body {
     background: var(--light-green);
+
+   
   }
 
+  body, div, article{
+    &::-webkit-scrollbar {
+    width: 15px;               
+    }
+
+    &::-webkit-scrollbar-track {
+    background: var(--dark-green);       
+    }
+
+    &::-webkit-scrollbar-thumb {
+    background-color: var(--light-green);    
+    border-radius: 20px;       
+    border: 3px solid var(--orange); 
+    }
+  }
+  
   button{
     cursor: pointer;
   }

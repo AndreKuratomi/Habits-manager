@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IoMdRefreshCircle, IoMdRemoveCircle } from "react-icons/io";
 import { toast } from "react-toastify";
-import { useLogin } from "../../Providers/Login";
+import { useUser } from "../../Providers/User";
 import api from "../../Services/api";
 import BackgroundModal from "../BackgroundModal";
 import Button from "../Button";
@@ -9,7 +9,7 @@ import ModalPatchActivity from "../ModalPatchActivity";
 import { Container } from "./style";
 
 const CardActivities = ({ activity, activities, setActiv }) => {
-  const { user } = useLogin();
+  const { user } = useUser();
   const [modal, setModal] = useState(false);
 
   const openModal = () => {
@@ -32,7 +32,7 @@ const CardActivities = ({ activity, activities, setActiv }) => {
         setActiv(newActivities);
         toast.success("Atividade Deletada");
       })
-      .catch((err) => console.log(err));
+      .catch((_) => toast.error("Não foi possivel deletar"));
   };
 
   const date = `${activity.realization_time.slice(

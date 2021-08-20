@@ -7,14 +7,14 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { useLogin } from "../../Providers/Login";
+import { useUser } from "../../Providers/User";
 import api from "../../Services/api";
 
 import Button from "../Button";
 import { UserCardContainer, UserImage, UpdateUserContainer } from "./styles";
 
 const UserCard = () => {
-  const { user, setUser } = useLogin();
+  const { user, setUser } = useUser();
   const [show, setShow] = useState(false);
 
   const schema = yup.object().shape({
@@ -26,7 +26,6 @@ const UserCard = () => {
   });
 
   const handleUpdateProfile = (data) => {
-    console.log(data)
     api
       .patch(`/users/${user.id}/`, data, {
         headers: {
@@ -36,8 +35,18 @@ const UserCard = () => {
       .then((_) => {
         toast.success("Nome alterado com sucesso");
         setShow(false);
-        setUser({ name: data.username, id: user.id, token: user.token });
-        localStorage.setItem("@Habits:user", JSON.stringify({ name: data.username, id: user.id, token: user.token }))
+        setUser({
+          name: data.username,
+          id: user.id,
+          token: user.token
+        });
+        localStorage.setItem(
+          "@Habits:user",
+          JSON.stringify({
+            name: data.username,
+            id: user.id,
+            token: user.token
+          }))
       })
       .catch((_) => toast.error("Nome já cadastrado"));
   };

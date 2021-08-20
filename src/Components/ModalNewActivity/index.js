@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { ImCross } from "react-icons/im";
 
 import api from "../../Services/api";
-import { useLogin } from "../../Providers/Login";
+import { useUser } from "../../Providers/User";
 import Button from "../Button";
 
 import { Container } from "./styles";
@@ -22,7 +22,7 @@ const ModalNewActivity = ({ close, groupId, setActiv, activities }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  const { user } = useLogin();
+  const { user } = useUser();
 
   const onSubmitActivity = (data) => {
     data.realization_time = `${data.realization_time.slice(

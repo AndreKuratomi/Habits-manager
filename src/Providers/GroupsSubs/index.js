@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
-import { useLogin } from "../Login";
+import { useUser } from "../User";
 
 const GroupsSubsContext = createContext();
 
 export const GroupsSubsProvider = ({ children }) => {
-  const { user } = useLogin();
+  const { user } = useUser();
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
